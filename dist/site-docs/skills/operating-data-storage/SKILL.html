@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="数据存储与运行 — DAMA Data Project Skills documentation">
+  <title>数据存储与运行 · DAMA Data Project Skills</title>
+  <link rel="stylesheet" href="../../../assets/site.css">
+</head>
+<body class="docs-page">
+  <a class="skip-link" href="#document-content">跳转到正文 / Skip to content</a>
+  <header class="docs-header content-wrap">
+    <a class="docs-brand" href="../../../index.html">
+      <span class="docs-brand-mark" aria-hidden="true">D</span>
+      <span><strong>DAMA DATA PROJECT SKILLS</strong><small>DOCUMENTATION · RELEASE 1.0.0</small></span>
+    </a>
+    <nav class="docs-nav" aria-label="文档导航 / Document navigation">
+      <a class="docs-home" href="../../../index.html">← 技能首页 / Skill index</a>
+      <a href="../../README.html">中文指南</a>
+      <a href="../../README.en.html">English guide</a>
+      <a class="source-markdown" href="../../../dama-data-project-skills-v1.0.0/skills/operating-data-storage/SKILL.md" download rel="alternate">原始 Markdown ↓</a>
+    </nav>
+  </header>
+  <main class="docs-main" id="document-content">
+    <p class="docs-kicker">KNOWLEDGE LIBRARY <span>／</span> V1.0.0</p>
+    <article class="docs-content">
+      <aside class="docs-skill-summary" aria-label="技能元数据 Skill metadata"><div><span class="docs-meta-label">SKILL ID</span><code>operating-data-storage</code></div><p>Use when a database, lake, warehouse, file store, or other persisted-data service needs production readiness, environment and change control, capacity, performance, availability, backup/recovery, retention/disposal, monitoring, or operational handoff.</p></aside>
+      <div class="markdown-body">
+<h1 id="数据存储与运行">数据存储与运行</h1>
+<h2 id="核心原则">核心原则</h2>
+<p>数据存储与运行负责设计、实施和支持持久化数据，使其在全生命周期内可用、完整、可恢复且性能可接受。平台已选或备份作业成功都不等于生产就绪；必须用端到端演练证实服务目标。</p>
+<h2 id="适用边界">适用边界</h2>
+<ul>
+<li>数据库/存储技术评估、实例与环境、物理运行、变更发布、容量、性能、可用性、备份恢复、保留处置和移交使用本技能。</li>
+<li>企业目标/过渡架构和跨系统蓝图由 <code>designing-data-architecture</code> 主导。</li>
+<li>实体、属性、键和逻辑/物理模型语义由 <code>modeling-data</code> 主导；本技能验证可运维性。</li>
+<li>接口、批流编排、重放与跨系统对账由 <code>integrating-data</code> 主导。</li>
+<li>分类、授权和保护控制由 <code>securing-data</code> 主导；本技能落实数据库配置与运行证据。</li>
+</ul>
+<h2 id="工作流">工作流</h2>
+<ol type="1">
+<li>明确业务服务、数据重要性、消费者、服务时段、关键窗口、工作负载、增长、保留和合规约束。</li>
+<li>阅读<a href="references/playbook.html">数据存储与运行手册</a>，建立服务目录、依赖/故障模型、环境与责任边界；托管服务责任不得假定为端到端责任。</li>
+<li>由业务影响和实测证据批准 SLI/SLO、可用性、RTO/RPO、性能、容量、成本、事件分级与降级方式。</li>
+<li>建立开发、测试、预生产、生产及恢复环境；所有配置、模式与数据变更可重复、经测试、可审计且有前滚/回退。</li>
+<li>实施备份、恢复、复制/故障转移、保留/归档/处置、监控、告警和值班；备份必须恢复并校验，HA 不代替备份或 DR。</li>
+<li>用代表性规模做基线、峰值、耐久、故障、恢复、权限和生命周期测试；任何硬门缺证据则 No-Go 或缩小范围。</li>
+<li>将 runbook、仪表盘、资产、支持链路和运行日历交给具名团队；持续监控容量、性能、变更、事件、恢复与成本。</li>
+</ol>
+<h2 id="输出契约">输出契约</h2>
+<p>输出服务范围和依赖；环境/配置基线；技术适配与物理运行设计；容量/成本；SLO、RTO/RPO；备份恢复与生命周期；变更发布；监控告警与事件；runbook、值班和移交；测试证据、风险、Go/No-Go 及后续运行日历。</p>
+<h2 id="常见错误">常见错误</h2>
+<table>
+<thead>
+<tr>
+<th>错误</th>
+<th>修正</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>云/托管即高可用</td>
+<td>验证身份、网络、密钥、调度、连接和消费者的端到端恢复</td>
+</tr>
+<tr>
+<td>备份成功即安全</td>
+<td>从隔离副本实际恢复，并做结构、权限和业务对账</td>
+</tr>
+<tr>
+<td>只按主表估算容量</td>
+<td>包含索引、日志、暂存、副本、时间旅行、备份和增长裕度</td>
+</tr>
+<tr>
+<td>生产变更现场手工修补</td>
+<td>受控脚本、低环境验证、批准、观测和前滚/回退</td>
+</tr>
+<tr>
+<td>文档移交等于接管</td>
+<td>由未来值班人员独立演练并签署接管</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+    </article>
+  </main>
+  <footer class="docs-footer content-wrap">
+    <span>独立制作 · 项目化重组 / Independently authored · Project-oriented</span>
+    <a href="../../../index.html">返回入口页 / Back to index ↑</a>
+  </footer>
+</body>
+</html>

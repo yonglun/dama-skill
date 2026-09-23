@@ -1,0 +1,4 @@
+interface:
+  display_name: "数据集成与互操作"
+  short_description: "设计批流接口、契约映射、编排重放、对账血缘与共享服务"
+  default_prompt: "使用 $integrating-data 设计这个跨系统数据集成的契约、可靠性和验收方案。"

@@ -1,0 +1,32 @@
+# Copyrighted source book and all locally extracted working material
+/dmbok/
+/tmp/
+
+# macOS and editor metadata
+.DS_Store
+._*
+.idea/
+.vscode/
+
+# Local secrets and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Python caches and virtual environments
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# Node dependencies and build caches
+node_modules/
+.cache/
+

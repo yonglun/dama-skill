@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="数据集成与互操作 — DAMA Data Project Skills documentation">
+  <title>数据集成与互操作 · DAMA Data Project Skills</title>
+  <link rel="stylesheet" href="../../../assets/site.css">
+</head>
+<body class="docs-page">
+  <a class="skip-link" href="#document-content">跳转到正文 / Skip to content</a>
+  <header class="docs-header content-wrap">
+    <a class="docs-brand" href="../../../index.html">
+      <span class="docs-brand-mark" aria-hidden="true">D</span>
+      <span><strong>DAMA DATA PROJECT SKILLS</strong><small>DOCUMENTATION · RELEASE 1.0.0</small></span>
+    </a>
+    <nav class="docs-nav" aria-label="文档导航 / Document navigation">
+      <a class="docs-home" href="../../../index.html">← 技能首页 / Skill index</a>
+      <a href="../../README.html">中文指南</a>
+      <a href="../../README.en.html">English guide</a>
+      <a class="source-markdown" href="../../../dama-data-project-skills-v1.0.0/skills/integrating-data/SKILL.md" download rel="alternate">原始 Markdown ↓</a>
+    </nav>
+  </header>
+  <main class="docs-main" id="document-content">
+    <p class="docs-kicker">KNOWLEDGE LIBRARY <span>／</span> V1.0.0</p>
+    <article class="docs-content">
+      <aside class="docs-skill-summary" aria-label="技能元数据 Skill metadata"><div><span class="docs-meta-label">SKILL ID</span><code>integrating-data</code></div><p>Use when data must move or interoperate across stores, applications, or organizations; when selecting batch, CDC, stream, API, service, or virtualization patterns; or defining contracts, mappings, orchestration, reconciliation, replay, lineage, sharing agreements, and integration SLAs.</p></aside>
+      <div class="markdown-body">
+<h1 id="数据集成与互操作">数据集成与互操作</h1>
+<h2 id="核心原则">核心原则</h2>
+<p>数据集成在数据存储、应用和组织之间移动、转换或联合数据；互操作使系统以共同语义通信。目标是按消费者需要的格式和时间提供数据，同时用共享模型、接口和可运行契约降低点对点复杂度。</p>
+<h2 id="适用边界">适用边界</h2>
+<ul>
+<li>跨系统批处理、CDC、事件流、API/服务、迁移、发布/订阅、虚拟化和数据共享使用本技能。</li>
+<li>企业平台、系统责任、目标/过渡蓝图由 <code>designing-data-architecture</code> 主导。</li>
+<li>实体粒度、键和业务结构冲突由 <code>modeling-data</code> 主导；本技能实现获批语义。</li>
+<li>数据库容量、备份恢复和实例运行由 <code>operating-data-storage</code> 主导。</li>
+<li>主数据身份解析、黄金记录和持续合并/拆分运营由 <code>managing-reference-and-master-data</code> 主导。</li>
+</ul>
+<h2 id="工作流">工作流</h2>
+<ol type="1">
+<li>明确消费者、用途、对象/粒度、来源/目标、延迟、新鲜度、完整性、容量、保留、安全和共享限制；分别暴露不同源水位。</li>
+<li>阅读<a href="references/playbook.html">数据集成项目手册</a>，发现/剖析实际源与目标，确认键、代码、删除、更正、顺序和源能力；记录未知项和 owner。</li>
+<li>按业务时限、耦合、事务、一致性、量级、源负载、历史/重放、成本和运行能力选择批、CDC、事件、同步 API、异步消息或虚拟化；不把“实时”当默认优越方案。</li>
+<li>定义版本化接口/数据产品契约、源目标映射、代码/时区/空值规则、字段级血缘、共享协议和 schema 演进。</li>
+<li>设计编排、状态、水位、依赖、幂等、顺序、迟到、删除、重试、隔离/死信、受控重放、原子发布和降级。</li>
+<li>用记录级、分组级和总量级对账及质量门验证全量/增量、故障、重跑、坏 schema、源迟到和消费者兼容。</li>
+<li>发布并监控可用性、量级、速度、延迟、成本、复杂度、使用和错误积压；业务 owner 批准映射/转换变化。</li>
+</ol>
+<h2 id="输出契约">输出契约</h2>
+<p>输出范围/需求；发现与源能力；模式选择和权衡；接口/数据产品契约；映射/血缘；编排与状态；错误/重试/隔离/重放；对账/质量；schema 演进；共享协议；SLA/监控；角色、阶段门、风险和验收证据。</p>
+<h2 id="常见错误">常见错误</h2>
+<table>
+<thead>
+<tr>
+<th>错误</th>
+<th>修正</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>所有数据都要实时</td>
+<td>由业务响应时限、源能力、成本和故障耦合决定</td>
+</tr>
+<tr>
+<td>作业成功即数据正确</td>
+<td>同源控制清单做记录、分组和总量对账后原子发布</td>
+</tr>
+<tr>
+<td>重试等于可靠</td>
+<td>区分瞬时与确定性错误，定义幂等、隔离、重放和副作用控制</td>
+</tr>
+<tr>
+<td>字段名相同即语义相同</td>
+<td>由业务 owner 批准定义、粒度、代码和转换</td>
+</tr>
+<tr>
+<td>虚拟化等于无运行代价</td>
+<td>显式承接源可用性、性能、权限和 schema 变化</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+    </article>
+  </main>
+  <footer class="docs-footer content-wrap">
+    <span>独立制作 · 项目化重组 / Independently authored · Project-oriented</span>
+    <a href="../../../index.html">返回入口页 / Back to index ↑</a>
+  </footer>
+</body>
+</html>

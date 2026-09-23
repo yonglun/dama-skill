@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="数据安全项目手册 — DAMA Data Project Skills documentation">
+  <title>数据安全项目手册 · DAMA Data Project Skills</title>
+  <link rel="stylesheet" href="../../../../assets/site.css">
+</head>
+<body class="docs-page">
+  <a class="skip-link" href="#document-content">跳转到正文 / Skip to content</a>
+  <header class="docs-header content-wrap">
+    <a class="docs-brand" href="../../../../index.html">
+      <span class="docs-brand-mark" aria-hidden="true">D</span>
+      <span><strong>DAMA DATA PROJECT SKILLS</strong><small>DOCUMENTATION · RELEASE 1.0.0</small></span>
+    </a>
+    <nav class="docs-nav" aria-label="文档导航 / Document navigation">
+      <a class="docs-home" href="../../../../index.html">← 技能首页 / Skill index</a>
+      <a href="../../../README.html">中文指南</a>
+      <a href="../../../README.en.html">English guide</a>
+      <a class="source-markdown" href="../../../../dama-data-project-skills-v1.0.0/skills/securing-data/references/playbook.md" download rel="alternate">原始 Markdown ↓</a>
+    </nav>
+  </header>
+  <main class="docs-main" id="document-content">
+    <p class="docs-kicker">KNOWLEDGE LIBRARY <span>／</span> V1.0.0</p>
+    <article class="docs-content">
+      
+      <div class="markdown-body">
+<h1 id="数据安全项目手册">数据安全项目手册</h1>
+<h2 id="1-业务驱动与目标">1. 业务驱动与目标</h2>
+<p>可信、安全的数据服务保护客户、员工、合作伙伴、品牌与业务连续性，同时使获授权者及时获得所需数据。目标是：</p>
+<ul>
+<li>允许适当访问，阻止和发现不适当访问；</li>
+<li>把隐私、机密、完整性、可用性和监管要求转成可审计控制；</li>
+<li>明确数据从采集到处置、跨环境/组织/地域流动中的责任链；</li>
+<li>减少敏感数据暴露和副本，尤其是非生产、导出、备份和外包访问。</li>
+</ul>
+<p>成功不是控制清单或工具部署，而是能回答谁因何目的、经谁批准、从何环境对哪些数据执行何种动作，且允许与拒绝行为、撤权、告警和事件处置都有可复现证据。</p>
+<h2 id="2-原则与关键概念">2. 原则与关键概念</h2>
+<ul>
+<li><strong>协作与问责：</strong> 数据 owner/管家、业务、信息安全、平台、隐私/法务/合规、审计和供应商共同参与；风险接受由有权 owner 作出。</li>
+<li><strong>企业一致、场景裁剪：</strong> 统一分类、身份、控制与证据标准；按数据风险、用途、环境和架构裁剪实现。</li>
+<li><strong>元数据驱动：</strong> 分类、监管类别、owner、用途、地域、保留和流向是数据定义的一部分并随数据传播。</li>
+<li><strong>减少暴露：</strong> 优先不收集、不复制、最小化、聚合、令牌化；不以复杂控制合理化不必要的数据扩散。</li>
+<li><strong>四 A + E：</strong> Access、Audit、Authentication、Authorization 和 Entitlement；监控验证其运行有效性。</li>
+<li><strong>默认拒绝与最小权限：</strong> 人员/程序只获合法职责所需的数据、操作、环境、时间和目的；导出不是读取的隐含权限。</li>
+<li><strong>职责分离：</strong> 数据读取、授权批准、策略实施、密钥管理、日志管理和独立审计按风险分离。</li>
+<li><strong>控制与目的分离：</strong> 安全回答“如何保护”，不回答“是否应该/是否合法使用”；这些是并列门。</li>
+</ul>
+<p>风险以威胁、漏洞、暴露、发生可能性和业务/个人影响评估。数据聚合后的分类不低于其中最高敏感元素，并额外考虑组合重识别和规模放大。</p>
+<h2 id="3-plan--control--develop--operate">3. Plan / Control / Develop / Operate</h2>
+<h3 id="plan">Plan</h3>
+<ol type="1">
+<li>确认数据、系统、环境、地域、生命周期、主体/供应商和业务用途；盘点数据位置与流向。</li>
+<li>识别业务安全要求、企业政策、合同和由有权人解释的监管要求；区分产品限制。</li>
+<li>分类数据与处理，评估内外部威胁、漏洞、现有控制和风险；形成优先整改路线。</li>
+<li>建安全架构与共同责任：身份、网络、密钥、数据保护、日志、检测、响应、恢复和证据。</li>
+</ol>
+<h3 id="control">Control</h3>
+<ol type="1">
+<li>发布分类、访问、认证、授权、审计、远程/外包、非生产、加密、导出、事件和例外标准。</li>
+<li>由数据 owner 决定 entitlement；安全/IAM 实施并验证，隐私/法务/合规独立批准适用门。</li>
+<li>管理申请、批准、授予、复核、调岗/离职撤权、应急访问和到期；共享人员账号禁止，工作负载身份唯一。</li>
+<li>内部独立验证和审计检查设计与运行有效性；审计不替代日常安全管理。</li>
+</ol>
+<h3 id="develop">Develop</h3>
+<ol type="1">
+<li>将字段/数据集分类及用途绑定目录、策略、视图/行/列控制、DLP、保留和日志。</li>
+<li>建角色/属性/entitlement 与 CRUD 矩阵，包含读取、导出、共享、管理和删除等独立动作。</li>
+<li>落实联合身份、MFA、托管工作负载身份、短期凭据、PAM/JIT、职责分离和紧急访问。</li>
+<li>按风险实施传输/存储加密、密钥分离、令牌化、静态/动态脱敏、隔离、最小出口和防篡改审计。</li>
+<li>为云/外包定义组织与供应商的配置、人员、日志、事件、删除、审计和退出责任，并技术验证。</li>
+</ol>
+<h3 id="operate">Operate</h3>
+<ol type="1">
+<li>监控登录、授权变化、策略拒绝、管理操作、查询/导出、密钥、PAM 会话、DLP、脱敏和删除。</li>
+<li>按风险复核访问、服务身份、共享副本、供应商人员、例外、密钥、分类和控制漂移。</li>
+<li>事件中执行遏制、证据保全、通知接口、恢复准入和复盘；法务/隐私决定法定通知。</li>
+<li>跟踪审计发现和整改，更新威胁、培训、控制和架构；少量可行动指标优于无边界指标堆积。</li>
+</ol>
+<h2 id="4-上下文与角色">4. 上下文与角色</h2>
+<table>
+<thead>
+<tr>
+<th>角色</th>
+<th>责任与决策权</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>业务/数据 Owner</td>
+<td>决定用途、分类、允许角色/动作、保留和标准访问，接受残余业务风险</td>
+</tr>
+<tr>
+<td>数据管家</td>
+<td>维护分类、术语、owner、血缘、脱敏规则和复核材料</td>
+</tr>
+<tr>
+<td>CISO/数据安全负责人</td>
+<td>设安全架构/标准、批准安全例外、阻断未满足安全门的上线</td>
+</tr>
+<tr>
+<td>IAM/PAM/平台/数据工程</td>
+<td>实施身份生命周期、策略、密钥、网络、保护、日志与删除控制</td>
+</tr>
+<tr>
+<td>SOC/事件响应</td>
+<td>监控、分级、遏制、取证和修复验证，不自行判断用途合法性</td>
+</tr>
+<tr>
+<td>隐私/法务/合规/伦理</td>
+<td>独立判断法律依据、合同、跨境、通知、公平和合理预期，可否决处理</td>
+</tr>
+<tr>
+<td>内审/独立测试</td>
+<td>独立验证控制设计和运行证据，不替代控制 owner</td>
+</tr>
+<tr>
+<td>云/外包/合作伙伴</td>
+<td>履行合同和共同责任、管理人员并提供证据；无内部风险接受权</td>
+</tr>
+</tbody>
+</table>
+<h2 id="5-交付物与验收证据">5. 交付物与验收证据</h2>
+<h3 id="数据安全登记与分类">数据安全登记与分类</h3>
+<table>
+<thead>
+<tr>
+<th>数据/字段/组合</th>
+<th>来源→位置→下游</th>
+<th>Owner/目的</th>
+<th>分类/依据</th>
+<th>地域/环境</th>
+<th>允许角色/动作</th>
+<th>保留/删除</th>
+<th>控制/证据</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p>分类方案须定义级别、例子/反例、聚合规则、标记/传播、降级批准和控制基线。未知、无 owner、无用途/保留结论的敏感数据不得离开隔离区。</p>
+<h3 id="威胁与控制选择">威胁与控制选择</h3>
+<table>
+<thead>
+<tr>
+<th>资产/场景</th>
+<th>威胁/攻击者</th>
+<th>漏洞/暴露</th>
+<th>可能性/影响</th>
+<th>现有证据</th>
+<th>预防/检测/响应/恢复控制</th>
+<th>残余风险/批准</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="entitlement-与-crud访问矩阵">Entitlement 与 CRUD/访问矩阵</h3>
+<table>
+<thead>
+<tr>
+<th>主体/角色</th>
+<th>数据域/分类</th>
+<th>C/R/U/D</th>
+<th>查询</th>
+<th>批量导出/共享</th>
+<th>管理/密钥</th>
+<th>环境/地域/时段</th>
+<th>目的/工单</th>
+<th>批准/到期</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p>区分“业务 entitlement 决定”“技术授权实现”“每次访问执行”。普通读取不自动获得下载；管理员不自动读取内容；生产删除通常交给受控生命周期作业。</p>
+<h3 id="控制测试证据">控制测试证据</h3>
+<table>
+<thead>
+<tr>
+<th>测试 ID</th>
+<th>数据/策略版本</th>
+<th>主体/条件/动作</th>
+<th>预期允许或拒绝</th>
+<th>实际日志/输出</th>
+<th>证据位置/哈希/采集时间</th>
+<th>保留期/独立复核人</th>
+<th>结论/缺陷/复测</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p>最低负向测试：跨角色/数据域/环境/地域拒绝；无导出权下载失败；撤权/离职立即失败；服务身份不能交互登录；旧凭据失效；外包/JIT 超时；管理员不能绕过内容策略；关闭日志触发告警；恢复副本继承控制。</p>
+<h3 id="非生产数据方案">非生产数据方案</h3>
+<p>优先级：合成数据 → 受约束生成数据 → 仅在必要且批准时使用最小生产子集并在进入非生产前持久、不可逆脱敏。每字段记录删除/令牌化/泛化/置换/加噪/格式保持规则；验证直接标识、自由文本、组合重识别、跨表一致、业务可用、失败不发布、到期删除和非生产到生产隔离。重识别攻击方法、样本、成功定义和风险阈值必须在测试前由数据 Owner、隐私和安全共同批准，不得看到结果后移动标准。动态遮罩不使含原值的副本适合进入非生产。</p>
+<h3 id="整改台账">整改台账</h3>
+<table>
+<thead>
+<tr>
+<th>缺口/来源</th>
+<th>风险/受影响资产</th>
+<th>整改动作</th>
+<th>Owner/依赖</th>
+<th>截止日</th>
+<th>阻断阶段门</th>
+<th>测试/复测证据</th>
+<th>结论/残余风险批准</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="例外与事件接口">例外与事件接口</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>例外：主体/数据/动作/环境/期限；业务理由；拒绝替代方案的证据；风险；补偿与监控；Owner/批准人；自动到期；退出与验证。</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>事件：触发/分级；遏制；证据保全/链路；数据 owner、安全、平台、隐私/法务/合规/伦理、供应商联系；恢复准入；通知决定人；复盘和整改复测。</span></code></pre></div>
+<p>阶段门：范围/用途/owner → 分类与风险批准 → entitlement/控制设计 → 实施与证据 → 允许/拒绝和事件演练 → 独立复核 → 分批上线和首次访问复核。高风险负向测试失败、关键日志缺失、共享身份未收口、生产数据无保护进入非生产、供应商责任不明或法律/伦理门未通过时 No-Go。</p>
+<h2 id="6-工具与技术">6. 工具与技术</h2>
+<ul>
+<li>身份目录/SSO/MFA、IAM/ABAC/RBAC、PAM/JIT 和秘密管理：管理唯一身份、条件授权与生命周期。</li>
+<li>分类/目录/血缘和发现：定位敏感数据与副本，将安全元数据随数据传播；自动发现需人工抽验。</li>
+<li>加密、令牌化、脱敏和密钥管理：保护传输/存储/使用场景；密钥与数据职责分离。</li>
+<li>云策略/配置扫描、网络控制、DLP、IDS/IPS、异常检测：预防和检测暴露、越权与外传。</li>
+<li>集中日志/SIEM 与不可变证据库：统一主体、时间、数据域、动作、目的/工单、结果和策略版本。</li>
+<li>CRUD/RACI 和共同责任矩阵：明确业务过程、应用、角色、组织和供应商的数据责任与 custody。</li>
+</ul>
+<p>控制选择应保持技术中立，以可验证安全结果而非单个产品功能为依据。补丁和配置更新按风险及时实施，但须在受控变更和恢复能力内完成。</p>
+<h2 id="7-指标风险与实施">7. 指标、风险与实施</h2>
+<p>指标按四组管理：</p>
+<ul>
+<li><strong>实施：</strong> 已分类且有 owner/用途/保留的数据覆盖、强认证/唯一身份、基线配置、培训与风险评估覆盖；</li>
+<li><strong>保护：</strong> 最小权限/复核、非生产脱敏、加密/令牌化、共享副本与敏感数据扩散率；</li>
+<li><strong>发现与响应：</strong> 关键日志覆盖/中断时间、告警确认、事件遏制/恢复、证据完整和演练通过；</li>
+<li><strong>治理：</strong> 审计发现关闭、例外数量/逾期/重复原因、供应商证明、撤权时效和残余风险。</li>
+</ul>
+<p>每项指标定义分母、基线、目标、数据源、频率、owner 与升级；告警或事件数量下降不能单独证明风险降低。</p>
+<p>主要风险：只按部门粗分角色；共享服务/管理员账号；生产数据扩散到非生产；动态遮罩被误当脱敏；授权无 owner/到期；读权限包含导出；管理员/密钥/审计职责未分离；日志本身泄露；供应商控制只写合同；云商托管被误作问责转移；安全工具通过被误作用途批准。以分类、唯一身份、矩阵、负向测试、独立日志、共同责任、例外到期和并列批准门控制。</p>
+<h2 id="8-依赖与协同">8. 依赖与协同</h2>
+<ul>
+<li><code>handling-data-ethically</code>：判断目的、合理预期、歧视/偏差和应否使用；安全控制不替代伦理准入。</li>
+<li><code>establishing-data-governance</code>：定义决策权、政策、owner、例外和升级；安全落实控制与证据。</li>
+<li><code>designing-data-architecture</code>：提供位置、流向、共享和边界；安全提供分类、信任域和控制架构。</li>
+<li><code>managing-metadata</code>：维护分类、监管类别、owner、血缘、entitlement 与策略版本。</li>
+<li><code>operating-data-storage</code>：落实数据库/存储配置、备份恢复、可用性和运行；恢复副本仍须继承安全控制。</li>
+<li><code>integrating-data</code>：保护接口、传输、共享协议、错误/重放和跨组织 custody。</li>
+<li><code>managing-documents-and-content</code>：管理记录保留、法律保全、发现与可验证处置。</li>
+<li>隐私/法务/合规：提供适用法、法律依据、跨境、合同和通知结论；不得由本技能推断。</li>
+</ul>
+
+      </div>
+    </article>
+  </main>
+  <footer class="docs-footer content-wrap">
+    <span>独立制作 · 项目化重组 / Independently authored · Project-oriented</span>
+    <a href="../../../../index.html">返回入口页 / Back to index ↑</a>
+  </footer>
+</body>
+</html>

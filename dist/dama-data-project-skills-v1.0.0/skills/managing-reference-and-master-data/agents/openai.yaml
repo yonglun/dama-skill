@@ -1,0 +1,4 @@
+interface:
+  display_name: "参考数据与主数据管理"
+  short_description: "治理共享实体、黄金记录、匹配合并、代码层级及分发对账"
+  default_prompt: "使用 $managing-reference-and-master-data 设计这个主数据或参考数据域的权威、裁决、发布与运行方案。"

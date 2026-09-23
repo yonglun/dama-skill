@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Release validation / 发布验证 — DAMA Data Project Skills documentation">
+  <title>Release validation / 发布验证 · DAMA Data Project Skills</title>
+  <link rel="stylesheet" href="../assets/site.css">
+</head>
+<body class="docs-page">
+  <a class="skip-link" href="#document-content">跳转到正文 / Skip to content</a>
+  <header class="docs-header content-wrap">
+    <a class="docs-brand" href="../index.html">
+      <span class="docs-brand-mark" aria-hidden="true">D</span>
+      <span><strong>DAMA DATA PROJECT SKILLS</strong><small>DOCUMENTATION · RELEASE 1.0.0</small></span>
+    </a>
+    <nav class="docs-nav" aria-label="文档导航 / Document navigation">
+      <a class="docs-home" href="../index.html">← 技能首页 / Skill index</a>
+      <a href="README.html">中文指南</a>
+      <a href="README.en.html">English guide</a>
+      <a class="source-markdown" href="../dama-data-project-skills-v1.0.0/VALIDATION.md" download rel="alternate">原始 Markdown ↓</a>
+    </nav>
+  </header>
+  <main class="docs-main" id="document-content">
+    <p class="docs-kicker">KNOWLEDGE LIBRARY <span>／</span> V1.0.0</p>
+    <article class="docs-content">
+      
+      <div class="markdown-body">
+<h1 id="release-validation--发布验证">Release validation / 发布验证</h1>
+<p>Version: <code>1.0.0</code><br />
+Release date: <code>2026-09-23</code></p>
+<h2 id="source-suite-evidence">Source-suite evidence</h2>
+<p>This release packages the 17 skill directories from the audited source suite. The source completion audit records these checks on 2026-09-23:</p>
+<ul>
+<li>17/17 skills passed the official <code>quick_validate.py</code> structure check.</li>
+<li><code>python3 scripts/validate_skill_suite.py skills</code> passed the suite-specific structure, naming, chapter coverage, and relative-link checks.</li>
+<li><code>python3 -m unittest tests/test_validate_skill_suite.py</code> passed all 5 tests.</li>
+<li>All 17 skills have individual behavior-evaluation reports; three cross-domain integration evaluations and 14 discovery-boundary cases were also completed.</li>
+<li>The integration evaluations reported no skill-level P0/P1/P2 gaps. They do not establish legal, operational, or business correctness for a recipient's specific project.</li>
+</ul>
+<p>The detailed evidence and limitations are in the source repository at <code>evals/skill-suite/completion-audit.md</code>. The source audit notes that the baseline already covered its nine general dimensions; this release makes no claim of a measured coverage increase.</p>
+<h2 id="release-package-checks">Release-package checks</h2>
+<p>Before distribution, verify that:</p>
+<ul>
+<li>The package contains exactly the 17 skill directories listed in <code>MANIFEST.json</code>.</li>
+<li>Each directory retains its complete <code>SKILL.md</code>, <code>references/</code>, and <code>agents/</code> content.</li>
+<li>The archive passes <code>unzip -t</code>, and all package-local Markdown links resolve.</li>
+<li>The package includes the Apache License 2.0 text in <code>LICENSE</code>.</li>
+<li>The original DMBOK PDF is not included.</li>
+</ul>
+<p>SHA-256 checksums are provided in <code>SHA256SUMS</code> and alongside the ZIP archive. To verify the ZIP checksum on macOS or Linux, run:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">shasum</span> <span class="at">-a</span> 256 <span class="at">-c</span> dama-data-project-skills-v1.0.0.zip.sha256</span></code></pre></div>
+<h2 id="源套件验证证据">源套件验证证据</h2>
+<p>本版本打包自已完成审计的 17 个技能目录。源仓库的完成审计记录了 2026-09-23 的以下检查：</p>
+<ul>
+<li>17/17 个技能通过官方 <code>quick_validate.py</code> 结构检查。</li>
+<li><code>python3 scripts/validate_skill_suite.py skills</code> 通过套件结构、命名、章节覆盖和相对链接检查。</li>
+<li><code>python3 -m unittest tests/test_validate_skill_suite.py</code> 的 5 项测试全部通过。</li>
+<li>17 个技能各有独立行为评测报告；另完成 3 项跨域集成评测和 14 个发现边界情境。</li>
+<li>集成评测未发现技能级 P0/P1/P2 缺口。这不代表接收方具体项目的法律、运营或业务正确性已经得到验证。</li>
+</ul>
+<p>详细证据与限制见源仓库 <code>evals/skill-suite/completion-audit.md</code>。源审计说明基线在九项通用维度上本已全部覆盖，因此本版本不声称测得覆盖率提升。</p>
+<h2 id="发布包检查">发布包检查</h2>
+<p>分发前需确认：</p>
+<ul>
+<li>包内恰好包含 <code>MANIFEST.json</code> 列出的 17 个技能目录。</li>
+<li>每个目录均保留完整的 <code>SKILL.md</code>、<code>references/</code> 和 <code>agents/</code> 内容。</li>
+<li>压缩包通过 <code>unzip -t</code>，且包内 Markdown 链接均可解析。</li>
+<li>发布包包含 <code>LICENSE</code> 中的 Apache License 2.0 正文。</li>
+<li>未包含原始 DMBOK PDF。</li>
+</ul>
+<p>SHA-256 校验值见 <code>SHA256SUMS</code> 和 ZIP 旁的校验文件。在 macOS 或 Linux 上可运行：</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">shasum</span> <span class="at">-a</span> 256 <span class="at">-c</span> dama-data-project-skills-v1.0.0.zip.sha256</span></code></pre></div>
+
+      </div>
+    </article>
+  </main>
+  <footer class="docs-footer content-wrap">
+    <span>独立制作 · 项目化重组 / Independently authored · Project-oriented</span>
+    <a href="../index.html">返回入口页 / Back to index ↑</a>
+  </footer>
+</body>
+</html>

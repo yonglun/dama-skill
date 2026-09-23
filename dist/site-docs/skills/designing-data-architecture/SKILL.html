@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="设计数据架构 — DAMA Data Project Skills documentation">
+  <title>设计数据架构 · DAMA Data Project Skills</title>
+  <link rel="stylesheet" href="../../../assets/site.css">
+</head>
+<body class="docs-page">
+  <a class="skip-link" href="#document-content">跳转到正文 / Skip to content</a>
+  <header class="docs-header content-wrap">
+    <a class="docs-brand" href="../../../index.html">
+      <span class="docs-brand-mark" aria-hidden="true">D</span>
+      <span><strong>DAMA DATA PROJECT SKILLS</strong><small>DOCUMENTATION · RELEASE 1.0.0</small></span>
+    </a>
+    <nav class="docs-nav" aria-label="文档导航 / Document navigation">
+      <a class="docs-home" href="../../../index.html">← 技能首页 / Skill index</a>
+      <a href="../../README.html">中文指南</a>
+      <a href="../../README.en.html">English guide</a>
+      <a class="source-markdown" href="../../../dama-data-project-skills-v1.0.0/skills/designing-data-architecture/SKILL.md" download rel="alternate">原始 Markdown ↓</a>
+    </nav>
+  </header>
+  <main class="docs-main" id="document-content">
+    <p class="docs-kicker">KNOWLEDGE LIBRARY <span>／</span> V1.0.0</p>
+    <article class="docs-content">
+      <aside class="docs-skill-summary" aria-label="技能元数据 Skill metadata"><div><span class="docs-meta-label">SKILL ID</span><code>designing-data-architecture</code></div><p>Use when an enterprise, domain, platform, program, or project needs current, target, or transition data architecture; capability and data-flow alignment; architecture principles, standards, decisions, conformance, or an evolution roadmap.</p></aside>
+      <div class="markdown-body">
+<h1 id="设计数据架构">设计数据架构</h1>
+<h2 id="核心原则">核心原则</h2>
+<p>数据架构识别企业数据需求并维护满足这些需求的主蓝图。它组织数据、系统、流向、约束和原则，使投资与业务战略对齐；已选技术是约束和候选实现，不是需求本身。</p>
+<h2 id="适用边界">适用边界</h2>
+<ul>
+<li>跨系统/业务能力的当前、目标、过渡状态和路线图使用本技能。</li>
+<li>单一主题的概念/逻辑/物理结构、键、属性和规范化以 <code>modeling-data</code> 为主。</li>
+<li>平台实际备份、恢复、容量和数据库运行以 <code>operating-data-storage</code> 为主。</li>
+<li>具体接口/ETL/流处理契约以 <code>integrating-data</code> 为主。</li>
+</ul>
+<h2 id="工作流">工作流</h2>
+<ol type="1">
+<li>明确业务能力、事件、决策、消费者和当前/长期数据需求；把质量与创新目标分开记录。</li>
+<li>读取 <a href="references/playbook.html">数据架构手册</a>，以运行证据核实现状系统、数据、接口、复制、约束和痛点，不把陈旧图当事实。</li>
+<li>定义架构原则和可验证需求：语义、生命周期、共享、互操作、质量、元数据、安全/隐私、地域、服务、成本和可演进性。</li>
+<li>产出互相一致的业务/数据、概念、流向、系统/应用、技术部署和治理视图；每个视图只回答明确问题。</li>
+<li>比较方案和权衡，记录架构决策及被否决方案；已选技术不适配时呈现差距、补偿或升级决定。</li>
+<li>设计目标状态、过渡架构和按能力/数据依赖排序的路线图；同时标记复用、替换、退役与临时状态。</li>
+<li>把标准和符合性检查嵌入项目、模型、集成、采购和技术更新；用实际结果维护架构。</li>
+</ol>
+<h2 id="输出契约">输出契约</h2>
+<p>输出业务结果与范围；现状证据；原则/需求；视图目录；目标与过渡架构；关键决定和权衡；能力/数据依赖路线图；标准与符合性；风险和例外；指标与验收证据。</p>
+<h2 id="常见错误">常见错误</h2>
+<table>
+<thead>
+<tr>
+<th>错误</th>
+<th>修正</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>架构等于云产品图</td>
+<td>从能力、数据需求和关系出发，再映射技术</td>
+</tr>
+<tr>
+<td>只有目标图</td>
+<td>同时提供现状证据、过渡状态和退役路径</td>
+</tr>
+<tr>
+<td>一个巨图回答所有问题</td>
+<td>为利益相关者和决策拆分一致的视图</td>
+</tr>
+<tr>
+<td>架构师替项目建详细模型</td>
+<td>提供约束和审查；详细建模交给 <code>modeling-data</code></td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+    </article>
+  </main>
+  <footer class="docs-footer content-wrap">
+    <span>独立制作 · 项目化重组 / Independently authored · Project-oriented</span>
+    <a href="../../../index.html">返回入口页 / Back to index ↑</a>
+  </footer>
+</body>
+</html>

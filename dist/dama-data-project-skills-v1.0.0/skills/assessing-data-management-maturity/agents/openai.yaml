@@ -1,0 +1,4 @@
+interface:
+  display_name: "数据管理成熟度评估"
+  short_description: "基于范围、准则和运行证据评分，并规划目标能力与复评"
+  default_prompt: "使用 $assessing-data-management-maturity 设计这次数据管理成熟度评估及证据驱动的改进路线。"

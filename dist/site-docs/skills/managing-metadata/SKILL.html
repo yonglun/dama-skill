@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="元数据管理 — DAMA Data Project Skills documentation">
+  <title>元数据管理 · DAMA Data Project Skills</title>
+  <link rel="stylesheet" href="../../../assets/site.css">
+</head>
+<body class="docs-page">
+  <a class="skip-link" href="#document-content">跳转到正文 / Skip to content</a>
+  <header class="docs-header content-wrap">
+    <a class="docs-brand" href="../../../index.html">
+      <span class="docs-brand-mark" aria-hidden="true">D</span>
+      <span><strong>DAMA DATA PROJECT SKILLS</strong><small>DOCUMENTATION · RELEASE 1.0.0</small></span>
+    </a>
+    <nav class="docs-nav" aria-label="文档导航 / Document navigation">
+      <a class="docs-home" href="../../../index.html">← 技能首页 / Skill index</a>
+      <a href="../../README.html">中文指南</a>
+      <a href="../../README.en.html">English guide</a>
+      <a class="source-markdown" href="../../../dama-data-project-skills-v1.0.0/skills/managing-metadata/SKILL.md" download rel="alternate">原始 Markdown ↓</a>
+    </nav>
+  </header>
+  <main class="docs-main" id="document-content">
+    <p class="docs-kicker">KNOWLEDGE LIBRARY <span>／</span> V1.0.0</p>
+    <article class="docs-content">
+      <aside class="docs-skill-summary" aria-label="技能元数据 Skill metadata"><div><span class="docs-meta-label">SKILL ID</span><code>managing-metadata</code></div><p>Use when data assets, business terms, technical schemas, operational runs, ownership, lineage, or usage must be discovered and kept current across systems; when building a catalog or metadata repository, recording and propagating approved definitions or surfacing conflicts for authoritative resolution, proving report provenance, or assessing downstream change impact.</p></aside>
+      <div class="markdown-body">
+<h1 id="元数据管理">元数据管理</h1>
+<h2 id="核心原则">核心原则</h2>
+<p>元数据解释数据的含义、位置、结构、来源、运行状态、责任和使用限制。将其作为持续维护的产品：既从工具中采集实际实现，也由有权人员策展业务语义，并公开差异、证据、版本和新鲜度。</p>
+<h2 id="适用边界">适用边界</h2>
+<ul>
+<li>跨系统目录、业务词汇表、资产/字段登记、生产与消费依赖、端到端血缘、影响分析、元数据质量和服务使用本技能。</li>
+<li>单个模型内命名两个字段或局部实体结构由 <code>modeling-data</code> 处理；只有需要跨系统登记、复用或影响分析时本技能主导。</li>
+<li>数据治理决定政策、owner 任命和争议裁决；本技能实现元数据的采集、维护、交付和证据。</li>
+<li>指标的业务计算、仓库装载与 BI 产品由 <code>delivering-data-warehousing-and-bi</code> 主导；本技能保持指标/报表的定义、版本和血缘可发现。</li>
+<li>数据质量团队判定业务数据是否适用；本技能管理关于数据质量的规则/结果元数据及元数据自身的质量。</li>
+</ul>
+<h2 id="工作流">工作流</h2>
+<ol type="1">
+<li>明确消费任务：查找数据、理解指标、证明来源、审计或变更影响；限定资产/字段/报表范围、粒度和成功标准。</li>
+<li>阅读<a href="references/playbook.html">元数据项目手册</a>，盘点生产者/消费者、业务/技术/运行元数据源、现有目录、接口、版本与访问限制。</li>
+<li>定义最小元模型、稳定资产标识、关系、owner、必填字段、来源、更新时间和质量规则；选择集中、分布或混合架构。</li>
+<li>以连接器/扫描/API 采集技术和运行事实；用有审批的人工策展补充业务定义、未可解析转换与语境。</li>
+<li>分别保存设计态和实际实现态血缘；逐边记录来源、转换、代码/作业版本、证据、观测时间、可信度和缺口，持续对齐差异。</li>
+<li>用上下游图遍历做变更影响分析；暴露未解析、过期和低置信边，要求关键变更前由受影响 owner 确认。</li>
+<li>发布搜索、术语、血缘、质量、访问与 API 服务；监控覆盖、完整性、准确性、新鲜度、使用、反馈和修复队列。</li>
+</ol>
+<h2 id="输出契约">输出契约</h2>
+<p>输出元数据策略与范围；用户任务和需求；源/消费者清单；元模型和最小元数据产品；集中/分布/混合架构；采集/策展/冲突流程；业务词汇表；设计态与实现态字段级血缘及证据；影响分析与变更门；权限/敏感元数据控制；质量/新鲜度/覆盖/采用指标；角色、阶段门和验收证据。</p>
+<h2 id="常见错误">常见错误</h2>
+<table>
+<thead>
+<tr>
+<th>错误</th>
+<th>修正</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>目录只有表名</td>
+<td>关联业务含义、owner、字段、来源、运行、质量和消费</td>
+</tr>
+<tr>
+<td>设计文档当作生产事实</td>
+<td>标注设计态与实现态，采集运行版本并记录差异</td>
+</tr>
+<tr>
+<td>自动解析到哪里就宣称全链路</td>
+<td>逐边标证据、覆盖、可信度和未知段</td>
+</tr>
+<tr>
+<td>血缘图漂亮即能做影响分析</td>
+<td>对真实变更做上下游遍历和漏报复核</td>
+</tr>
+<tr>
+<td>所有元数据向所有人公开</td>
+<td>控制敏感资产存在性、字段、SQL、访问与审计</td>
+</tr>
+<tr>
+<td>一次扫描后不维护</td>
+<td>设同步频率、漂移告警、策展队列与责任人</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+    </article>
+  </main>
+  <footer class="docs-footer content-wrap">
+    <span>独立制作 · 项目化重组 / Independently authored · Project-oriented</span>
+    <a href="../../../index.html">返回入口页 / Back to index ↑</a>
+  </footer>
+</body>
+</html>

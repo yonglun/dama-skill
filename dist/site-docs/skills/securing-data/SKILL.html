@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="数据安全 — DAMA Data Project Skills documentation">
+  <title>数据安全 · DAMA Data Project Skills</title>
+  <link rel="stylesheet" href="../../../assets/site.css">
+</head>
+<body class="docs-page">
+  <a class="skip-link" href="#document-content">跳转到正文 / Skip to content</a>
+  <header class="docs-header content-wrap">
+    <a class="docs-brand" href="../../../index.html">
+      <span class="docs-brand-mark" aria-hidden="true">D</span>
+      <span><strong>DAMA DATA PROJECT SKILLS</strong><small>DOCUMENTATION · RELEASE 1.0.0</small></span>
+    </a>
+    <nav class="docs-nav" aria-label="文档导航 / Document navigation">
+      <a class="docs-home" href="../../../index.html">← 技能首页 / Skill index</a>
+      <a href="../../README.html">中文指南</a>
+      <a href="../../README.en.html">English guide</a>
+      <a class="source-markdown" href="../../../dama-data-project-skills-v1.0.0/skills/securing-data/SKILL.md" download rel="alternate">原始 Markdown ↓</a>
+    </nav>
+  </header>
+  <main class="docs-main" id="document-content">
+    <p class="docs-kicker">KNOWLEDGE LIBRARY <span>／</span> V1.0.0</p>
+    <article class="docs-content">
+      <aside class="docs-skill-summary" aria-label="技能元数据 Skill metadata"><div><span class="docs-meta-label">SKILL ID</span><code>securing-data</code></div><p>Use when data needs security requirements, classification, risk assessment, identity and access control, masking/encryption, auditability, cloud or vendor safeguards, security exceptions, incident interfaces, or evidence that controls work.</p></aside>
+      <div class="markdown-body">
+<h1 id="数据安全">数据安全</h1>
+<h2 id="核心原则">核心原则</h2>
+<p>数据安全规划、开发和执行策略与程序，使适当主体能够访问数据，并阻止、发现和审计不当访问。控制必须由数据分类、用途、风险和责任驱动，既保护机密性，也支持完整性、可用性与及时的合法访问。</p>
+<h2 id="适用边界">适用边界</h2>
+<ul>
+<li>分类、认证、授权、访问、审计、最小权限、加密/脱敏、云/外包控制和安全证据使用本技能。</li>
+<li>“即使安全，是否应该使用数据”、公平与合理预期由 <code>handling-data-ethically</code> 主导。</li>
+<li>法律依据、监管解释、跨境结论和通知义务须由法务/隐私/合规有权人确认；本技能不提供法律结论。</li>
+<li>数据库备份、可用性、容量和运行由 <code>operating-data-storage</code> 主导；本技能定义保护要求。</li>
+<li>保留/法律保全/记录处置的内容规则由 <code>managing-documents-and-content</code> 协同。</li>
+</ul>
+<h2 id="工作流">工作流</h2>
+<ol type="1">
+<li>明确业务用途、数据/系统/地域/环境/供应商范围、风险容忍度和有权决策人；未知用途或无 owner 的敏感数据不得默认放行。</li>
+<li>阅读<a href="references/playbook.html">数据安全项目手册</a>，盘点数据、身份、流向、副本和控制；在字段/数据集元数据中记录分类与监管敏感性。</li>
+<li>评估威胁、漏洞、影响、可能性和暴露，按风险选择预防、检测、响应与恢复控制；先减少敏感数据和非生产扩散。</li>
+<li>建立角色/属性与 CRUD/访问矩阵，将 entitlement 映射到数据、动作、环境、地域、目的和期限；默认拒绝、最小权限、职责分离。</li>
+<li>实施唯一身份、强认证、JIT/PAM、加密/令牌化/脱敏、网络隔离、DLP、日志/监控及云/外包共同责任。</li>
+<li>用允许/拒绝、撤权、导出、管理员、外包、脱敏失败、日志中断和事件演练验证控制；证据必须可重放、可归责。</li>
+<li>管理有期限的例外、访问复核、审计发现、事件和指标；控制通过不代表用途伦理或法律门已通过。</li>
+</ol>
+<h2 id="输出契约">输出契约</h2>
+<p>输出范围/责任；数据与风险分类；威胁/暴露；安全要求；身份/角色/entitlement 与 CRUD/访问矩阵；控制选择和共同责任；非生产数据方案；审计/监控/事件；测试证据；例外；指标、阶段门和残余风险。</p>
+<h2 id="常见错误">常见错误</h2>
+<table>
+<thead>
+<tr>
+<th>错误</th>
+<th>修正</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>部门角色等于最小权限</td>
+<td>按职责、数据域、动作、环境、目的和期限细分 entitlement</td>
+</tr>
+<tr>
+<td>读权限自动包含导出</td>
+<td>把查询、批量下载、共享和再分发分别授权</td>
+</tr>
+<tr>
+<td>动态遮罩让生产副本变安全</td>
+<td>非生产优先合成；必要时在进入非生产前持久脱敏</td>
+</tr>
+<tr>
+<td>供应商接管即责任转移</td>
+<td>合同、技术控制、独立监控和审计权并行，企业保留问责</td>
+</tr>
+<tr>
+<td>安全控制通过即处理可接受</td>
+<td>伦理、隐私、法务和合规门独立批准</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+    </article>
+  </main>
+  <footer class="docs-footer content-wrap">
+    <span>独立制作 · 项目化重组 / Independently authored · Project-oriented</span>
+    <a href="../../../index.html">返回入口页 / Back to index ↑</a>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,4 @@
+interface:
+  display_name: "数据管理组织与运行模式"
+  short_description: "选择组织模式，定义委员会、岗位、RACI、容量与协作接口"
+  default_prompt: "使用 $organizing-data-management 设计这个组织的数据管理运行模式、角色与实施路线。"

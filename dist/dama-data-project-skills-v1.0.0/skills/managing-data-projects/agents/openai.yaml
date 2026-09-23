@@ -1,0 +1,4 @@
+interface:
+  display_name: "DAMA 数据项目路由"
+  short_description: "诊断复杂数据项目，选择并编排适用的数据管理领域技能和交付阶段"
+  default_prompt: "使用 $managing-data-projects 诊断这个数据项目，选择所需领域技能并生成可验收的交付计划。"

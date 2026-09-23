@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="文档与内容管理 — DAMA Data Project Skills documentation">
+  <title>文档与内容管理 · DAMA Data Project Skills</title>
+  <link rel="stylesheet" href="../../../assets/site.css">
+</head>
+<body class="docs-page">
+  <a class="skip-link" href="#document-content">跳转到正文 / Skip to content</a>
+  <header class="docs-header content-wrap">
+    <a class="docs-brand" href="../../../index.html">
+      <span class="docs-brand-mark" aria-hidden="true">D</span>
+      <span><strong>DAMA DATA PROJECT SKILLS</strong><small>DOCUMENTATION · RELEASE 1.0.0</small></span>
+    </a>
+    <nav class="docs-nav" aria-label="文档导航 / Document navigation">
+      <a class="docs-home" href="../../../index.html">← 技能首页 / Skill index</a>
+      <a href="../../README.html">中文指南</a>
+      <a href="../../README.en.html">English guide</a>
+      <a class="source-markdown" href="../../../dama-data-project-skills-v1.0.0/skills/managing-documents-and-content/SKILL.md" download rel="alternate">原始 Markdown ↓</a>
+    </nav>
+  </header>
+  <main class="docs-main" id="document-content">
+    <p class="docs-kicker">KNOWLEDGE LIBRARY <span>／</span> V1.0.0</p>
+    <article class="docs-content">
+      <aside class="docs-skill-summary" aria-label="技能元数据 Skill metadata"><div><span class="docs-meta-label">SKILL ID</span><code>managing-documents-and-content</code></div><p>Use when governing documents, records, email, media, or other unstructured content across their lifecycle; defining taxonomy, metadata, capture, versioning, publication, search, retention, legal-hold interfaces, e-discovery readiness, or defensible disposition.</p></aside>
+      <div class="markdown-body">
+<h1 id="文档与内容管理">文档与内容管理</h1>
+<h2 id="核心原则">核心原则</h2>
+<p>文档与内容管理控制存于非结构化或半结构化载体中的信息，从创建/接收到访问、发布、保留、保全和处置。记录是能证明行动、决定或义务的特定内容；所在系统不自动决定其记录地位。</p>
+<h2 id="适用边界">适用边界</h2>
+<ul>
+<li>内容盘点、文件计划/分类、受控词表、内容元数据、捕获、版本、审批/发布、检索、保留/保全/处置和 e-discovery 就绪使用本技能。</li>
+<li>一次性撰写、编辑或排版某份文档不使用本技能；这不是通用文档编辑工作流。</li>
+<li>数据库实例、备份和结构化存储运行由 <code>operating-data-storage</code> 主导；本技能定义记录生命周期规则。</li>
+<li>通用业务/技术元数据平台由 <code>managing-metadata</code> 主导；本技能定义内容专属元数据与检索需求。</li>
+<li>法律保全、披露、特权、适用期限和销毁结论由法务/记录管理等有权人决定；本技能不提供法律意见。</li>
+</ul>
+<h2 id="工作流">工作流</h2>
+<ol type="1">
+<li>若存在潜在诉讼/调查通知，先由有权法务确定临时保全范围并暂停相关删除、去重和迁移破坏，再开展完整治理。</li>
+<li>阅读<a href="references/playbook.html">文档与内容项目手册</a>，盘点电子/纸质内容源、owner、权限、副本、格式、现有规则、可搜索性和风险。</li>
+<li>定义内容/记录判定、copy of record、文件计划、内容类型、受控词表、最小元数据、版本和关系模型。</li>
+<li>设计捕获、审批、签署、声明、发布、更正、访问、检索、归档、保留、法律保全和处置流程；保全覆盖常规处置。</li>
+<li>以内容 ID、来源、版本、哈希、权限、保管人和审计链管理迁移与 e-discovery；重复候选未经授权不得自动删除。</li>
+<li>用已标注查询、允许/拒绝访问、保全开立/解除、处置模拟、迁移对账和隔离恢复验证端到端控制。</li>
+<li>发布责任、例外、运行日历和指标；持续监控盘点、捕获、元数据、搜索、保全、处置、迁移和采用。</li>
+</ol>
+<h2 id="输出契约">输出契约</h2>
+<p>输出范围/紧急保全；内容源清单和风险；记录/副本判定；分类/词表/内容模型；捕获/版本/发布；访问/检索；保留/保全/处置；e-discovery/证据链；连续性/迁移；角色、阶段门、指标和审计证据。</p>
+<h2 id="常见错误">常见错误</h2>
+<table>
+<thead>
+<tr>
+<th>错误</th>
+<th>修正</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>把所有文件搬进一个库</td>
+<td>先判定内容、记录、权威版本、元数据和生命周期</td>
+</tr>
+<tr>
+<td>自动去重即治理</td>
+<td>指纹只生成候选；保留语境、版本、批注、权限和保管链</td>
+</tr>
+<tr>
+<td>备份等于归档/保全</td>
+<td>归档可读可检索，保全按事项阻断处置，备份用于恢复</td>
+</tr>
+<tr>
+<td>搜索命中即完整发现</td>
+<td>报告未索引源、失败格式、权限、日期缺口和限制</td>
+</tr>
+<tr>
+<td>保全解除即立即删除</td>
+<td>重算其他保全、保留、审计和业务约束后再处置</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+    </article>
+  </main>
+  <footer class="docs-footer content-wrap">
+    <span>独立制作 · 项目化重组 / Independently authored · Project-oriented</span>
+    <a href="../../../index.html">返回入口页 / Back to index ↑</a>
+  </footer>
+</body>
+</html>

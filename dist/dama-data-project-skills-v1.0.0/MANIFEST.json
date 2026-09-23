@@ -1,0 +1,37 @@
+{
+  "name": "dama-data-project-skills",
+  "version": "1.0.0",
+  "release_date": "2026-09-23",
+  "description": "A Codex skill suite for DAMA-informed data-project planning and delivery.",
+  "skill_count": 17,
+  "skills_directory": "skills/",
+  "install_target": ".agents/skills/",
+  "skills": [
+    "assessing-data-management-maturity",
+    "delivering-data-science",
+    "delivering-data-warehousing-and-bi",
+    "designing-data-architecture",
+    "establishing-data-governance",
+    "handling-data-ethically",
+    "improving-data-quality",
+    "integrating-data",
+    "leading-data-change",
+    "managing-data-projects",
+    "managing-documents-and-content",
+    "managing-metadata",
+    "managing-reference-and-master-data",
+    "modeling-data",
+    "operating-data-storage",
+    "organizing-data-management",
+    "securing-data"
+  ],
+  "contents": [
+    "17 complete skill directories, including SKILL.md, references, and discovery metadata",
+    "Bilingual usage guides: README.md and README.en.md",
+    "Release validation summary: VALIDATION.md",
+    "Apache License 2.0: LICENSE"
+  ],
+  "excluded": [
+    "The source DMBOK PDF is not included."
+  ]
+}

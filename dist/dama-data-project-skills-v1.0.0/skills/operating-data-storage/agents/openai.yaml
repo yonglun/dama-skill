@@ -1,0 +1,4 @@
+interface:
+  display_name: "数据存储与运行"
+  short_description: "建立数据库与存储的生产就绪、恢复、性能和持续运营控制"
+  default_prompt: "使用 $operating-data-storage 为这个数据库或存储服务设计生产就绪与运行保障方案。"

@@ -1,0 +1,4 @@
+interface:
+  display_name: "数据科学项目交付"
+  short_description: "从假设、来源与实验，到模型验证、部署、监控和退役"
+  default_prompt: "使用 $delivering-data-science 设计这个数据科学或模型项目的实验、验证、上线和持续运行方案。"

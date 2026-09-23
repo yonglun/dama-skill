@@ -1,0 +1,4 @@
+interface:
+  display_name: "文档与内容管理"
+  short_description: "治理文档、记录和内容的分类、检索、保留、保全与处置证据"
+  default_prompt: "使用 $managing-documents-and-content 设计这个文档与内容治理及生命周期方案。"

@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="数据仓库与商业智能交付 — DAMA Data Project Skills documentation">
+  <title>数据仓库与商业智能交付 · DAMA Data Project Skills</title>
+  <link rel="stylesheet" href="../../../assets/site.css">
+</head>
+<body class="docs-page">
+  <a class="skip-link" href="#document-content">跳转到正文 / Skip to content</a>
+  <header class="docs-header content-wrap">
+    <a class="docs-brand" href="../../../index.html">
+      <span class="docs-brand-mark" aria-hidden="true">D</span>
+      <span><strong>DAMA DATA PROJECT SKILLS</strong><small>DOCUMENTATION · RELEASE 1.0.0</small></span>
+    </a>
+    <nav class="docs-nav" aria-label="文档导航 / Document navigation">
+      <a class="docs-home" href="../../../index.html">← 技能首页 / Skill index</a>
+      <a href="../../README.html">中文指南</a>
+      <a href="../../README.en.html">English guide</a>
+      <a class="source-markdown" href="../../../dama-data-project-skills-v1.0.0/skills/delivering-data-warehousing-and-bi/SKILL.md" download rel="alternate">原始 Markdown ↓</a>
+    </nav>
+  </header>
+  <main class="docs-main" id="document-content">
+    <p class="docs-kicker">KNOWLEDGE LIBRARY <span>／</span> V1.0.0</p>
+    <article class="docs-content">
+      <aside class="docs-skill-summary" aria-label="技能元数据 Skill metadata"><div><span class="docs-meta-label">SKILL ID</span><code>delivering-data-warehousing-and-bi</code></div><p>Use when delivering an analytical data warehouse, data mart, governed dataset, report, dashboard, scorecard, or self-service BI portfolio; when business measures conflict, historical comparisons require policy, or analytical data and reports need business acceptance, release, service, and adoption controls.</p></aside>
+      <div class="markdown-body">
+<h1 id="数据仓库与商业智能交付">数据仓库与商业智能交付</h1>
+<h2 id="核心原则">核心原则</h2>
+<p>从业务要做的决定出发，追溯到问题、指标、维度、粒度、来源、转换、报告和行动。数据仓库整合并保存可分析的历史数据；BI 将数据交付给不同用户群。两者作为持续维护的数据产品，必须同时证明含义、质量、血缘、可用性和使用价值。</p>
+<h2 id="适用边界">适用边界</h2>
+<ul>
+<li>跨来源分析、历史/同比、指标语义、维度模型、分析集市、仪表板、标准报表、评分卡和自助 BI 使用本技能。</li>
+<li>单个 CDC/API/消息或文件管道，且不交付分析数据产品时，由 <code>integrating-data</code> 主导。</li>
+<li>预测/分类模型、实验、特征与模型监控由 <code>delivering-data-science</code> 主导；本技能可提供可信分析数据和可视化。</li>
+<li>通用数据库容量、备份和实例运行由 <code>operating-data-storage</code> 主导；本技能定义分析性能、刷新和数据产品服务要求。</li>
+<li>业务术语/技术血缘的企业目录由 <code>managing-metadata</code> 主导；本技能必须给指标、数据集、报表提供可发现的定义与端到端血缘。</li>
+<li>一次性探索图表且无持续发布、共享指标或服务承诺时，按轻量分析任务裁剪，不必建设仓库。</li>
+</ul>
+<h2 id="工作流">工作流</h2>
+<ol type="1">
+<li>明确决策者、决策频率、行动、问题与假设；把每个报表项关联到获批指标、维度、粒度和验收人。</li>
+<li>阅读<a href="references/playbook.html">数据仓库与 BI 项目手册</a>，盘点用户群、来源、刷新、历史、质量、权限、数据时限、性能和已有资产。</li>
+<li>由业务 owner 裁决口径冲突；记录计算式、过滤、时间/币种/地区政策、版本、生效期、财务或监管对账要求和未决例外。</li>
+<li>选择仓库、集市、ODS、虚拟化或受控数据集的组合；先保留必要原子粒度和时间语境，再建设一致维度、汇总与语义层。</li>
+<li>设计源到分析数据的装载、拒收、迟到/更正、重跑、历史重述和分层对账；让业务对首装和多个更新周期的数据签收。</li>
+<li>按用户群交付报表/仪表板/自助能力；定义认证数据集、权限、可派生计算、导出、沙箱、推广与回收边界。</li>
+<li>分批发布，保留版本、回滚、变更影响、UAT 和服务接管证据；监控刷新、性能、质量、使用、满意度与业务行动。</li>
+</ol>
+<h2 id="输出契约">输出契约</h2>
+<p>输出决策—问题—指标追溯；用户/场景与优先级；获批指标契约；来源画像和语义冲突记录；仓库/集市/语义架构；事实粒度、一致维度、历史与重述政策；装载/拒收/对账及业务验收；报告与自助权限边界；发布路线/回滚；SLA、支持、采用和满意度指标；阶段门、风险、例外和验收证据。</p>
+<h2 id="常见错误">常见错误</h2>
+<table>
+<thead>
+<tr>
+<th>错误</th>
+<th>修正</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>从仪表板画面倒推指标</td>
+<td>先记录决策、动作、指标定义和批准人</td>
+</tr>
+<tr>
+<td>同名“收入”直接合并</td>
+<td>区分销售、财务、未结/已结、退款、税费和汇率政策</td>
+</tr>
+<tr>
+<td>先汇总后丢失明细</td>
+<td>保留获准原子粒度、历史与控制总额，再按性能汇总</td>
+</tr>
+<tr>
+<td>加载成功视为业务可用</td>
+<td>源清单、分层对账、抽样、血缘和业务签收共同验收</td>
+</tr>
+<tr>
+<td>自助 BI 等于任意重算</td>
+<td>认证语义层、权限、派生计算边界与发布审批</td>
+</tr>
+<tr>
+<td>上线即结束</td>
+<td>运行刷新/性能/质量、支持、采用和满意度复盘</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+    </article>
+  </main>
+  <footer class="docs-footer content-wrap">
+    <span>独立制作 · 项目化重组 / Independently authored · Project-oriented</span>
+    <a href="../../../index.html">返回入口页 / Back to index ↑</a>
+  </footer>
+</body>
+</html>

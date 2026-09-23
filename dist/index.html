@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fafafa">
+  <meta name="description" content="A bilingual suite of 17 DAMA-informed skills for planning and delivering data projects.">
+  <title>DAMA Data-Project Skill Suite</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="assets/site.css">
+  <script src="assets/site.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">
+    <span data-lang="zh" hidden>跳到主要内容</span>
+    <span data-lang="en">Skip to content</span>
+  </a>
+
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="DAMA data project skills home">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 32 32" focusable="false"><rect x="4" y="4" width="7" height="24"/><rect x="21" y="4" width="7" height="24"/><circle cx="16" cy="16" r="5" fill="#171717"/></svg>
+      </span>
+      <span class="brand-copy"><strong>DAMA</strong><small>DATA PROJECT SKILLS</small></span>
+    </a>
+    <nav class="main-nav" aria-label="Primary navigation" data-label-zh="主要导航" data-label-en="Primary navigation">
+      <a href="#method"><span data-lang="zh" hidden>工作方式</span><span data-lang="en">Method</span></a>
+      <a href="#library"><span data-lang="zh" hidden>技能目录</span><span data-lang="en">Skills</span></a>
+      <a href="#install"><span data-lang="zh" hidden>如何使用</span><span data-lang="en">Install</span></a>
+    </nav>
+    <div class="header-actions">
+          <div class="language-switch" role="group" aria-label="Choose language" data-label-zh="选择语言" data-label-en="Choose language">
+        <button type="button" data-set-lang="zh" aria-pressed="false">中文</button>
+        <span aria-hidden="true">/</span>
+        <button type="button" data-set-lang="en" aria-pressed="true">EN</button>
+      </div>
+      <a class="header-download" href="dama-data-project-skills-v1.0.0.zip" download>
+        <span data-lang="zh" hidden>获取技能包</span><span data-lang="en">Get the pack</span>
+        <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span><span data-lang="zh" hidden>面向真实数据项目的工作方法</span><span data-lang="en">Working methods for real data projects</span></p>
+        <h1 id="hero-title">
+          <span data-lang="zh" hidden>把数据项目的复杂度，<br><em>变成清晰的行动路径。</em></span>
+          <span data-lang="en">Turn data-project complexity into <em>a clear path forward.</em></span>
+        </h1>
+        <p class="hero-intro" data-lang="zh" hidden>一套从 DAMA-DMBOK 知识结构出发、面向真实项目编排的 17 个技能。先识别问题，再按需组合，不必一开始就加载全部知识域。</p>
+        <p class="hero-intro" data-lang="en">A suite of 17 skills shaped around DAMA-DMBOK and organized for real project work. Start with the problem, then compose only the expertise you need.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#library"><span data-lang="zh" hidden>探索技能目录</span><span data-lang="en">Explore the skills</span><span aria-hidden="true">↓</span></a>
+          <a class="button button-secondary" href="dama-data-project-skills-v1.0.0.zip" download><span data-lang="zh" hidden>下载 v1.0.0</span><span data-lang="en">Download v1.0.0</span><span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="hero-meta" aria-label="Package summary">
+          <span><strong>17</strong><span data-lang="zh" hidden>个可组合技能</span><span data-lang="en">composable skills</span></span>
+          <span class="meta-divider" aria-hidden="true"></span>
+          <span><strong>01</strong><span data-lang="zh" hidden>个跨域入口</span><span data-lang="en">cross-domain router</span></span>
+          <span class="meta-divider" aria-hidden="true"></span>
+          <span class="version-pill">v1.0.0</span>
+        </div>
+      </div>
+      <figure class="hero-art">
+        <img src="assets/hero-notion-workflow.svg" alt="Two collaborators work around a data board, task cards, and delivery outcomes" data-alt-zh="两位协作者围绕数据看板、任务卡片和交付成果工作" data-alt-en="Two collaborators work around a data board, task cards, and delivery outcomes" width="900" height="680">
+        <figcaption><span data-lang="zh" hidden>从源头、决策到交付——让路径彼此可见</span><span data-lang="en">Make the path visible—from source to decision to delivery</span></figcaption>
+      </figure>
+      <div class="hero-index" aria-hidden="true"><span>FIELD GUIDE</span><span>01 — 17</span></div>
+    </section>
+
+    <section class="method-section content-wrap" id="method" aria-labelledby="method-title">
+      <div class="section-heading method-heading">
+        <p class="section-kicker"><span>01</span> / <span data-lang="zh" hidden>工作方式</span><span data-lang="en">THE METHOD</span></p>
+        <h2 id="method-title"><span data-lang="zh" hidden>不是一份大清单，<br>而是一条可裁剪的路径。</span><span data-lang="en">Not a giant checklist.<br>A path you can tailor.</span></h2>
+      </div>
+      <div class="method-intro">
+        <p data-lang="zh" hidden>总入口先理解项目、选择主次知识域并排定依赖；领域技能再深入各自的方法、工件与验收证据。检查一个领域，不代表必须全部实施。</p>
+        <p data-lang="en">The router profiles the project, selects primary and supporting domains, and sequences dependencies. Specialist skills then provide methods, work products, and acceptance evidence. Reviewing a domain does not mean implementing everything.</p>
+        <a class="text-link" href="site-docs/skills/managing-data-projects/SKILL.html"><span data-lang="zh" hidden>查看总入口技能</span><span data-lang="en">Read the router skill</span><span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="method-flow" aria-label="Project method" data-label-zh="项目工作路径" data-label-en="Project method">
+        <article class="method-step">
+          <span class="step-number">01</span>
+          <div class="step-symbol step-symbol-profile" aria-hidden="true"><span></span><span></span><span></span></div>
+          <h3><span data-lang="zh" hidden>理解项目</span><span data-lang="en">Profile the work</span></h3>
+          <p data-lang="zh" hidden>目标、风险、约束与当前能力</p><p data-lang="en">Goals, risks, constraints, and readiness</p>
+        </article>
+        <span class="flow-connector" aria-hidden="true">→</span>
+        <article class="method-step">
+          <span class="step-number">02</span>
+          <div class="step-symbol step-symbol-route" aria-hidden="true"><span></span><span></span><span></span></div>
+          <h3><span data-lang="zh" hidden>选择与编排</span><span data-lang="en">Select and sequence</span></h3>
+          <p data-lang="zh" hidden>按主域、基础域与风险裁剪</p><p data-lang="en">Tailor primary, foundational, and risk domains</p>
+        </article>
+        <span class="flow-connector" aria-hidden="true">→</span>
+        <article class="method-step">
+          <span class="step-number">03</span>
+          <div class="step-symbol step-symbol-evidence" aria-hidden="true"><span></span><span></span><span></span></div>
+          <h3><span data-lang="zh" hidden>交付可验证成果</span><span data-lang="en">Deliver verifiable outcomes</span></h3>
+          <p data-lang="zh" hidden>责任人、阶段门与验收证据</p><p data-lang="en">Owners, stage gates, and acceptance evidence</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="library-section" id="library" aria-labelledby="library-title">
+      <div class="content-wrap">
+        <div class="section-heading library-heading">
+          <div>
+            <p class="section-kicker"><span>02</span> / <span data-lang="zh" hidden>技能目录</span><span data-lang="en">SKILL LIBRARY</span></p>
+            <h2 id="library-title"><span data-lang="zh" hidden>找到现在需要的<br><em>那一项专业能力。</em></span><span data-lang="en">Find the expertise<br><em>your project needs now.</em></span></h2>
+          </div>
+          <p class="library-intro" data-lang="zh" hidden>从项目编排、管理基础到数据交付与运营，按任务选择。每项技能都说明适用时机、预期产出，并附一条可直接改写使用的提示示例。</p>
+          <p class="library-intro" data-lang="en">Browse project orchestration, management foundations, and delivery operations. Each skill explains when to use it, what it produces, and includes a prompt you can adapt.</p>
+        </div>
+
+        <div class="library-tools">
+          <label class="search-box" for="skill-search">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.3"/><path d="m15.5 15.5 4.2 4.2"/></svg>
+            <span class="sr-only"><span data-lang="zh" hidden>搜索技能</span><span data-lang="en">Search skills</span></span>
+            <input id="skill-search" type="search" autocomplete="off" placeholder="搜索技能、问题或产出…" data-placeholder-zh="搜索技能、问题或产出…" data-placeholder-en="Search skills, problems, or outputs…">
+            <kbd aria-hidden="true">⌘ / Ctrl K</kbd>
+          </label>
+          <div class="filter-controls" role="group" aria-label="Filter skills by category" data-label-zh="按类别筛选技能" data-label-en="Filter skills by category">
+            <button type="button" class="filter-button is-active" data-filter="all" aria-pressed="true"><span data-lang="zh" hidden>全部</span><span data-lang="en">All</span><span class="filter-count">17</span></button>
+            <button type="button" class="filter-button" data-filter="orchestration" aria-pressed="false"><span data-lang="zh" hidden>项目编排</span><span data-lang="en">Orchestration</span><span class="filter-count">04</span></button>
+            <button type="button" class="filter-button" data-filter="foundations" aria-pressed="false"><span data-lang="zh" hidden>管理基础</span><span data-lang="en">Foundations</span><span class="filter-count">09</span></button>
+            <button type="button" class="filter-button" data-filter="delivery" aria-pressed="false"><span data-lang="zh" hidden>交付与运营</span><span data-lang="en">Delivery</span><span class="filter-count">04</span></button>
+          </div>
+        </div>
+        <p id="results-status" class="results-status" role="status" aria-live="polite">Showing all 17 skills</p>
+
+        <section class="skill-group group-orchestration" data-skill-group="orchestration" aria-labelledby="group-orchestration-title">
+          <div class="group-heading">
+            <span class="group-index">A</span>
+            <div><p class="group-label"><span data-lang="zh" hidden>第一步：看清全局</span><span data-lang="en">START HERE: SEE THE WHOLE</span></p><h3 id="group-orchestration-title"><span data-lang="zh" hidden>项目编排</span><span data-lang="en">Project orchestration</span></h3></div>
+            <p class="group-description" data-lang="zh" hidden>当范围、分工或采纳方式还不明确时，从这里开始。</p><p class="group-description" data-lang="en">Start here when scope, ownership, or adoption is still unclear.</p>
+            <span class="group-total">04 <span data-lang="zh" hidden>项</span><span data-lang="en">SKILLS</span></span>
+          </div>
+          <div class="skill-grid">
+            <article class="skill-card" data-skill="managing-data-projects" data-group="orchestration">
+              <div class="card-topline"><span class="skill-index">01</span><span class="skill-domain"><span data-lang="zh" hidden>路由入口</span><span data-lang="en">ROUTER</span></span><span class="skill-mark mark-router" aria-hidden="true">↗</span></div>
+              <img class="skill-illustration" src="assets/skills/managing-data-projects.svg" alt="" loading="lazy" width="480" height="300">
+              <h4><span data-lang="zh" hidden>管理数据项目</span><span data-lang="en">Managing Data Projects</span></h4>
+              <div class="skill-use" data-lang="zh" hidden><span class="field-label">何时使用</span><p>项目跨多个知识域，或不确定该调用哪些技能、按什么顺序交付。</p></div>
+              <div class="skill-use" data-lang="en"><span class="field-label">WHEN TO USE</span><p>An initiative spans several data-management domains, or the right skills and delivery order are unclear.</p></div>
+              <div class="skill-output" data-lang="zh" hidden><span class="field-label">主要产出</span><p>主域 / 基础域 / 支持域路由、裁剪理由、依赖顺序、阶段门与跨域交付计划。</p></div>
+              <div class="skill-output" data-lang="en"><span class="field-label">WHAT IT PRODUCES</span><p>Domain route, tailoring rationale, dependency order, stage gates, and an integrated delivery plan.</p></div>
+              <button class="example-toggle" type="button" aria-expanded="true" aria-controls="prompt-managing-data-projects"><span data-lang="zh" hidden>查看提示示例</span><span data-lang="en">View prompt example</span><span aria-hidden="true">＋</span></button>
+              <div class="example-panel" id="prompt-managing-data-projects">
+                <div class="skill-example" data-lang="zh" hidden><span class="field-label">可直接改写的示例</span><p>请用 $managing-data-projects，为新建客户数据平台制定 12 周路线图；说明治理、质量、元数据、安全、运营和变更的取舍，以及各阶段门的证据。</p></div>
+                <div class="skill-example" data-lang="en"><span class="field-label">ADAPTABLE PROMPT</span><p>Use $managing-data-projects to create a 12-week roadmap for a customer data platform. Explain scope choices across governance, quality, metadata, security, operations, and change, with evidence for each stage gate.</p></div>
+              </div>
+            </article>
+
+            <article class="skill-card" data-skill="assessing-data-management-maturity" data-group="orchestration">
+              <div class="card-topline"><span class="skill-index">02</span><span class="skill-domain"><span data-lang="zh" hidden>诊断</span><span data-lang="en">ASSESS</span></span><span class="skill-mark mark-assess" aria-hidden="true">◎</span></div>
+              <img class="skill-illustration" src="assets/skills/assessing-data-management-maturity.svg" alt="" loading="lazy" width="480" height="300">
+              <h4><span data-lang="zh" hidden>数据管理成熟度评估</span><span data-lang="en">Assessing Data-Management Maturity</span></h4>
+              <div class="skill-use" data-lang="zh" hidden><span class="field-label">何时使用</span><p>需要以可复核证据评估现状能力、目标能力、差距和改进优先级。</p></div>
+              <div class="skill-use" data-lang="en"><span class="field-label">WHEN TO USE</span><p>An organization needs an evidence-based current/target capability assessment, gap analysis, and priorities.</p></div>
+              <div class="skill-output" data-lang="zh" hidden><span class="field-label">主要产出</span><p>评估范围与准则、证据强度、现状 / 目标矩阵、不确定性说明及复评节奏。</p></div>
+              <div class="skill-output" data-lang="en"><span class="field-label">WHAT IT PRODUCES</span><p>Assessment scope and rubric, evidence-strength rules, current/target matrix, uncertainty statements, and reassessment cadence.</p></div>
+              <button class="example-toggle" type="button" aria-expanded="true" aria-controls="prompt-assessing-data-management-maturity"><span data-lang="zh" hidden>查看提示示例</span><span data-lang="en">View prompt example</span><span aria-hidden="true">＋</span></button>
+              <div class="example-panel" id="prompt-assessing-data-management-maturity">
+                <div class="skill-example" data-lang="zh" hidden><span class="field-label">可直接改写的示例</span><p>请用 $assessing-data-management-maturity，评估三个事业部的治理、质量和元数据能力；说明样本与证据强度，不要在缺少运行证据时给出已核实的集团总分。</p></div>
+                <div class="skill-example" data-lang="en"><span class="field-label">ADAPTABLE PROMPT</span><p>Use $assessing-data-management-maturity to assess governance, quality, and metadata across three business units. State sampling and evidence strength; do not claim a verified enterprise-wide score without operational evidence.</p></div>
+              </div>
+            </article>
+
+            <article class="skill-card" data-skill="organizing-data-management" data-group="orchestration">
+              <div class="card-topline"><span class="skill-index">03</span><span class="skill-domain"><span data-lang="zh" hidden>组织</span><span data-lang="en">OPERATING MODEL</span></span><span class="skill-mark mark-organize" aria-hidden="true">⌘</span></div>
+              <img class="skill-illustration" src="assets/skills/organizing-data-management.svg" alt="" loading="lazy" width="480" height="300">
+              <h4><span data-lang="zh" hidden>数据管理组织与运行模式</span><span data-lang="en">Organizing Data Management</span></h4>
+              <div class="skill-use" data-lang="zh" hidden><span class="field-label">何时使用</span><p>要设计中央 / 本地职责、岗位、委员会、共享服务、RACI、预算与协作接口。</p></div>
+              <div class="skill-use" data-lang="en"><span class="field-label">WHEN TO USE</span><p>Designing central/local responsibilities, roles, committees, shared services, RACI, funding, or coordination.</p></div>
+              <div class="skill-output" data-lang="zh" hidden><span class="field-label">主要产出</span><p>组织模式比较、目标运行模式、岗位章程、活动级 RACI、资源缺口和试点路线。</p></div>
+              <div class="skill-output" data-lang="en"><span class="field-label">WHAT IT PRODUCES</span><p>Operating-model comparison, role charters, activity-level RACI, resource gaps, and a pilot roadmap.</p></div>
+              <button class="example-toggle" type="button" aria-expanded="true" aria-controls="prompt-organizing-data-management"><span data-lang="zh" hidden>查看提示示例</span><span data-lang="en">View prompt example</span><span aria-hidden="true">＋</span></button>
+              <div class="example-panel" id="prompt-organizing-data-management">
+                <div class="skill-example" data-lang="zh" hidden><span class="field-label">可直接改写的示例</span><p>请用 $organizing-data-management，为跨地区企业比较集中式与联邦式数据办公室；给出中央和事业部岗位、决策接口、RACI、人员容量及试点转换门。</p></div>
+                <div class="skill-example" data-lang="en"><span class="field-label">ADAPTABLE PROMPT</span><p>Use $organizing-data-management to compare centralized and federated data offices for a multi-region company. Define roles, decision interfaces, RACI, staffing capacity, and pilot gates.</p></div>
+              </div>
+            </article>
+
+            <article class="skill-card" data-skill="leading-data-change" data-group="orchestration">
+              <div class="card-topline"><span class="skill-index">04</span><span class="skill-domain"><span data-lang="zh" hidden>采纳</span><span data-lang="en">ADOPTION</span></span><span class="skill-mark mark-change" aria-hidden="true">↝</span></div>
+              <img class="skill-illustration" src="assets/skills/leading-data-change.svg" alt="" loading="lazy" width="480" height="300">
+              <h4><span data-lang="zh" hidden>数据管理变更与采纳</span><span data-lang="en">Leading Data Change</span></h4>
+              <div class="skill-use" data-lang="zh" hidden><span class="field-label">何时使用</span><p>新目录、流程或标准已建立，却无人使用、被绕过或不能持续。</p></div>
+              <div class="skill-use" data-lang="en"><span class="field-label">WHEN TO USE</span><p>A new catalog, process, or standard is underused, bypassed, or not sustained.</p></div>
+              <div class="skill-output" data-lang="zh" hidden><span class="field-label">主要产出</span><p>目标行为、利益相关者准备度、沟通培训、障碍台账、短期胜利与采纳漏斗。</p></div>
+              <div class="skill-output" data-lang="en"><span class="field-label">WHAT IT PRODUCES</span><p>Target behaviors, readiness, communications and training, obstacle log, quick wins, and an adoption funnel.</p></div>
+              <button class="example-toggle" type="button" aria-expanded="true" aria-controls="prompt-leading-data-change"><span data-lang="zh" hidden>查看提示示例</span><span data-lang="en">View prompt example</span><span aria-hidden="true">＋</span></button>
+              <div class="example-panel" id="prompt-leading-data-change">
+                <div class="skill-example" data-lang="zh" hidden><span class="field-label">可直接改写的示例</span><p>请用 $leading-data-change，让上线三个月仍只有 12% 主动使用率的数据目录被真实采用；设计经理参与、实操支持、反馈闭环和持续使用指标。</p></div>
+                <div class="skill-example" data-lang="en"><span class="field-label">ADAPTABLE PROMPT</span><p>Use $leading-data-change to improve a catalog's 12% active-use rate three months after launch. Address manager participation, hands-on support, feedback closure, and sustained-use measures.</p></div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="skill-group group-foundations" data-skill-group="foundations" aria-labelledby="group-foundations-title">
+          <div class="group-heading">
+            <span class="group-index">B</span>
+            <div><p class="group-label"><span data-lang="zh" hidden>让数据可被信任与管理</span><span data-lang="en">MAKE DATA TRUSTWORTHY</span></p><h3 id="group-foundations-title"><span data-lang="zh" hidden>管理基础</span><span data-lang="en">Management foundations</span></h3></div>
+            <p class="group-description" data-lang="zh" hidden>明确决策、结构、质量、责任与数据使用边界。</p><p class="group-description" data-lang="en">Clarify decisions, structure, quality, accountability, and data-use boundaries.</p>
+            <span class="group-total">09 <span data-lang="zh" hidden>项</span><span data-lang="en">SKILLS</span></span>
+          </div>
+          <div class="skill-grid">
+            <article class="skill-card" data-skill="handling-data-ethically" data-group="foundations">
+              <div class="card-topline"><span class="skill-index">05</span><span class="skill-domain"><span data-lang="zh" hidden>影响与责任</span><span data-lang="en">IMPACT &amp; TRUST</span></span><span class="skill-mark mark-ethics" aria-hidden="true">◉</span></div>
+              <img class="skill-illustration" src="assets/skills/handling-data-ethically.svg" alt="" loading="lazy" width="480" height="300">
+              <h4><span data-lang="zh" hidden>负责任地处理数据</span><span data-lang="en">Handling Data Ethically</span></h4>
+              <div class="skill-use" data-lang="zh" hidden><span class="field-label">何时使用</span><p>收集、共享、画像、AI 或二次使用可能影响个人、公平、自主性或信任。</p></div>
+              <div class="skill-use" data-lang="en"><span class="field-label">WHEN TO USE</span><p>Collection, sharing, profiling, AI, or secondary use may affect people, fairness, autonomy, or trust.</p></div>
+              <div class="skill-output" data-lang="zh" hidden><span class="field-label">主要产出</span><p>目的与替代方案、受影响方、收益 / 伤害评估、用途边界、申诉与停止条件。</p></div>
+              <div class="skill-output" data-lang="en"><span class="field-label">WHAT IT PRODUCES</span><p>Purpose and alternatives, affected parties, benefit/harm assessment, use boundaries, recourse, and stop conditions.</p></div>
+              <button class="example-toggle" type="button" aria-expanded="true" aria-controls="prompt-handling-data-ethically"><span data-lang="zh" hidden>查看提示示例</span><span data-lang="en">View prompt example</span><span aria-hidden="true">＋</span></button>
+              <div class="example-panel" id="prompt-handling-data-ethically">
+                <div class="skill-example" data-lang="zh" hidden><span class="field-label">可直接改写的示例</span><p>请用 $handling-data-ethically，评估将客户行为数据用于个性化定价；列出受影响群体、较少侵入的替代方案、公平风险和决策前所需证据。</p></div>
+                <div class="skill-example" data-lang="en"><span class="field-label">ADAPTABLE PROMPT</span><p>Use $handling-data-ethically to assess using customer-behavior data for personalized pricing. Identify affected groups, less intrusive alternatives, fairness risks, and evidence needed before deciding.</p></div>
+              </div>
+            </article>
+
+            <article class="skill-card" data-skill="establishing-data-governance" data-group="foundations">
+              <div class="card-topline"><span class="skill-index">06</span><span class="skill-domain"><span data-lang="zh" hidden>决策权</span><span data-lang="en">DECISION RIGHTS</span></span><span class="skill-mark mark-governance" aria-hidden="true">⌖</span></div>
+              <img class="skill-illustration" src="assets/skills/establishing-data-governance.svg" alt="" loading="lazy" width="480" height="300">
+              <h4><span data-lang="zh" hidden>建立数据治理</span><span data-lang="en">Establishing Data Governance</span></h4>
+              <div class="skill-use" data-lang="zh" hidden><span class="field-label">何时使用</span><p>定义、所有权、标准或例外跨团队有争议，需要权责、监督和升级机制。</p></div>
+              <div class="skill-use" data-lang="en"><span class="field-label">WHEN TO USE</span><p>Teams disagree on definitions, ownership, standards, or exceptions and need authority and escalation.</p></div>
+              <div class="skill-output" data-lang="zh" hidden><span class="field-label">主要产出</span><p>治理章程、决策权与管家职责、政策层级、议题 / 例外流程和记分卡。</p></div>
+              <div class="skill-output" data-lang="en"><span class="field-label">WHAT IT PRODUCES</span><p>Governance charter, decision rights and stewardship, policy hierarchy, issue/exception workflow, and scorecard.</p></div>
+              <button class="example-toggle" type="button" aria-expanded="true" aria-controls="prompt-establishing-data-governance"><span data-lang="zh" hidden>查看提示示例</span><span data-lang="en">View prompt example</span><span aria-hidden="true">＋</span></button>
+              <div class="example-panel" id="prompt-establishing-data-governance">
+                <div class="skill-example" data-lang="zh" hidden><span class="field-label">可直接改写的示例</span><p>请用 $establishing-data-governance，解决三个事业部对“客户”定义的冲突；给出最终批准人、术语变更流程、争议升级和监督指标。</p></div>
+                <div class="skill-example" data-lang="en"><span class="field-label">ADAPTABLE PROMPT</span><p>Use $establishing-data-governance to resolve conflicting definitions of “customer” across three business units. Define the final approver, term-change process, escalation path, and oversight measures.</p></div>
+              </div>
+            </article>
+
+            <article class="skill-card" data-skill="designing-data-architecture" data-group="foundations">
+              <div class="card-topline"><span class="skill-index">07</span><span class="skill-domain"><span data-lang="zh" hidden>系统蓝图</span><span data-lang="en">SYSTEM BLUEPRINT</span></span><span class="skill-mark mark-architecture" aria-hidden="true">⌘</span></div>
+              <img class="skill-illustration" src="assets/skills/designing-data-architecture.svg" alt="" loading="lazy" width="480" height="300">
+              <h4><span data-lang="zh" hidden>设计数据架构</span><span data-lang="en">Designing Data Architecture</span></h4>
+              <div class="skill-use" data-lang="zh" hidden><span class="field-label">何时使用</span><p>需要企业、领域或平台的现状、目标、过渡架构与迁移路线，而非只设计一张表。</p></div>
+              <div class="skill-use" data-lang="en"><span class="field-label">WHEN TO USE</span><p>An enterprise, domain, or platform needs current, target, and transition architecture—not merely a table design.</p></div>
+              <div class="skill-output" data-lang="zh" hidden><span class="field-label">主要产出</span><p>架构原则与视图、蓝图、关键权衡、依赖路线图和符合性证据。</p></div>
+              <div class="skill-output" data-lang="en"><span class="field-label">WHAT IT PRODUCES</span><p>Architecture principles and views, blueprints, trade-offs, dependency roadmap, and conformance evidence.</p></div>
+              <button class="example-toggle" type="button" aria-expanded="true" aria-controls="prompt-designing-data-architecture"><span data-lang="zh" hidden>查看提示示例</span><span data-lang="en">View prompt example</span><span aria-hidden="true">＋</span></button>
+              <div class="example-panel" id="prompt-designing-data-architecture">
+                <div class="skill-example" data-lang="zh" hidden><span class="field-label">可直接改写的示例</span><p>请用 $designing-data-architecture，规划 CRM、POS 和电商数据整合的目标架构；比较过渡方案，说明系统责任、数据流和分阶段迁移依据。</p></div>
+                <div class="skill-example" data-lang="en"><span class="field-label">ADAPTABLE PROMPT</span><p>Use $designing-data-architecture to plan a target architecture for CRM, POS, and e-commerce data. Compare transition options, responsibilities, flows, and evidence for phased migration.</p></div>
+              </div>
+            </article>
+
+            <article class="skill-card" data-skill="modeling-data" data-group="foundations">
+              <div class="card-topline"><span class="skill-index">08</span><span class="skill-domain"><span data-lang="zh" hidden>结构与含义</span><span data-lang="en">STRUCTURE &amp; MEANING</span></span><span class="skill-mark mark-model" aria-hidden="true">◇</span></div>
+              <img class="skill-illustration" src="assets/skills/modeling-data.svg" alt="" loading="lazy" width="480" height="300">
+              <h4><span data-lang="zh" hidden>数据建模与设计</span><span data-lang="en">Modeling Data</span></h4>
+              <div class="skill-use" data-lang="zh" hidden><span class="field-label">何时使用</span><p>要把业务要求落实为概念、逻辑或物理模型，并明确实体、粒度、键和规则。</p></div>
+              <div class="skill-use" data-lang="en"><span class="field-label">WHEN TO USE</span><p>Business requirements must become conceptual, logical, or physical models with explicit entities, grain, keys, and rules.</p></div>
+              <div class="skill-output" data-lang="zh" hidden><span class="field-label">主要产出</span><p>模型与术语定义、概念到物理的追溯、评审记录、版本及变更控制。</p></div>
+              <div class="skill-output" data-lang="en"><span class="field-label">WHAT IT PRODUCES</span><p>Models and definitions, conceptual-to-physical traceability, reviews, versions, and controlled changes.</p></div>
+              <button class="example-toggle" type="button" aria-expanded="true" aria-controls="prompt-modeling-data"><span data-lang="zh" hidden>查看提示示例</span><span data-lang="en">View prompt example</span><span aria-hidden="true">＋</span></button>
+              <div class="example-panel" id="prompt-modeling-data">
+                <div class="skill-example" data-lang="zh" hidden><span class="field-label">可直接改写的示例</span><p>请用 $modeling-data，为订单、退款和客户建立逻辑模型；明确订单行粒度、主外键、历史状态及待业务确认的问题。</p></div>
+                <div class="skill-example" data-lang="en"><span class="field-label">ADAPTABLE PROMPT</span><p>Use $modeling-data to design a logical model for orders, refunds, and customers. Specify order-line grain, keys, historical states, and questions requiring business confirmation.</p></div>
+              </div>
+            </article>
+
+            <article class="skill-card" data-skill="securing-data" data-group="foundations">
+              <div class="card-topline"><span class="skill-index">09</span><span class="skill-domain"><span data-lang="zh" hidden>控制与保护</span><span data-lang="en">CONTROLS &amp; PROTECTION</span></span><span class="skill-mark mark-security" aria-hidden="true">⬡</span></div>
+              <img class="skill-illustration" src="assets/skills/securing-data.svg" alt="" loading="lazy" width="480" height="300">
+              <h4><span data-lang="zh" hidden>数据安全</span><span data-lang="en">Securing Data</span></h4>
+              <div class="skill-use" data-lang="zh" hidden><span class="field-label">何时使用</span><p>需要分类、访问控制、加密 / 脱敏、导出限制、审计和控制测试。</p></div>
+              <div class="skill-use" data-lang="en"><span class="field-label">WHEN TO USE</span><p>Data needs classification, access control, masking/encryption, export limits, auditability, and control tests.</p></div>
+              <div class="skill-output" data-lang="zh" hidden><span class="field-label">主要产出</span><p>数据分类、主体 × 数据 × 动作访问矩阵、负向测试、例外和残余风险证据。</p></div>
+              <div class="skill-output" data-lang="en"><span class="field-label">WHAT IT PRODUCES</span><p>Classification, subject-by-data-by-action access matrix, negative tests, exceptions, and residual-risk evidence.</p></div>
+              <button class="example-toggle" type="button" aria-expanded="true" aria-controls="prompt-securing-data"><span data-lang="zh" hidden>查看提示示例</span><span data-lang="en">View prompt example</span><span aria-hidden="true">＋</span></button>
+              <div class="example-panel" id="prompt-securing-data">
+                <div class="skill-example" data-lang="zh" hidden><span class="field-label">可直接改写的示例</span><p>请用 $securing-data，为含客户联系方式的云平台设计最小权限和脱敏控制；列出普通分析员应被拒绝的访问、撤权测试和审计证据。</p></div>
+                <div class="skill-example" data-lang="en"><span class="field-label">ADAPTABLE PROMPT</span><p>Use $securing-data to design least-privilege and masking for a cloud platform with customer contact data. Specify denied access, revocation tests, and audit evidence.</p></div>
+              </div>
+            </article>
+
+            <article class="skill-card" data-skill="managing-documents-and-content" data-group="foundations">
+              <div class="card-topline"><span class="skill-index">10</span><span class="skill-domain"><span data-lang="zh" hidden>非结构化内容</span><span data-lang="en">UNSTRUCTURED CONTENT</span></span><span class="skill-mark mark-content" aria-hidden="true">▤</span></div>
+              <img class="skill-illustration" src="assets/skills/managing-documents-and-content.svg" alt="" loading="lazy" width="480" height="300">
+              <h4><span data-lang="zh" hidden>文档与内容管理</span><span data-lang="en">Managing Documents and Content</span></h4>
+              <div class="skill-use" data-lang="zh" hidden><span class="field-label">何时使用</span><p>合同、邮件、记录或媒体等内容需要分类、检索、发布、保留与处置治理。</p></div>
+              <div class="skill-use" data-lang="en"><span class="field-label">WHEN TO USE</span><p>Contracts, email, records, or media need lifecycle governance for classification, search, retention, and disposition.</p></div>
+              <div class="skill-output" data-lang="zh" hidden><span class="field-label">主要产出</span><p>内容清单与分类、词表、生命周期和权限规则、保全 / 处置流程及审计证据。</p></div>
+              <div class="skill-output" data-lang="en"><span class="field-label">WHAT IT PRODUCES</span><p>Content inventory and taxonomy, lifecycle/access rules, hold/disposition workflows, search, and audit evidence.</p></div>
+              <button class="example-toggle" type="button" aria-expanded="true" aria-controls="prompt-managing-documents-and-content"><span data-lang="zh" hidden>查看提示示例</span><span data-lang="en">View prompt example</span><span aria-hidden="true">＋</span></button>
+              <div class="example-panel" id="prompt-managing-documents-and-content">
+                <div class="skill-example" data-lang="zh" hidden><span class="field-label">可直接改写的示例</span><p>请用 $managing-documents-and-content，治理多个仓库中的客户合同和邮件；设计分类、版本、检索、保留及法律保全接口，标明须由法务确认的决定。</p></div>
+                <div class="skill-example" data-lang="en"><span class="field-label">ADAPTABLE PROMPT</span><p>Use $managing-documents-and-content to govern customer contracts and email across repositories. Design classification, versions, search, retention, and legal-hold interfaces; flag decisions for counsel.</p></div>
+              </div>
+            </article>
+
+            <article class="skill-card" data-skill="managing-reference-and-master-data" data-group="foundations">
+              <div class="card-topline"><span class="skill-index">11</span><span class="skill-domain"><span data-lang="zh" hidden>共享实体</span><span data-lang="en">SHARED ENTITIES</span></span><span class="skill-mark mark-master" aria-hidden="true">⊙</span></div>
+              <img class="skill-illustration" src="assets/skills/managing-reference-and-master-data.svg" alt="" loading="lazy" width="480" height="300">
+              <h4><span data-lang="zh" hidden>参考数据与主数据管理</span><span data-lang="en">Managing Reference and Master Data</span></h4>
+              <div class="skill-use" data-lang="zh" hidden><span class="field-label">何时使用</span><p>客户、产品等实体身份或受控代码集在系统间不一致，需要权威来源和持续分发。</p></div>
+              <div class="skill-use" data-lang="en"><span class="field-label">WHEN TO USE</span><p>Shared entity identities or controlled code sets conflict across systems and need authority and distribution.</p></div>
+              <div class="skill-output" data-lang="zh" hidden><span class="field-label">主要产出</span><p>权威 / 消费矩阵、全局 ID、生存规则、匹配合并拆分测试、代码版本与管家流程。</p></div>
+              <div class="skill-output" data-lang="en"><span class="field-label">WHAT IT PRODUCES</span><p>Authority/consumer matrix, global IDs, survivorship, match/merge/split tests, code versions, and stewardship.</p></div>
+              <button class="example-toggle" type="button" aria-expanded="true" aria-controls="prompt-managing-reference-and-master-data"><span data-lang="zh" hidden>查看提示示例</span><span data-lang="en">View prompt example</span><span aria-hidden="true">＋</span></button>
+              <div class="example-panel" id="prompt-managing-reference-and-master-data">
+                <div class="skill-example" data-lang="zh" hidden><span class="field-label">可直接改写的示例</span><p>请用 $managing-reference-and-master-data，治理三套 CRM 的重复客户；定义误合并防护、可逆拆分、黄金记录规则、国家码版本和消费者回执。</p></div>
+                <div class="skill-example" data-lang="en"><span class="field-label">ADAPTABLE PROMPT</span><p>Use $managing-reference-and-master-data to address duplicate customers across three CRMs. Define false-merge safeguards, reversible splits, golden-record rules, code versions, and consumer acknowledgments.</p></div>
+              </div>
+            </article>
+
+            <article class="skill-card" data-skill="managing-metadata" data-group="foundations">
+              <div class="card-topline"><span class="skill-index">12</span><span class="skill-domain"><span data-lang="zh" hidden>发现与血缘</span><span data-lang="en">DISCOVERY &amp; LINEAGE</span></span><span class="skill-mark mark-metadata" aria-hidden="true">⌗</span></div>
+              <img class="skill-illustration" src="assets/skills/managing-metadata.svg" alt="" loading="lazy" width="480" height="300">
+              <h4><span data-lang="zh" hidden>元数据管理</span><span data-lang="en">Managing Metadata</span></h4>
+              <div class="skill-use" data-lang="zh" hidden><span class="field-label">何时使用</span><p>资产、术语、字段、责任、运行状态或血缘需要可发现、可维护并支撑影响分析。</p></div>
+              <div class="skill-use" data-lang="en"><span class="field-label">WHEN TO USE</span><p>Assets, terms, fields, ownership, operational status, or lineage must be discoverable and maintained.</p></div>
+              <div class="skill-output" data-lang="zh" hidden><span class="field-label">主要产出</span><p>最小元数据产品、目录 / 词汇表、运行血缘、影响分析及覆盖和新鲜度指标。</p></div>
+              <div class="skill-output" data-lang="en"><span class="field-label">WHAT IT PRODUCES</span><p>Minimum metadata product, catalog/glossary, run lineage, impact analysis, and coverage/freshness measures.</p></div>
+              <button class="example-toggle" type="button" aria-expanded="true" aria-controls="prompt-managing-metadata"><span data-lang="zh" hidden>查看提示示例</span><span data-lang="en">View prompt example</span><span aria-hidden="true">＋</span></button>
+              <div class="example-panel" id="prompt-managing-metadata">
+                <div class="skill-example" data-lang="zh" hidden><span class="field-label">可直接改写的示例</span><p>请用 $managing-metadata，为三个关键报表建立可搜索目录和字段级血缘；要求从报表反查源批次，并演练源字段变更的下游影响。</p></div>
+                <div class="skill-example" data-lang="en"><span class="field-label">ADAPTABLE PROMPT</span><p>Use $managing-metadata to build a searchable catalog and field-level lineage for three critical reports. Trace each report to its source run and test the impact of a changed source field.</p></div>
+              </div>
+            </article>
+
+            <article class="skill-card" data-skill="improving-data-quality" data-group="foundations">
+              <div class="card-topline"><span class="skill-index">13</span><span class="skill-domain"><span data-lang="zh" hidden>适用性与缺陷</span><span data-lang="en">FITNESS &amp; DEFECTS</span></span><span class="skill-mark mark-quality" aria-hidden="true">◌</span></div>
+              <img class="skill-illustration" src="assets/skills/improving-data-quality.svg" alt="" loading="lazy" width="480" height="300">
+              <h4><span data-lang="zh" hidden>数据质量持续改进</span><span data-lang="en">Improving Data Quality</span></h4>
+              <div class="skill-use" data-lang="zh" hidden><span class="field-label">何时使用</span><p>数据缺陷反复出现，需要按业务用途定义规则、找根因并建立预防和监控。</p></div>
+              <div class="skill-use" data-lang="en"><span class="field-label">WHEN TO USE</span><p>Defects recur and the business needs fit-for-purpose rules, root-cause analysis, prevention, and monitoring.</p></div>
+              <div class="skill-output" data-lang="zh" hidden><span class="field-label">主要产出</span><p>版本化质量规则、基线、业务影响排序、根因整改、问题闭环和趋势评分卡。</p></div>
+              <div class="skill-output" data-lang="en"><span class="field-label">WHAT IT PRODUCES</span><p>Versioned quality rules, baselines, business priorities, root-cause remediation, issue closure, and scorecards.</p></div>
+              <button class="example-toggle" type="button" aria-expanded="true" aria-controls="prompt-improving-data-quality"><span data-lang="zh" hidden>查看提示示例</span><span data-lang="en">View prompt example</span><span aria-hidden="true">＋</span></button>
+              <div class="example-panel" id="prompt-improving-data-quality">
+                <div class="skill-example" data-lang="zh" hidden><span class="field-label">可直接改写的示例</span><p>请用 $improving-data-quality，处理客户地址清洗后再次失效的问题；区分存量修复与新增预防，定义配送用途规则、根因证据和复发指标。</p></div>
+                <div class="skill-example" data-lang="en"><span class="field-label">ADAPTABLE PROMPT</span><p>Use $improving-data-quality to address customer addresses that become invalid again after cleanup. Separate existing-record repair from prevention and define delivery-specific rules and recurrence measures.</p></div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="skill-group group-delivery" data-skill-group="delivery" aria-labelledby="group-delivery-title">
+          <div class="group-heading">
+            <span class="group-index">C</span>
+            <div><p class="group-label"><span data-lang="zh" hidden>把能力交付到运行中</span><span data-lang="en">PUT CAPABILITIES TO WORK</span></p><h3 id="group-delivery-title"><span data-lang="zh" hidden>数据交付与运营</span><span data-lang="en">Delivery and operations</span></h3></div>
+            <p class="group-description" data-lang="zh" hidden>把数据移动、保存、分析或用于模型，并在生产中持续验证。</p><p class="group-description" data-lang="en">Move, persist, analyze, or model data—and keep verifying it in production.</p>
+            <span class="group-total">04 <span data-lang="zh" hidden>项</span><span data-lang="en">SKILLS</span></span>
+          </div>
+          <div class="skill-grid">
+            <article class="skill-card" data-skill="integrating-data" data-group="delivery">
+              <div class="card-topline"><span class="skill-index">14</span><span class="skill-domain"><span data-lang="zh" hidden>跨系统流动</span><span data-lang="en">CROSS-SYSTEM FLOWS</span></span><span class="skill-mark mark-integration" aria-hidden="true">⇄</span></div>
+              <img class="skill-illustration" src="assets/skills/integrating-data.svg" alt="" loading="lazy" width="480" height="300">
+              <h4><span data-lang="zh" hidden>数据集成与互操作</span><span data-lang="en">Integrating Data</span></h4>
+              <div class="skill-use" data-lang="zh" hidden><span class="field-label">何时使用</span><p>数据需在系统间以批量、CDC、流、API 或共享方式移动并互操作。</p></div>
+              <div class="skill-use" data-lang="en"><span class="field-label">WHEN TO USE</span><p>Data must move or interoperate between systems through batch, CDC, streams, APIs, or sharing.</p></div>
+              <div class="skill-output" data-lang="zh" hidden><span class="field-label">主要产出</span><p>模式选择、接口契约、源目标映射、重试 / 重放、血缘、对账与 SLA。</p></div>
+              <div class="skill-output" data-lang="en"><span class="field-label">WHAT IT PRODUCES</span><p>Pattern decisions, interface contracts, mappings, replay and reconciliation design, lineage, and SLAs.</p></div>
+              <button class="example-toggle" type="button" aria-expanded="true" aria-controls="prompt-integrating-data"><span data-lang="zh" hidden>查看提示示例</span><span data-lang="en">View prompt example</span><span aria-hidden="true">＋</span></button>
+              <div class="example-panel" id="prompt-integrating-data">
+                <div class="skill-example" data-lang="zh" hidden><span class="field-label">可直接改写的示例</span><p>请用 $integrating-data，设计 CRM 到计费系统的客户变更 CDC 管道；覆盖乱序与重复事件、幂等重放、schema 变更和业务对账。</p></div>
+                <div class="skill-example" data-lang="en"><span class="field-label">ADAPTABLE PROMPT</span><p>Use $integrating-data to design a customer-change CDC pipeline from CRM to billing. Cover out-of-order and duplicate events, idempotent replay, schema changes, and business reconciliation.</p></div>
+              </div>
+            </article>
+
+            <article class="skill-card" data-skill="operating-data-storage" data-group="delivery">
+              <div class="card-topline"><span class="skill-index">15</span><span class="skill-domain"><span data-lang="zh" hidden>生产就绪</span><span data-lang="en">PRODUCTION READINESS</span></span><span class="skill-mark mark-storage" aria-hidden="true">▣</span></div>
+              <img class="skill-illustration" src="assets/skills/operating-data-storage.svg" alt="" loading="lazy" width="480" height="300">
+              <h4><span data-lang="zh" hidden>数据存储与运行</span><span data-lang="en">Operating Data Storage</span></h4>
+              <div class="skill-use" data-lang="zh" hidden><span class="field-label">何时使用</span><p>数据库、湖仓或文件存储需要容量、性能、备份恢复、变更发布或运行移交。</p></div>
+              <div class="skill-use" data-lang="en"><span class="field-label">WHEN TO USE</span><p>A database, lakehouse, or file store needs production readiness, capacity, recovery, change control, or handoff.</p></div>
+              <div class="skill-output" data-lang="zh" hidden><span class="field-label">主要产出</span><p>服务目标、容量成本、RTO / RPO、恢复演练、监控、运行手册和 Go / No-Go 证据。</p></div>
+              <div class="skill-output" data-lang="en"><span class="field-label">WHAT IT PRODUCES</span><p>Service targets, capacity/cost, RTO/RPO, recovery drills, monitoring, runbooks, and Go/No-Go evidence.</p></div>
+              <button class="example-toggle" type="button" aria-expanded="true" aria-controls="prompt-operating-data-storage"><span data-lang="zh" hidden>查看提示示例</span><span data-lang="en">View prompt example</span><span aria-hidden="true">＋</span></button>
+              <div class="example-panel" id="prompt-operating-data-storage">
+                <div class="skill-example" data-lang="zh" hidden><span class="field-label">可直接改写的示例</span><p>请用 $operating-data-storage，评估新分析数据库的生产就绪性；给出恢复演练、容量与性能测试、值班移交和不能上线的条件。</p></div>
+                <div class="skill-example" data-lang="en"><span class="field-label">ADAPTABLE PROMPT</span><p>Use $operating-data-storage to assess a new analytical database before production. Define recovery drills, capacity/performance tests, on-call handoff, and release blockers.</p></div>
+              </div>
+            </article>
+
+            <article class="skill-card" data-skill="delivering-data-warehousing-and-bi" data-group="delivery">
+              <div class="card-topline"><span class="skill-index">16</span><span class="skill-domain"><span data-lang="zh" hidden>决策支持</span><span data-lang="en">DECISION SUPPORT</span></span><span class="skill-mark mark-bi" aria-hidden="true">▥</span></div>
+              <img class="skill-illustration" src="assets/skills/delivering-data-warehousing-and-bi.svg" alt="" loading="lazy" width="480" height="300">
+              <h4><span data-lang="zh" hidden>数据仓库与商业智能交付</span><span data-lang="en">Delivering Data Warehousing and BI</span></h4>
+              <div class="skill-use" data-lang="zh" hidden><span class="field-label">何时使用</span><p>交付数仓、数据集市、指标、报表或仪表板，涉及口径、历史比较或业务验收。</p></div>
+              <div class="skill-use" data-lang="en"><span class="field-label">WHEN TO USE</span><p>Delivering a warehouse, mart, metric, report, or dashboard with definition, history, or acceptance needs.</p></div>
+              <div class="skill-output" data-lang="zh" hidden><span class="field-label">主要产出</span><p>决策到指标追溯、指标契约、事实粒度、一致维度、装载对账与发布采纳证据。</p></div>
+              <div class="skill-output" data-lang="en"><span class="field-label">WHAT IT PRODUCES</span><p>Decision-to-metric traceability, metric contracts, fact grain, conformed dimensions, reconciliation, and adoption evidence.</p></div>
+              <button class="example-toggle" type="button" aria-expanded="true" aria-controls="prompt-delivering-data-warehousing-and-bi"><span data-lang="zh" hidden>查看提示示例</span><span data-lang="en">View prompt example</span><span aria-hidden="true">＋</span></button>
+              <div class="example-panel" id="prompt-delivering-data-warehousing-and-bi">
+                <div class="skill-example" data-lang="zh" hidden><span class="field-label">可直接改写的示例</span><p>请用 $delivering-data-warehousing-and-bi，交付高管销售仪表板；先解决“收入”口径与退款归属，再定义认证指标、历史同比和验收标准。</p></div>
+                <div class="skill-example" data-lang="en"><span class="field-label">ADAPTABLE PROMPT</span><p>Use $delivering-data-warehousing-and-bi to deliver an executive sales dashboard. Resolve revenue and refund attribution before defining certified metrics, year-over-year history, and acceptance tests.</p></div>
+              </div>
+            </article>
+
+            <article class="skill-card" data-skill="delivering-data-science" data-group="delivery">
+              <div class="card-topline"><span class="skill-index">17</span><span class="skill-domain"><span data-lang="zh" hidden>建模与实验</span><span data-lang="en">MODELING &amp; EXPERIMENTS</span></span><span class="skill-mark mark-science" aria-hidden="true">∿</span></div>
+              <img class="skill-illustration" src="assets/skills/delivering-data-science.svg" alt="" loading="lazy" width="480" height="300">
+              <h4><span data-lang="zh" hidden>数据科学项目交付</span><span data-lang="en">Delivering Data Science</span></h4>
+              <div class="skill-use" data-lang="zh" hidden><span class="field-label">何时使用</span><p>要检验数据假设、开发或部署统计 / 机器学习模型并管理实验与生产风险。</p></div>
+              <div class="skill-use" data-lang="en"><span class="field-label">WHEN TO USE</span><p>Testing a data hypothesis or building/deploying a statistical or machine-learning model with production controls.</p></div>
+              <div class="skill-output" data-lang="zh" hidden><span class="field-label">主要产出</span><p>假设、数据与特征卡、独立验证、模型卡、灰度门、漂移监控和回滚标准。</p></div>
+              <div class="skill-output" data-lang="en"><span class="field-label">WHAT IT PRODUCES</span><p>Hypotheses, data/feature cards, independent validation, model cards, rollout gates, drift monitoring, and rollback criteria.</p></div>
+              <button class="example-toggle" type="button" aria-expanded="true" aria-controls="prompt-delivering-data-science"><span data-lang="zh" hidden>查看提示示例</span><span data-lang="en">View prompt example</span><span aria-hidden="true">＋</span></button>
+              <div class="example-panel" id="prompt-delivering-data-science">
+                <div class="skill-example" data-lang="zh" hidden><span class="field-label">可直接改写的示例</span><p>请用 $delivering-data-science，为客户风险评分模型设计上线方案；固定预测时点、时间切分和独立测试，并定义分群误差、人工兜底和停用条件。</p></div>
+                <div class="skill-example" data-lang="en"><span class="field-label">ADAPTABLE PROMPT</span><p>Use $delivering-data-science to design a customer-risk model launch. Fix prediction time, temporal split, and independent test; define group errors, human fallback, and stop conditions.</p></div>
+              </div>
+            </article>
+          </div>
+        </section>
+        <p class="empty-state" id="empty-state" hidden><span data-lang="zh" hidden>没有找到匹配项。试试其他关键词或清除筛选。</span><span data-lang="en">No skills match. Try another term or clear the filters.</span></p>
+      </div>
+    </section>
+
+    <section class="install-section content-wrap" id="install" aria-labelledby="install-title">
+      <div class="install-copy">
+        <p class="section-kicker"><span>03</span> / <span data-lang="zh" hidden>开始使用</span><span data-lang="en">GET STARTED</span></p>
+        <h2 id="install-title"><span data-lang="zh" hidden>把方法带进<br><em>下一个数据项目。</em></span><span data-lang="en">Bring the methods<br><em>to your next project.</em></span></h2>
+        <p data-lang="zh" hidden>下载后，把完整技能目录放入目标项目的 <code>.agents/skills/</code>。跨域项目安装总入口与相关领域技能；聚焦任务可只装对应技能。</p>
+        <p data-lang="en">Download the package and copy complete skill folders into your project's <code>.agents/skills/</code>. For cross-domain work, install the router and relevant domain skills; focused work can use one skill.</p>
+        <a class="button button-primary install-cta" href="dama-data-project-skills-v1.0.0.zip" download><span data-lang="zh" hidden>下载技能包</span><span data-lang="en">Download the skill pack</span><span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="install-aside">
+        <div class="release-stamp"><span class="stamp-top">RELEASE</span><strong>1.0.0</strong><span class="stamp-bottom">17 SKILLS · BILINGUAL</span></div>
+        <div class="release-links">
+          <a href="site-docs/README.html"><span data-lang="zh" hidden>阅读中文使用指南</span><span data-lang="en">Chinese usage guide</span><span aria-hidden="true">↗</span></a>
+          <a href="site-docs/README.en.html"><span data-lang="zh" hidden>Read the English guide</span><span data-lang="en">Read the English guide</span><span aria-hidden="true">↗</span></a>
+          <a href="site-docs/VALIDATION.html"><span data-lang="zh" hidden>查看验证摘要</span><span data-lang="en">View validation summary</span><span aria-hidden="true">↗</span></a>
+          <a href="dama-data-project-skills-v1.0.0.zip.sha256"><span data-lang="zh" hidden>ZIP SHA-256 校验值</span><span data-lang="en">ZIP SHA-256 checksum</span><span aria-hidden="true">↗</span></a>
+        </div>
+        <p class="source-note"><span data-lang="zh" hidden>DMBOK 是知识来源，不是对代理发出的操作指令。本套件不代表 DAMA 官方表单、法律意见或认证标准；真实项目中的事实、法规、阈值和权限仍须由相应责任人确认。</span><span data-lang="en">DMBOK is source material, not instructions to the agent. This suite is not an official DAMA form, legal advice, or certification standard. Project facts, law, thresholds, and authority still require confirmation by accountable owners.</span></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="footer-brand" href="#top"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32" focusable="false"><rect x="4" y="4" width="7" height="24"/><rect x="21" y="4" width="7" height="24"/><circle cx="16" cy="16" r="5" fill="#171717"/></svg></span><span>DAMA DATA PROJECT SKILLS</span></a>
+    <p><span data-lang="zh" hidden>版本 v1.0.0</span><span data-lang="en">Version v1.0.0</span></p>
+    <a href="dama-data-project-skills-v1.0.0.zip" download><span data-lang="zh" hidden>获取完整技能包</span><span data-lang="en">Download full package</span><span aria-hidden="true">↑</span></a>
+  </footer>
+</body>
+</html>

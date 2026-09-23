@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="数据科学项目交付 — DAMA Data Project Skills documentation">
+  <title>数据科学项目交付 · DAMA Data Project Skills</title>
+  <link rel="stylesheet" href="../../../assets/site.css">
+</head>
+<body class="docs-page">
+  <a class="skip-link" href="#document-content">跳转到正文 / Skip to content</a>
+  <header class="docs-header content-wrap">
+    <a class="docs-brand" href="../../../index.html">
+      <span class="docs-brand-mark" aria-hidden="true">D</span>
+      <span><strong>DAMA DATA PROJECT SKILLS</strong><small>DOCUMENTATION · RELEASE 1.0.0</small></span>
+    </a>
+    <nav class="docs-nav" aria-label="文档导航 / Document navigation">
+      <a class="docs-home" href="../../../index.html">← 技能首页 / Skill index</a>
+      <a href="../../README.html">中文指南</a>
+      <a href="../../README.en.html">English guide</a>
+      <a class="source-markdown" href="../../../dama-data-project-skills-v1.0.0/skills/delivering-data-science/SKILL.md" download rel="alternate">原始 Markdown ↓</a>
+    </nav>
+  </header>
+  <main class="docs-main" id="document-content">
+    <p class="docs-kicker">KNOWLEDGE LIBRARY <span>／</span> V1.0.0</p>
+    <article class="docs-content">
+      <aside class="docs-skill-summary" aria-label="技能元数据 Skill metadata"><div><span class="docs-meta-label">SKILL ID</span><code>delivering-data-science</code></div><p>Use when a project must test a data-driven hypothesis, develop or deploy a statistical or machine-learning model, combine new data sources for hypothesis testing, prediction, or model-based insight, or manage experiment validity, model evaluation, reproducibility, production monitoring, and retirement.</p></aside>
+      <div class="markdown-body">
+<h1 id="数据科学项目交付">数据科学项目交付</h1>
+<h2 id="核心原则">核心原则</h2>
+<p>从可证伪的业务假设与可测收益出发，审查来源、用途和质量，反复探索、建模、验证、沟通并部署。模型的价值取决于独立测试、真实业务流程、允许的数据用途、生产表现和持续复核；离线分数只是证据之一。</p>
+<h2 id="适用边界">适用边界</h2>
+<ul>
+<li>预测/分类/聚类、推荐、异常检测、统计假设、实验、特征、训练/评估/部署/监控模型使用本技能。</li>
+<li>标准报表、已定义指标与分析仪表板由 <code>delivering-data-warehousing-and-bi</code> 主导；模型输出进入 BI 时协同。</li>
+<li>伦理、隐私与公平影响由 <code>handling-data-ethically</code> 主导独立审查；本技能把批准约束落实到来源、特征、评估、决策和监控。</li>
+<li>数据来源接入、存储和质量能力分别由集成、存储与质量技能提供；本技能指定科学有效性和可复现性要求。</li>
+<li>仅运行一次描述性查询、无假设检验或模型生命周期时按普通分析处理。</li>
+</ul>
+<h2 id="工作流">工作流</h2>
+<ol type="1">
+<li>明确业务决策、行动、可证伪假设、对照/基线、成功/伤害指标、适用人群和人工/自动决策边界。</li>
+<li>阅读<a href="references/playbook.html">数据科学项目手册</a>，为每个来源记录必要性、来源/许可/允许用途、代表性、质量、更新、保留、连接、敏感性和输出再识别风险。</li>
+<li>定义目标/标签、观察与预测时点、抽样/排除、泄漏防护、训练/验证/独立测试或实验设计；先冻结评估协议。</li>
+<li>探索、集成、建特征、训练并与简单基线比较；保存数据快照、代码、环境、随机种子、参数、模型和结果。</li>
+<li>评估准确/校准、误报/漏报成本、时间与群体稳健性、解释、偏差、资源/延迟和可用性；独立审查风险及限制。</li>
+<li>用面向决策者的图表和解释呈现结果、置信度、适用范围与替代方案；记录业务选择和客户影响。</li>
+<li>影子/灰度部署，监控输入质量、漂移、结果、延迟、标签反馈、群体影响与人工队列；设置暂停、回滚、再验证和退役门。</li>
+</ol>
+<h2 id="输出契约">输出契约</h2>
+<p>输出业务假设与决策边界；来源与用途论证；数据/特征/标签卡；实验与评估协议；可复现证据；模型卡和独立验证；可视化/沟通；生产服务与人工流程；监控、重训/变更、回滚和退役标准；阶段门、角色、风险、例外与验收证据。</p>
+<h2 id="常见错误">常见错误</h2>
+<table>
+<thead>
+<tr>
+<th>错误</th>
+<th>修正</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>“离线准确率高”直接上线</td>
+<td>检查基线、成本、校准、分群、生产输入和人工流程</td>
+</tr>
+<tr>
+<td>用未来信息训练过去决策</td>
+<td>固定预测时点、时间切分、特征可得性和泄漏测试</td>
+</tr>
+<tr>
+<td>所有可获取数据都纳入</td>
+<td>每源论证用途、可靠性、代表性、权限和增量价值</td>
+</tr>
+<tr>
+<td>训练结果不可重现</td>
+<td>固定数据/代码/环境/参数/种子/模型与评估版本</td>
+</tr>
+<tr>
+<td>生产漂移只监控分布</td>
+<td>同时监控结果、延迟标签、业务损害和群体影响</td>
+</tr>
+<tr>
+<td>发布聚合图即无隐私风险</td>
+<td>检查小群体、筛选组合与可重新识别输出</td>
+</tr>
+<tr>
+<td>模型持续自更新无人批准</td>
+<td>重训按变更、独立验证、灰度和回退执行</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+    </article>
+  </main>
+  <footer class="docs-footer content-wrap">
+    <span>独立制作 · 项目化重组 / Independently authored · Project-oriented</span>
+    <a href="../../../index.html">返回入口页 / Back to index ↑</a>
+  </footer>
+</body>
+</html>

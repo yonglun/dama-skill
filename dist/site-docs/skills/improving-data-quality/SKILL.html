@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="数据质量持续改进 — DAMA Data Project Skills documentation">
+  <title>数据质量持续改进 · DAMA Data Project Skills</title>
+  <link rel="stylesheet" href="../../../assets/site.css">
+</head>
+<body class="docs-page">
+  <a class="skip-link" href="#document-content">跳转到正文 / Skip to content</a>
+  <header class="docs-header content-wrap">
+    <a class="docs-brand" href="../../../index.html">
+      <span class="docs-brand-mark" aria-hidden="true">D</span>
+      <span><strong>DAMA DATA PROJECT SKILLS</strong><small>DOCUMENTATION · RELEASE 1.0.0</small></span>
+    </a>
+    <nav class="docs-nav" aria-label="文档导航 / Document navigation">
+      <a class="docs-home" href="../../../index.html">← 技能首页 / Skill index</a>
+      <a href="../../README.html">中文指南</a>
+      <a href="../../README.en.html">English guide</a>
+      <a class="source-markdown" href="../../../dama-data-project-skills-v1.0.0/skills/improving-data-quality/SKILL.md" download rel="alternate">原始 Markdown ↓</a>
+    </nav>
+  </header>
+  <main class="docs-main" id="document-content">
+    <p class="docs-kicker">KNOWLEDGE LIBRARY <span>／</span> V1.0.0</p>
+    <article class="docs-content">
+      <aside class="docs-skill-summary" aria-label="技能元数据 Skill metadata"><div><span class="docs-meta-label">SKILL ID</span><code>improving-data-quality</code></div><p>Use when data is unfit for a business purpose, recurring errors or inconsistent values affect operations or reporting, a quality baseline or rules are needed, or defects require prioritization, root-cause analysis, prevention, correction, monitoring, and accountable resolution.</p></aside>
+      <div class="markdown-body">
+<h1 id="数据质量持续改进">数据质量持续改进</h1>
+<h2 id="核心原则">核心原则</h2>
+<p>数据质量由具体用途决定。先确认关键数据、消费者、损害与可测要求，再剖析现状，找出错误进入或传播的位置，设计预防、侦测、纠正和持续运行控制。一次性修复只有在复发原因被控制、例外有责任且趋势稳定时才算有效。</p>
+<h2 id="适用边界">适用边界</h2>
+<ul>
+<li>准确性、完整性、有效性、一致性、唯一性、及时性、完整关系等质量问题，以及画像、规则、评分卡、问题闭环和根因整改使用本技能。</li>
+<li>跨系统共享客户/产品身份、黄金记录、合并/拆分裁决或参考代码权威由 <code>managing-reference-and-master-data</code> 主导；本技能评估其质量并反馈控制缺陷。</li>
+<li>仓库/接口内部的装载与发布对账分别由 <code>delivering-data-warehousing-and-bi</code> 和 <code>integrating-data</code> 实施；本技能批准业务适用性、质量规则和问题整改。</li>
+<li>仅做一个字段格式转换且没有质量风险、持续控制或责任流程时，由相应实现团队处理。</li>
+</ul>
+<h2 id="工作流">工作流</h2>
+<ol type="1">
+<li>明确消费者、用途、错误后果、关键数据元素、业务 owner 和可接受的风险；按用途定义“适用”而非抽象完美。</li>
+<li>阅读<a href="references/playbook.html">数据质量项目手册</a>，盘点生命周期、来源、转换、消费者、现有控制、基线窗口及投诉/损失。</li>
+<li>为每个关键元素定义维度、可测试业务规则、范围/分母、例外、阈值、owner、版本、生效、回测和发布。</li>
+<li>画像并分层测量存量与增量、输入与输出、错误量与率；将样本和影响映射到业务风险与收益优先级。</li>
+<li>对高影响问题建立根因假设、证据和复发验证；检查录入、流程、接口、处理、模型、监督和激励。</li>
+<li>在产生处预防，在流转/消费点侦测，并对历史错误做可审计纠正；为隔离、降级和恢复设置责任。</li>
+<li>按严重度运行问题、争议、例外/风险接受、SLA、升级和关闭复测；用质量趋势与业务效果持续评估控制。</li>
+</ol>
+<h2 id="输出契约">输出契约</h2>
+<p>输出用途/关键数据/责任矩阵；维度与版本化规则；画像和基线；业务影响、损失与优先级；根因树/证据；预防—侦测—纠正控制图；问题与例外工作流；评分卡、趋势、SLA 和效益；阶段门、风险、残余例外与验收证据。</p>
+<h2 id="常见错误">常见错误</h2>
+<table>
+<thead>
+<tr>
+<th>错误</th>
+<th>修正</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>先清洗再问用途</td>
+<td>先定义消费者、损害、关键字段和可接受阈值</td>
+</tr>
+<tr>
+<td>“完整率 98%”无分母</td>
+<td>写明对象、条件、排除、窗口、源和测点</td>
+</tr>
+<tr>
+<td>发现重复就直接合并</td>
+<td>MDM 裁决身份；质量团队测量与追踪误差</td>
+</tr>
+<tr>
+<td>下游补值掩盖源头错误</td>
+<td>找到发生点、修源/流程并标注下游补偿</td>
+</tr>
+<tr>
+<td>指标改善就关闭问题</td>
+<td>验证根因控制、复发趋势和业务结果</td>
+</tr>
+<tr>
+<td>规则静态清单</td>
+<td>审批版本、生效、回测、监控和回退</td>
+</tr>
+<tr>
+<td>例外永久放行</td>
+<td>指定批准人、期限、补偿控制、复核和风险记录</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+    </article>
+  </main>
+  <footer class="docs-footer content-wrap">
+    <span>独立制作 · 项目化重组 / Independently authored · Project-oriented</span>
+    <a href="../../../index.html">返回入口页 / Back to index ↑</a>
+  </footer>
+</body>
+</html>
