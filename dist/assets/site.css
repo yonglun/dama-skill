@@ -84,6 +84,9 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 .button-primary:hover { background: #363636; box-shadow: 0 3px 7px #0000001a; }
 .button-secondary { background: var(--canvas); }
 .button-secondary:hover { background: var(--canvas-soft-2); }
+.github-star-link { display: inline-flex; align-items: center; justify-content: center; gap: .45rem; max-width: 100%; min-height: 2.75rem; margin-top: .55rem; color: var(--body); font-size: .82rem; line-height: 1.45; text-underline-offset: 3px; }
+.github-star-link:hover { color: var(--ink); text-decoration: underline; }
+.github-star-link > span:first-child { color: var(--ink); font-size: 1rem; }
 .hero-meta { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: .75rem; margin-top: 1.65rem; color: var(--body); font-family: var(--mono); font-size: .72rem; }
 .hero-meta > span:not(.meta-divider) { display: inline-flex; align-items: baseline; gap: .3rem; }
 .hero-meta strong { color: var(--ink); font-size: .85rem; font-weight: 600; }
@@ -190,6 +193,8 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 .footer-brand .brand-mark { width: 1.75rem; }
 .footer-brand .brand-mark svg { width: 1.3rem; }
 .site-footer p { margin: 0; }
+.site-footer .footer-github { min-height: 2.75rem; display: inline-flex; align-items: center; gap: .35rem; }
+.site-footer .footer-github:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
 .site-footer > a:last-child { min-height: 2.75rem; display: inline-flex; align-items: center; gap: .35rem; color: var(--ink); }
 
 /* The documentation mirror uses the same surface, typography, and card chrome. */
