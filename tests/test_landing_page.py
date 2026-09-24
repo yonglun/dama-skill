@@ -25,6 +25,7 @@ class LandingPageParser(HTMLParser):
         self.ids: set[str] = set()
         self.languages: set[str] = set()
         self.links: set[str] = set()
+        self.release_links: list[dict[str, str | None]] = []
         self.scripts: list[str] = []
         self.stylesheets: list[str] = []
         self.image_alts: list[str] = []
@@ -61,6 +62,8 @@ class LandingPageParser(HTMLParser):
             self.languages.add(values["data-set-lang"] or "")
         if tag == "a" and values.get("href"):
             self.links.add(values["href"] or "")
+        if tag == "a" and "release-guide" in classes:
+            self.release_links.append(values)
         if tag == "script" and values.get("src"):
             self.scripts.append(values["src"] or "")
         if tag == "link" and "stylesheet" in (values.get("rel") or "").split():
@@ -100,11 +103,8 @@ class LandingPageContentTests(unittest.TestCase):
     def test_page_links_to_release_package_and_bilingual_html_guides(self) -> None:
         _, page = parse_page()
         self.assertIn("dama-data-project-skills-v1.1.0.zip", page.links)
-        self.assertIn("site-docs/v1.1.0/README.html", page.links)
         self.assertIn("site-docs/v1.1.0/README.en.html", page.links)
-        self.assertIn("site-docs/v1.1.0/VALIDATION.html", page.links)
         self.assertIn("site-docs/v1.1.0/skills/managing-data-projects/SKILL.html", page.links)
-        self.assertIn("site-docs/v1.1.0/skills/managing-data-projects/templates/delivery-pack.en.html", page.links)
         self.assertFalse(
             [target for target in page.links if target.split("#", 1)[0].endswith(".md")]
         )
@@ -113,6 +113,21 @@ class LandingPageContentTests(unittest.TestCase):
                 self.assertIn(target[1:], page.ids, target)
             elif not target.startswith(("mailto:", "http://", "https://")):
                 self.assertTrue((ROOT / "dist" / target).exists(), target)
+
+    def test_release_area_has_one_language_aware_guide(self) -> None:
+        source, page = parse_page()
+        self.assertEqual(len(page.release_links), 1)
+        link = page.release_links[0]
+        self.assertEqual(link["href"], "site-docs/v1.1.0/README.en.html")
+        self.assertEqual(link["data-href-en"], "site-docs/v1.1.0/README.en.html")
+        self.assertEqual(link["data-href-zh"], "site-docs/v1.1.0/README.html")
+        self.assertTrue((ROOT / "dist" / str(link["data-href-zh"])).is_file())
+        for removed in ("Explore a deliverable template", "View validation summary", "ZIP SHA-256 checksum"):
+            self.assertNotIn(removed, source)
+        self.assertNotIn("site-docs/v1.1.0/VALIDATION.html", page.links)
+        self.assertNotIn("dama-data-project-skills-v1.1.0.zip.sha256", page.links)
+        script = (ROOT / "dist/assets/site.js").read_text(encoding="utf-8")
+        self.assertIn("a[data-href-zh][data-href-en]", script)
 
     def test_page_has_discoverable_search_filter_and_language_controls(self) -> None:
         source, page = parse_page()

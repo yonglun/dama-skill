@@ -77,6 +77,9 @@
     document.querySelectorAll("[data-lang]").forEach((element) => {
       element.hidden = element.dataset.lang !== language;
     });
+    document.querySelectorAll("a[data-href-zh][data-href-en]").forEach((element) => {
+      element.href = element.dataset[language === "zh" ? "hrefZh" : "hrefEn"];
+    });
     document.querySelectorAll("[data-label-zh][data-label-en]").forEach((element) => {
       const labelKey = language === "zh" ? "labelZh" : "labelEn";
       element.setAttribute("aria-label", element.dataset[labelKey]);
