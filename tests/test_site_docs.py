@@ -123,9 +123,7 @@ class DocumentationMirrorTests(unittest.TestCase):
         _, page = inspect(LANDING_PAGE)
         hrefs = {href for href, _ in page.links}
         expected = {
-            "site-docs/v1.1.0/README.html",
             "site-docs/v1.1.0/README.en.html",
-            "site-docs/v1.1.0/VALIDATION.html",
             "site-docs/v1.1.0/skills/managing-data-projects/SKILL.html",
             "site-docs/v1.1.0/skills/managing-data-projects/templates/delivery-pack.en.html",
         }

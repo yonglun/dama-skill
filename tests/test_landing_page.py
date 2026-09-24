@@ -64,6 +64,8 @@ class LandingPageParser(HTMLParser):
             self.links.add(values["href"] or "")
         if tag == "a" and "release-guide" in classes:
             self.release_links.append(values)
+        if tag == "a" and self.current_skill and "skill-template-link" in classes:
+            self.cards[self.current_skill].setdefault("template_links", []).append(values)
         if tag == "script" and values.get("src"):
             self.scripts.append(values["src"] or "")
         if tag == "link" and "stylesheet" in (values.get("rel") or "").split():
@@ -128,6 +130,22 @@ class LandingPageContentTests(unittest.TestCase):
         self.assertNotIn("dama-data-project-skills-v1.1.0.zip.sha256", page.links)
         script = (ROOT / "dist/assets/site.js").read_text(encoding="utf-8")
         self.assertIn("a[data-href-zh][data-href-en]", script)
+
+    def test_every_skill_links_to_its_bilingual_delivery_pack(self) -> None:
+        source, page = parse_page()
+        self.assertEqual(len(page.cards), 17)
+        for slug, card in page.cards.items():
+            links = card.get("template_links", [])
+            self.assertEqual(len(links), 1, slug)
+            link = links[0]
+            prefix = f"site-docs/v1.1.0/skills/{slug}/templates/delivery-pack"
+            self.assertEqual(link["href"], f"{prefix}.en.html")
+            self.assertEqual(link["data-href-en"], f"{prefix}.en.html")
+            self.assertEqual(link["data-href-zh"], f"{prefix}.zh.html")
+            for language in ("en", "zh"):
+                self.assertTrue((ROOT / "dist" / f"{prefix}.{language}.html").is_file())
+        self.assertEqual(source.count(">Deliverable template<"), 17)
+        self.assertEqual(source.count(">交付物模板<"), 17)
 
     def test_page_has_discoverable_search_filter_and_language_controls(self) -> None:
         source, page = parse_page()

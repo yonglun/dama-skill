@@ -170,6 +170,8 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 .example-toggle[aria-expanded="true"] > span:last-child { transform: rotate(45deg); }
 .example-panel { margin-top: .6rem; padding: .85rem; border: 1px solid var(--hairline); border-radius: 6px; background: var(--canvas-soft); }
 .example-panel p { margin: 0; color: var(--body); font-size: .79rem; line-height: 1.65; }
+.skill-template-link { display: flex; justify-content: space-between; gap: 1rem; align-items: center; min-height: 2.7rem; margin-top: .65rem; padding-top: .65rem; border-top: 1px solid var(--hairline); color: var(--ink); font-size: .78rem; font-weight: 500; }
+.skill-template-link:hover { text-decoration: underline; text-underline-offset: 3px; }
 .empty-state { margin: 2rem 0 0; padding: 2rem; border: 1px dashed var(--hairline-strong); border-radius: 8px; color: var(--body); text-align: center; }
 
 .install-section { display: grid; grid-template-columns: 1fr .9fr; gap: clamp(2rem, 6vw, 6rem); margin-block: clamp(4rem, 7vw, 6rem); padding: clamp(2rem, 5vw, 4.5rem); border-radius: 16px; color: white; background: var(--ink); }
