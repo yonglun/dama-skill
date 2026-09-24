@@ -1,0 +1,4 @@
+interface:
+  display_name: "数据管理变更与采纳"
+  short_description: "推动数据流程和工具被真实使用，并通过沟通、支持与强化持续"
+  default_prompt: "使用 $leading-data-change 设计这个数据管理变更的联盟、沟通、采纳和持续运行方案。"

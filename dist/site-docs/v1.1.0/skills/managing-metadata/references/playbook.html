@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="元数据项目手册 — DAMA Data Project Skills documentation">
+  <title>元数据项目手册 · DAMA Data Project Skills</title>
+  <link rel="stylesheet" href="../../../../../assets/site.css">
+</head>
+<body class="docs-page">
+  <a class="skip-link" href="#document-content">跳转到正文 / Skip to content</a>
+  <header class="docs-header content-wrap">
+    <a class="docs-brand" href="../../../../../index.html">
+      <span class="docs-brand-mark" aria-hidden="true">D</span>
+      <span><strong>DAMA DATA PROJECT SKILLS</strong><small>DOCUMENTATION · RELEASE 1.1.0</small></span>
+    </a>
+    <nav class="docs-nav" aria-label="文档导航 / Document navigation">
+      <a class="docs-home" href="../../../../../index.html">← 技能首页 / Skill index</a>
+      <a href="../../../README.html">中文指南</a>
+      <a href="../../../README.en.html">English guide</a>
+      <a class="source-markdown" href="../../../../../dama-data-project-skills-v1.1.0/skills/managing-metadata/references/playbook.md" download rel="alternate">原始 Markdown ↓</a>
+    </nav>
+  </header>
+  <main class="docs-main" id="document-content">
+    <p class="docs-kicker">KNOWLEDGE LIBRARY <span>／</span> V1.1.0</p>
+    <article class="docs-content">
+      <div class="markdown-body">
+<h1 id="元数据项目手册">元数据项目手册</h1>
+<h2 id="1-业务驱动与目标">1. 业务驱动与目标</h2>
+<p>元数据管理让人和系统能够发现、理解、比较、信任、保护与复用数据，也能追踪变更对上下游的影响。业务目标可以是缩短找数时间、解释报表数字、明确责任、减少重复开发、支持审计、识别敏感资产或安全地更改字段/规则。</p>
+<p>先选真实消费任务和关键资产，避免以“接入多少张表”作为唯一成功标准。定义用户群、资产范围、字段/对象粒度、所需查询、证据强度、时效和访问要求。例如审计一份报表，应能从指标版本追到 BI 语义、SQL、作业运行版本、源字段与业务 owner；修改一个源字段，应能列出可能受影响的报表、消费者和不确定链路。</p>
+<p>最小可用元数据产品含资产、字段、术语、指标/规则、系统/作业/报表、owner、分类、状态/版本、更新/运行、来源/下游关系、质量、使用和已知缺口。按价值薄切片交付，并规划持续采集、策展和反馈。</p>
+<h2 id="2-原则与关键概念">2. 原则与关键概念</h2>
+<ul>
+<li><strong>元数据也是数据产品：</strong> 明确生产者、消费者、owner、标准、质量、新鲜度、版本、访问、服务和修复。</li>
+<li><strong>三类共同使用：</strong> 业务元数据包含定义、规则、owner、用途、质量和来源；技术元数据包含 schema、映射、SQL、接口、权限及系统关系；运行元数据包含作业实例、日志、控制总额、失败、访问、实际版本和 SLA。</li>
+<li><strong>设计态与实现态分开：</strong> 设计映射表达意图；实际代码/配置/运行记录表达当前实现。二者冲突时不能合并为一条未经说明的“真血缘”。</li>
+<li><strong>逐边可信：</strong> 每条血缘边可说明解析/人工推断来源、版本、观测时间、变换、证据位置、验证人和可信等级；缺失边显式暴露。</li>
+<li><strong>标识和关系稳定：</strong> 用可解析的资产/字段/作业/指标 ID 连接多源，保留重命名、删除、复制、版本和时间语境。</li>
+<li><strong>采集与策展互补：</strong> 连接器提供大量结构/运行事实，业务 owner 批准含义，技术 owner 验证难解析逻辑。</li>
+<li><strong>安全与可用兼顾：</strong> 元数据可能暴露敏感数据存在性、SQL 常量、密钥、访问路径、客户信息；按角色裁剪和审计。</li>
+<li><strong>持续同步：</strong> 定义采集频率、源变更到目录更新容忍、漂移检测和过期提示；用户反馈进入可关闭队列。</li>
+</ul>
+<p>集中仓库可统一检索和控制，但需要同步与解析；联邦/分布架构保留来源专门能力，却需要统一标识与跨源查询；混合模式常用中央索引/关系图配合源系统详情。选型依据消费场景、来源数、版本/历史、权限、解析深度、时效、工具锁定和运行能力。</p>
+<h2 id="3-plan--control--develop--operate">3. Plan / Control / Develop / Operate</h2>
+<h3 id="plan">Plan</h3>
+<ol type="1">
+<li>访谈业务、技术、审计、安全和应用消费者，列出查找、解释、血缘、影响和共享用例及验收查询。</li>
+<li>盘点词汇表、模型、数据库目录、ETL/ELT、调度、代码仓、BI、质量、日志、主数据、文档和外部来源。</li>
+<li>定义范围、元模型、ID、关系、版本、历史、同步、访问、质量和架构；对关键报表/字段先做薄切片。</li>
+<li>建治理与技术路线：采集、人工策展、发布、反馈、责任、阶段门、预算和培训。</li>
+</ol>
+<h3 id="control">Control</h3>
+<ol type="1">
+<li>设命名、定义、标识、来源、关系、版本和交换标准；业务定义与技术实现各有批准人。</li>
+<li>管理术语/指标争议、重复资产、冲突元数据、过期/缺失边和敏感信息暴露。</li>
+<li>将元数据更新嵌入模型、开发、发布、运行和退役门；关键变更须先做影响分析。</li>
+<li>审计必填字段、覆盖、准确性、新鲜度、权限、人工覆盖和策展队列。</li>
+</ol>
+<h3 id="develop">Develop</h3>
+<ol type="1">
+<li>建元模型与稳定标识，将业务术语、技术对象、运行实例、报表/指标及关系连接。</li>
+<li>配置扫描/API/连接器与暂存，保存采集批次、源版本、差异、错误、回滚和采集日志。</li>
+<li>对未可解析 SQL、动态代码、手工流程与业务定义建立有证据的策展/复核流程。</li>
+<li>缝合字段级和系统级血缘，分别标记设计态、实现态、观测覆盖、验证状态和未知段。</li>
+<li>发布按权限裁剪的搜索、术语、血缘、质量/新鲜度、影响图、API 和反馈入口。</li>
+</ol>
+<h3 id="operate">Operate</h3>
+<ol type="1">
+<li>按源变更频率同步并监控失败、schema/代码漂移、运行版本不一致及过期条目。</li>
+<li>处理用户反馈、冲突、缺口和影响分析；维护 owner、批准、证据、SLA 与关闭结果。</li>
+<li>用真实变更演练下游影响，抽样核对报告到源与源到消费者两方向血缘。</li>
+<li>跟踪覆盖、质量、新鲜度、使用、贡献和找数/变更效率，复审高成本低价值采集。</li>
+</ol>
+<h2 id="4-上下文与角色">4. 上下文与角色</h2>
+<table>
+<thead>
+<tr>
+<th>角色</th>
+<th>责任与决策权</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>元数据产品 owner</td>
+<td>定义范围、服务、优先级、架构取舍、质量与运行资源</td>
+</tr>
+<tr>
+<td>业务数据/指标 owner</td>
+<td>批准定义、用途、权威、争议和业务血缘解释</td>
+</tr>
+<tr>
+<td>数据管家/目录策展人</td>
+<td>维护词条、映射、分类、反馈、冲突和人工验证证据</td>
+</tr>
+<tr>
+<td>源系统/应用 owner</td>
+<td>确认资产、schema、源版本、权限和变更通知</td>
+</tr>
+<tr>
+<td>工程/作业/BI owner</td>
+<td>确认 SQL、转换、调度、语义层、报表与实际运行版本</td>
+</tr>
+<tr>
+<td>元数据工程/架构</td>
+<td>实现元模型、采集、缝合、历史、查询、权限和运行监控</td>
+</tr>
+<tr>
+<td>安全/隐私/合规</td>
+<td>批准敏感元数据分类、可见性、审计、保留和对外共享</td>
+</tr>
+<tr>
+<td>消费者/审计</td>
+<td>定义查询和证据要求，验证可发现性、可理解性与追溯性</td>
+</tr>
+</tbody>
+</table>
+<p>如果两个业务定义冲突，目录记录适用范围、版本和争议，不自行指定全企业唯一词义。技术自动采集不能获得业务批准权，业务策展也不能改写未验证的生产运行事实。</p>
+<h2 id="5-交付物与验收证据">5. 交付物与验收证据</h2>
+<h3 id="元数据范围与需求">元数据范围与需求</h3>
+<table>
+<thead>
+<tr>
+<th>用户任务/查询</th>
+<th>关键资产/字段</th>
+<th>业务/技术/运行需求</th>
+<th>粒度/历史</th>
+<th>时效</th>
+<th>访问</th>
+<th>验收人/样本</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p>建立源与消费者清单：资产系统、采集接口/限制、负责人、变更频率、可得历史、敏感级别、用途、现有质量和连接优先级。选集中、分布或混合架构时画清统一 ID/索引、源详情、同步、水位、权限及失败降级。</p>
+<h3 id="最小元模型与目录条目">最小元模型与目录条目</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>稳定资产/字段/指标/作业/报表 ID；别名和所在系统：</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>类型、业务定义、粒度、规则、允许值、适用范围：</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>业务 owner、技术 owner、管家、批准版本/日期：</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>schema/类型/键、实际代码/配置版本、作业实例与运行状态：</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>来源/消费者/转换/关系、设计态与实现态、证据：</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>分类、访问、保留、用途与共享限制：</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>更新/观察时间、同步频率、质量状态、已知问题：</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>使用情况、认证/退役状态、反馈与联系路径：</span></code></pre></div>
+<p>业务、技术、运行元数据虽可共享字段，验收时分别检查：业务含义/权威是否由 owner 签署；技术 schema/映射是否与部署一致；运行实例、控制总额和最新成功版本是否可查询。</p>
+<h3 id="采集与策展登记">采集与策展登记</h3>
+<table>
+<thead>
+<tr>
+<th>来源/接口</th>
+<th>对象/粒度</th>
+<th>扫描/事件频率</th>
+<th>源版本/批次</th>
+<th>自动解析范围</th>
+<th>人工补录/复核</th>
+<th>错误/回退</th>
+<th>Owner</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p>流程：抓取 → 暂存和校验 → 标识/冲突匹配 → 形成候选变更 → 业务/技术复核（适用时） → 发布/版本 → 差异告警 → 定期再验证。保留采集日志与失败清单；人工覆盖应记录理由、批准和失效/复审日期，不能永远屏蔽源变更。</p>
+<h3 id="字段级血缘边与证据">字段级血缘边与证据</h3>
+<table>
+<thead>
+<tr>
+<th>上游对象.字段/版本</th>
+<th>变换/过滤/连接/聚合</th>
+<th>下游对象.字段/版本</th>
+<th>设计/实现/运行</th>
+<th>SQL/作业/提交/实例证据</th>
+<th>观察/有效时间</th>
+<th>方法/置信/验证人</th>
+<th>缺口</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p>“实现态”优先采当前部署代码、作业配置、BI 语义/报表配置；“运行态”用作业实例、执行时间、参数、控制总额和结果版本证明确实运行。设计文档可补自动工具不可解析部分，但标为设计态或人工验证实现态。动态 SQL、UDF、手工 Excel、跨组织文件等未知边不猜测。每条关键边可反查证据位置和负责验证者。</p>
+<p>血缘验收抽样：从报表两项关键数值逆查指标、语义、转换、源字段；从一个源字段正查报表、接口与消费者。用已知真实变更做影响分析，记录图遍历规则、版本/生效过滤、未解析节点、可能受影响与确认不受影响的依据、owner 确认及漏报复盘。关键未知边或低置信结果不能被标成“无影响”。</p>
+<h3 id="元数据质量与运行证据">元数据质量与运行证据</h3>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th>分子/分母或测量点</th>
+<th>目标/阻断</th>
+<th>频率</th>
+<th>来源</th>
+<th>Owner/修复 SLA</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>范围覆盖</td>
+<td>已登记资产/字段/链路 ÷ 范围内应登记总量</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>必填完整</td>
+<td>有定义、owner、分类、来源、版本的对象 ÷ 应有对象</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>血缘可信</td>
+<td>已验证且有实现/运行证据的关键边 ÷ 关键边总量</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>设计/实现一致</td>
+<td>已消除或获批差异 ÷ 已发现差异</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>新鲜度</td>
+<td>源变更到目录可见的延迟；过期对象数</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>准确/一致</td>
+<td>抽样与源一致、术语/ID 冲突数</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>使用/采纳</td>
+<td>搜索成功、影响分析使用、活跃用户、贡献者、反馈关闭</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>每项限定范围、分母、基线、目标、采样法、窗口、owner 和升级。目录可用率、扫描失败、查询延迟、权限拒绝与敏感元数据访问审计也纳入运行。对差异设置调查单、责任、期限和复测，不能只显示红色仪表盘。</p>
+<h3 id="六周示例阶段门">六周示例阶段门</h3>
+<ol type="1">
+<li>第 1 周：确定三份报表、两项指标、用户查询、源/消费者和授权 owner；冻结样本与验收问题。</li>
+<li>第 2 周：批准元模型、目录/联邦架构、采集接口、分类和最低字段；确认设计/实现差异策略。</li>
+<li>第 3–4 周：采集并缝合实际代码、作业和 BI 配置；人工验证未解析边；形成定义/口径争议单。</li>
+<li>第 5 周：完成双向血缘与真实变更影响演练；抽样报表数值、运行实例和源控制证据。</li>
+<li>第 6 周：业务/技术/审计签收范围内覆盖、差异、证据强度、权限、使用培训与运行接管。</li>
+</ol>
+<p>No-Go：关键指标无业务 owner；关键链路仅有设计图却宣称实际运行；目录隐藏未知段；敏感元数据越权；变更影响演练漏报关键消费者；无同步/维护责任。</p>
+<h2 id="6-工具与技术">6. 工具与技术</h2>
+<ul>
+<li>元数据仓库/目录、业务词汇表、术语和分类管理；</li>
+<li>数据库/模型/代码/调度/集成/BI 扫描器、API 和事件采集；</li>
+<li>图关系、字段级 SQL 解析、血缘缝合、版本/时间查询和影响分析；</li>
+<li>元数据质量检测、差异/漂移监控、人工策展工作流、搜索/API；</li>
+<li>权限裁剪、敏感信息遮蔽、访问审计与服务运行监控。</li>
+</ul>
+<p>选择工具时检验实际来源连接、动态代码/手工链路限制、证据导出、版本历史、设计与实现并存、权限、开放接口、规模、运行负担和总成本。演示图不能代替生产抽样追溯。</p>
+<h2 id="7-指标风险与实施">7. 指标、风险与实施</h2>
+<p>风险：目录覆盖率虚高但关键字段缺失；扫描出旧测试环境；重命名导致 ID 断裂；设计图覆盖生产运行事实；复杂 SQL/手工步骤形成隐形断点；敏感元数据泄露；多工具术语冲突；人工覆盖长期过期；组织把“有目录”误认成数据可信。</p>
+<p>按关键业务问题薄切片实施：先两项指标和三份报表，再扩展到共享数据集、接口、敏感数据和高变更域。每次发布核对采集范围、实际版本、人工策展和用户查询成功；把元数据更新纳入系统发布与退役流程。设置使用反馈入口、贡献人训练、变更评审引用目录的要求与按月复盘，形成持续采纳。</p>
+<p>在项目报告中分开陈述：已验证链路、推断链路、未知链路；已签署定义、争议定义；当前实际版本、仅设计版本；已达目标与剩余风险。不得以总体图覆盖或条目数证明审计追溯已完成。</p>
+<h2 id="8-依赖与协同">8. 依赖与协同</h2>
+<ul>
+<li><code>establishing-data-governance</code>：任命数据 owner、管家，授权术语/口径争议与政策。</li>
+<li><code>modeling-data</code>：提供概念/逻辑/物理模型、实体、字段和键；元数据技能跨系统连接及运营这些资产。</li>
+<li><code>integrating-data</code>：提供接口、映射、任务、水位、批次、实际血缘和消费者信息。</li>
+<li><code>delivering-data-warehousing-and-bi</code>：提供指标语义、仓库/集市、BI 报表及数据验收；本技能公布其定义/版本/血缘。</li>
+<li><code>managing-reference-and-master-data</code>：提供共享实体、代码、层级、系统权威和变更版本。</li>
+<li><code>improving-data-quality</code>：提供规则、质量结果和问题；本技能管理其元数据与自身质量。</li>
+<li><code>securing-data</code>：批准分类、可见性、敏感元数据保护与审计。</li>
+<li><code>designing-data-architecture</code>：确定元数据平台与来源系统边界、目标/过渡架构。</li>
+<li><code>leading-data-change</code>：支持目录贡献者与消费者培训、反馈和采纳。</li>
+</ul>
+
+      </div>
+    </article>
+  </main>
+  <footer class="docs-footer content-wrap">
+    <span>DAMA DATA PROJECT SKILLS · V1.1.0</span>
+    <a href="../../../../../index.html">返回入口页 / Back to index ↑</a>
+  </footer>
+</body>
+</html>

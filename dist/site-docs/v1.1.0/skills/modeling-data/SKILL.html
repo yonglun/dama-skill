@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="数据建模与设计 — DAMA Data Project Skills documentation">
+  <title>数据建模与设计 · DAMA Data Project Skills</title>
+  <link rel="stylesheet" href="../../../../assets/site.css">
+</head>
+<body class="docs-page">
+  <a class="skip-link" href="#document-content">跳转到正文 / Skip to content</a>
+  <header class="docs-header content-wrap">
+    <a class="docs-brand" href="../../../../index.html">
+      <span class="docs-brand-mark" aria-hidden="true">D</span>
+      <span><strong>DAMA DATA PROJECT SKILLS</strong><small>DOCUMENTATION · RELEASE 1.1.0</small></span>
+    </a>
+    <nav class="docs-nav" aria-label="文档导航 / Document navigation">
+      <a class="docs-home" href="../../../../index.html">← 技能首页 / Skill index</a>
+      <a href="../../README.html">中文指南</a>
+      <a href="../../README.en.html">English guide</a>
+      <a class="source-markdown" href="../../../../dama-data-project-skills-v1.1.0/skills/modeling-data/SKILL.md" download rel="alternate">原始 Markdown ↓</a>
+    </nav>
+  </header>
+  <main class="docs-main" id="document-content">
+    <p class="docs-kicker">KNOWLEDGE LIBRARY <span>／</span> V1.1.0</p>
+    <article class="docs-content">
+      <aside class="docs-skill-summary" aria-label="技能元数据 Skill metadata"><div><span class="docs-meta-label">SKILL ID</span><code>modeling-data</code></div><p>Use when business requirements must be represented as conceptual, logical, or physical data models; when defining entities, relationships, grain, keys, attributes, naming, lineage, model reviews, or controlled model changes.</p></aside>
+      <div class="markdown-body">
+<h1 id="数据建模与设计">数据建模与设计</h1>
+<h2 id="核心原则">核心原则</h2>
+<p>数据建模是发现、分析和限定数据需求，再以精确模型表达和沟通这些需求的迭代过程。模型服务于共同理解和可实施设计；图、定义、问题清单与血缘共同构成交付物。</p>
+<h2 id="适用边界">适用边界</h2>
+<ul>
+<li>跨企业/领域的主题域、系统与数据流蓝图由 <code>designing-data-architecture</code> 主导；本技能细化选定范围的结构。</li>
+<li>面向具体业务过程的概念、逻辑、物理模型及其追溯、评审和变更使用本技能。</li>
+<li>BI 项目的指标语义、事实/维度交付和消费验收由 <code>delivering-data-warehousing-and-bi</code> 主导，本技能提供维度模型设计。</li>
+<li>接口契约、编排、重放与运行对账由 <code>integrating-data</code> 主导；数据库运行、容量、备份恢复由 <code>operating-data-storage</code> 主导。</li>
+</ul>
+<h2 id="工作流">工作流</h2>
+<ol type="1">
+<li>明确业务问题、用例、范围、消费者和模型要支持的决定；登记术语冲突、假设与未决项。</li>
+<li>阅读<a href="references/playbook.html">数据建模项目手册</a>，根据受众、决定、交付阶段和技术约束选择概念、逻辑或物理层级，以及关系、维度、事实、对象、时态或 NoSQL 等适用方案。</li>
+<li>先建立需求、定义和过程/事件语境；复用现有模型、模式和实际数据前，验证其准确性与时效性。</li>
+<li>迭代构建实体/事实、关系、粒度、键、属性、基数、可选性、时态和规则；保持概念—逻辑—物理与源—目标双向追溯。</li>
+<li>用业务场景、数据剖析和模型质量清单分别开展需求评审、设计评审和物理可行性评审；不以图形美观代替正确性。</li>
+<li>记录批准、问题、被否决方案、版本和变化原因；破坏性变更必须做影响分析、迁移、兼容/弃用与回退安排。</li>
+<li>发布图、定义、映射、血缘、决策和验收证据的同一版本；从实现逆向核对模型，修复漂移。</li>
+</ol>
+<h2 id="交付模板">交付模板</h2>
+<p>使用 <a href="templates/delivery-pack.zh.html">中文交付包</a> 或 <a href="templates/delivery-pack.en.html">English delivery pack</a> 组织输出。叙述性方案和评审记录使用同目录 Word 模板；矩阵、台账和评分卡使用同目录 Excel 模板。模板中的责任、阈值、批准和证据须由实际项目确认。</p>
+<h2 id="输出契约">输出契约</h2>
+<p>输出业务范围与用例；建模层级/方案选择；需求与术语；模型图及定义；粒度、键、关系和规则；命名/设计标准；概念—逻辑—物理和源—目标追溯；开放问题；评审与批准；变更/版本；质量评分、指标和验收证据。</p>
+<h2 id="常见错误">常见错误</h2>
+<table>
+<thead>
+<tr>
+<th>错误</th>
+<th>修正</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>从现有表直接拼目标模型</td>
+<td>先确认业务需求、粒度和语义，再验证源数据</td>
+</tr>
+<tr>
+<td>一张模型同时承担三级细节</td>
+<td>明确模型层级、方案、受众和决定</td>
+</tr>
+<tr>
+<td>只有框线，没有定义和问题</td>
+<td>同步交付定义、规则、开放问题和血缘</td>
+</tr>
+<tr>
+<td>物理优化反向污染业务语义</td>
+<td>记录逻辑到物理的转换与理由，并保持可追溯</td>
+</tr>
+<tr>
+<td>模型签署后无人维护</td>
+<td>对模型像需求和代码一样版本化、评审和回归</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+    </article>
+  </main>
+  <footer class="docs-footer content-wrap">
+    <span>DAMA DATA PROJECT SKILLS · V1.1.0</span>
+    <a href="../../../../index.html">返回入口页 / Back to index ↑</a>
+  </footer>
+</body>
+</html>

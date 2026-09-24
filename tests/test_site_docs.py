@@ -7,8 +7,8 @@ import unittest
 
 
 ROOT = Path(__file__).resolve().parents[1]
-PACKAGE_ROOT = ROOT / "dist" / "dama-data-project-skills-v1.0.0"
-DOCS_ROOT = ROOT / "dist" / "site-docs"
+PACKAGE_ROOT = ROOT / "dist" / "dama-data-project-skills-v1.1.0"
+DOCS_ROOT = ROOT / "dist" / "site-docs" / "v1.1.0"
 LANDING_PAGE = ROOT / "dist" / "index.html"
 
 
@@ -54,7 +54,7 @@ def inspect(path: Path) -> tuple[str, PageInspector]:
 class DocumentationMirrorTests(unittest.TestCase):
     def test_every_packaged_markdown_file_has_a_mirrored_html_page(self) -> None:
         sources = sorted(PACKAGE_ROOT.rglob("*.md"))
-        self.assertEqual(len(sources), 40)
+        self.assertGreater(len(sources), 40)
         self.assertTrue(DOCS_ROOT.is_dir(), "run scripts/render_site_docs.py")
         pages = sorted(DOCS_ROOT.rglob("*.html"))
         self.assertEqual(len(pages), len(sources))
@@ -123,14 +123,24 @@ class DocumentationMirrorTests(unittest.TestCase):
         _, page = inspect(LANDING_PAGE)
         hrefs = {href for href, _ in page.links}
         expected = {
-            "site-docs/README.html",
-            "site-docs/README.en.html",
-            "site-docs/VALIDATION.html",
-            "site-docs/skills/managing-data-projects/SKILL.html",
+            "site-docs/v1.1.0/README.html",
+            "site-docs/v1.1.0/README.en.html",
+            "site-docs/v1.1.0/VALIDATION.html",
+            "site-docs/v1.1.0/skills/managing-data-projects/SKILL.html",
+            "site-docs/v1.1.0/skills/managing-data-projects/templates/delivery-pack.en.html",
         }
         self.assertTrue(expected.issubset(hrefs), expected - hrefs)
         for href in expected:
             self.assertTrue((ROOT / "dist" / href).is_file(), href)
+
+    def test_template_page_links_to_downloadable_office_files(self) -> None:
+        page_path = DOCS_ROOT / "skills/managing-data-projects/templates/delivery-pack.zh.html"
+        source, page = inspect(page_path)
+        self.assertIn('lang="zh-CN"', source)
+        for extension in ("report.zh.docx", "register.zh.xlsx"):
+            targets = [href for href, _ in page.links if extension in href]
+            self.assertEqual(len(targets), 1)
+            self.assertTrue((page_path.parent / unquote(urlsplit(targets[0]).path)).is_file())
 
     def test_shared_stylesheet_covers_document_layout_and_narrow_tables(self) -> None:
         stylesheet = (ROOT / "dist/assets/site.css").read_text(encoding="utf-8")

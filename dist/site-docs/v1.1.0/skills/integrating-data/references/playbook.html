@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="数据集成与互操作项目手册 — DAMA Data Project Skills documentation">
+  <title>数据集成与互操作项目手册 · DAMA Data Project Skills</title>
+  <link rel="stylesheet" href="../../../../../assets/site.css">
+</head>
+<body class="docs-page">
+  <a class="skip-link" href="#document-content">跳转到正文 / Skip to content</a>
+  <header class="docs-header content-wrap">
+    <a class="docs-brand" href="../../../../../index.html">
+      <span class="docs-brand-mark" aria-hidden="true">D</span>
+      <span><strong>DAMA DATA PROJECT SKILLS</strong><small>DOCUMENTATION · RELEASE 1.1.0</small></span>
+    </a>
+    <nav class="docs-nav" aria-label="文档导航 / Document navigation">
+      <a class="docs-home" href="../../../../../index.html">← 技能首页 / Skill index</a>
+      <a href="../../../README.html">中文指南</a>
+      <a href="../../../README.en.html">English guide</a>
+      <a class="source-markdown" href="../../../../../dama-data-project-skills-v1.1.0/skills/integrating-data/references/playbook.md" download rel="alternate">原始 Markdown ↓</a>
+    </nav>
+  </header>
+  <main class="docs-main" id="document-content">
+    <p class="docs-kicker">KNOWLEDGE LIBRARY <span>／</span> V1.1.0</p>
+    <article class="docs-content">
+      <div class="markdown-body">
+<h1 id="数据集成与互操作项目手册">数据集成与互操作项目手册</h1>
+<h2 id="1-业务驱动与目标">1. 业务驱动与目标</h2>
+<p>数据集成与互操作应：</p>
+<ul>
+<li>将不同来源的数据以消费者需要的格式、语义和时限提供；</li>
+<li>物理或虚拟联合数据，支持运营、分析、主数据、迁移和事件响应；</li>
+<li>以可复用服务、共享契约和标准接口降低点对点数量、维护成本和故障复杂度；</li>
+<li>保留来源、转换、状态和使用限制，使每次发布可追溯、可对账、可重放。</li>
+</ul>
+<p>成功不是管道“绿灯”，而是数据按契约可用、语义获批、故障可恢复、差异可解释，消费者能看见新鲜度/质量/版本，且企业复用没有压倒迭代交付。</p>
+<h2 id="2-原则与关键概念">2. 原则与关键概念</h2>
+<ul>
+<li><strong>企业视角、增量交付：</strong> 识别共享模式和复用机会，但用端到端薄切片交付，避免大一统平台先行。</li>
+<li><strong>业务问责：</strong> 业务专家/数据 owner 批准映射、转换、权威字段、自动动作和共享用途；工具专家不能代替。</li>
+<li><strong>松耦合与有限接口：</strong> 优先清晰契约、服务目录、发布/订阅和可复用交换模式，避免无限点对点。</li>
+<li><strong>延迟是业务属性：</strong> 批、微批、CDC、事件、异步、同步和流处在不同耦合/成本/一致性位置；按需要选择。</li>
+<li><strong>持久与虚拟权衡：</strong> 暂存支持审计、重启、历史和稳定服务但增加时空成本；虚拟减少副本却承接源运行风险。</li>
+<li><strong>显式状态：</strong> 水位、批次/事件、schema/映射/代码版本、重试、发布和消费者状态必须可查询。</li>
+<li><strong>至少一次现实：</strong> 不假设严格顺序或恰好一次；用幂等键、去重、状态和对账达到业务正确性。</li>
+<li><strong>双向血缘：</strong> 能说明数据从哪里来、怎样变、去哪里，支持变更影响、使用限制和差错通知。</li>
+</ul>
+<h2 id="3-plan--control--develop--operate">3. Plan / Control / Develop / Operate</h2>
+<h3 id="plan">Plan</h3>
+<ol type="1">
+<li>定义消费者/用例、对象/粒度、来源/目标、刷新/响应、容量、历史、质量、安全和停机/降级要求。</li>
+<li>发现系统、接口、数据服务、实际数据、生产/消费责任与现有复用资产；剖析源目标结构和内容。</li>
+<li>选择批/CDC/事件/API/消息/虚拟化/迁移模式，比较延迟、源负载、事务、顺序、耦合、重放、成本与运维。</li>
+<li>建集成架构、依赖/关键路径、共享协议、SLA、阶段门和运行责任。</li>
+</ol>
+<h3 id="control">Control</h3>
+<ol type="1">
+<li>管理服务/API/事件/文件/数据产品目录、标准、canonical 模型和重复能力评审。</li>
+<li>对接口、映射、转换、schema、代码集、共享用途、SLA 和消费者执行版本/变更控制。</li>
+<li>在评审门检查语义、架构、安全、质量、血缘、兼容性、恢复和运营证据。</li>
+<li>保持业务与技术元数据、实际运行版本和消费者登记一致；破坏性变更有通知/弃用。</li>
+</ol>
+<h3 id="develop">Develop</h3>
+<ol type="1">
+<li>建版本化契约：粒度/键、schema、枚举、时间、空值、操作/删除、交付保证、错误、样例和支持。</li>
+<li>逐字段映射来源、目标、类型、转换、默认、代码、单位、权威源、质量、分类和 owner。</li>
+<li>构建抽取/订阅、暂存/虚拟转换、装载/发布、状态/水位、依赖、幂等与原子发布。</li>
+<li>实现瞬时重试、确定性错误隔离、死信、修复、影子验证、受控重放和重复副作用抑制。</li>
+<li>验证全量、增量、乱序、迟到、更正、删除、源中断、坏 schema、补数和消费者迁移。</li>
+</ol>
+<h3 id="operate">Operate</h3>
+<ol type="1">
+<li>监控源到达、水位/lag、吞吐、处理/发布延迟、错误/死信、对账、schema 漂移、成本和消费失败。</li>
+<li>区分源延迟、传输、转换、目标和消费问题，按 runbook 升级、降级和通知。</li>
+<li>维护映射、血缘、共享协议、服务目录和消费者；变化前做前向/后向影响分析。</li>
+<li>跟踪可用性、量级、速度、成本、复杂度、复用/使用和事件趋势，持续简化接口。</li>
+</ol>
+<h2 id="4-上下文与角色">4. 上下文与角色</h2>
+<table>
+<thead>
+<tr>
+<th>角色</th>
+<th>责任与决策权</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>业务赞助人/服务 owner</td>
+<td>批准用途、范围、服务目标、降级、上线和残余业务风险</td>
+</tr>
+<tr>
+<td>源系统 owner/生产者</td>
+<td>对源语义、能力、控制清单、变更通知和重送负责</td>
+</tr>
+<tr>
+<td>数据 owner/管家</td>
+<td>批准权威字段、映射、代码、质量阈值、共享用途和差异例外</td>
+</tr>
+<tr>
+<td>数据架构师/建模师</td>
+<td>审查粒度、键、canonical 模型、共享与企业一致性</td>
+</tr>
+<tr>
+<td>集成/数据工程</td>
+<td>设计实现契约、映射、编排、幂等、重放、对账和血缘</td>
+</tr>
+<tr>
+<td>平台/SRE/运行</td>
+<td>对环境、容量、监控、值班、恢复和支持链负责</td>
+</tr>
+<tr>
+<td>安全/隐私/合规</td>
+<td>批准分类、用途限制、访问、传输、保留、删除和审计要求</td>
+</tr>
+<tr>
+<td>消费者 owner</td>
+<td>验证契约/结果、登记依赖、迁移版本并遵守再共享/删除义务</td>
+</tr>
+</tbody>
+</table>
+<h2 id="5-交付物与验收证据">5. 交付物与验收证据</h2>
+<h3 id="集成任务书与模式选择">集成任务书与模式选择</h3>
+<table>
+<thead>
+<tr>
+<th>对象/用例</th>
+<th>粒度/键</th>
+<th>来源→目标/消费者</th>
+<th>延迟/新鲜度</th>
+<th>量级/峰值</th>
+<th>一致性/顺序</th>
+<th>源能力/负载</th>
+<th>历史/重放</th>
+<th>模式/理由/回退</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="接口数据产品契约">接口/数据产品契约</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>名称/owner/消费者/用途/支持时段：</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>对象、粒度、键、操作和删除语义：</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>schema、类型/精度、枚举、单位/时区、空值、样例：</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>API 分页/限流；事件 ID/分区/顺序/保证；文件清单/校验和/控制总额：</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>水位、到达窗口、延迟/新鲜度、质量和可用性：</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>安全分类、访问、保留、地域和再共享限制：</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>schema/语义兼容、版本、通知、弃用和消费者迁移：</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>重送/重放、错误码、联系人、暂停/终止：</span></code></pre></div>
+<h3 id="源目标映射与血缘">源目标映射与血缘</h3>
+<table>
+<thead>
+<tr>
+<th>目标字段</th>
+<th>业务定义/粒度</th>
+<th>源对象.字段</th>
+<th>类型/长度/精度</th>
+<th>转换/优先级</th>
+<th>代码/空值/时间</th>
+<th>质量/分类</th>
+<th>Owner</th>
+<th>版本/生效</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p>追溯链：源契约/版本 → 原始批次/事件 → 作业/代码 → 映射/规则 → 目标字段/发布版本 → 消费者；每条处理记录可反查 <code>run_id</code>、<code>batch_id</code> 或 <code>event_id</code>。</p>
+<h3 id="编排失败与重放">编排、失败与重放</h3>
+<table>
+<thead>
+<tr>
+<th>步骤/依赖</th>
+<th>输入水位/清单</th>
+<th>状态/检查点</th>
+<th>幂等键/写入</th>
+<th>超时/重试</th>
+<th>隔离/死信</th>
+<th>重放范围/影子验证</th>
+<th>发布/回退</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p>瞬时错误才做有界退避重试；契约/数据等确定性错误隔离，不盲重试。重放记录发起人、理由、输入与代码/schema/映射版本、影响范围、前后对账和消费者通知；通知/下游写入也须幂等。</p>
+<h3 id="三层对账">三层对账</h3>
+<table>
+<thead>
+<tr>
+<th>层级</th>
+<th>检查</th>
+<th>基准</th>
+<th>容差/阻断</th>
+<th>差异分类/Owner</th>
+<th>证据/复测</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>记录</td>
+<td>键、字段、引用、删除、哈希/抽样</td>
+<td>原始源/清单</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>分组</td>
+<td>日期、状态、代码、币种/域的行数与控制总额</td>
+<td>源业务分组</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>总量</td>
+<td>文件/事件、起止水位、行数、金额/数量</td>
+<td>源 owner 签署控制</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>不能只比较管道相邻层，因为同一错误可能被共同复制。通过对账/质量门后以分区/版本指针原子发布；失败保留上一合格版本并显式标记陈旧。</p>
+<h3 id="数据共享协议">数据共享协议</h3>
+<p>规定允许/禁止用途、对象/字段/粒度、权威源与争议人、刷新/质量、分类/访问/地域、保留/删除、再共享/导出、变更/弃用、差错通知、服务/升级、暂停/终止和退出处置；生产者、集成服务与消费者各自责任不互相转嫁。</p>
+<p>阶段门：范围/SLA → 发现/语义/契约 → 模式与映射 → 接入/血缘 → 编排/对账/原子发布 → 故障/重放/schema 演进 → 试运行/运行接管 → 消费者切换。关键语义未决、控制总额不符、重跑重复、无合格版本降级、破坏性 schema 未兼容或运行无人接管时 No-Go。</p>
+<h2 id="6-工具与技术">6. 工具与技术</h2>
+<ul>
+<li>ETL/ELT/转换引擎与调度器：批量移动、转换、依赖和状态管理。</li>
+<li>CDC/消息/事件流/API 网关与服务目录：低延迟、发布订阅、限流、契约和复用。</li>
+<li>数据虚拟化：低复制/快速联合读取；需验证源可用、性能、权限、历史和查询下推风险。</li>
+<li>数据剖析与对账：验证实际类型、域、分布、键、控制总额和差异。</li>
+<li>schema/契约注册、元数据/血缘仓库：管理接口、映射、规则、版本、影响和消费者。</li>
+<li>可观测性与数据质量：关联批次/事件/发布，监控技术与数据服务目标。</li>
+</ul>
+<p>工具选择以批/流、结构化/非结构化、状态/重放、互操作、技能、总成本和支持为依据。避免用工具私有元数据替代企业可发现、可治理的契约与血缘。</p>
+<h2 id="7-指标风险与实施">7. 指标、风险与实施</h2>
+<ul>
+<li><strong>可用性：</strong> 请求数据/服务可用率、最近合格发布、消费者成功；</li>
+<li><strong>量级/速度：</strong> 传输/转换/分析量、吞吐、积压、源更新→可用和事件→动作延迟；</li>
+<li><strong>正确性：</strong> 对账通过、差异/隔离/死信、重复/缺口、schema/映射例外；</li>
+<li><strong>交付/价值：</strong> 新源接入时间、服务复用/消费者数、接口减少、自动动作效果；</li>
+<li><strong>成本/复杂度：</strong> 开发/运行成本、技术/接口/转换数、事故和人工干预。</li>
+</ul>
+<p>每项指标定义对象、测量点、窗口、分母、基线、目标、数据源、owner 和升级。不同源的新鲜度分别披露，不能压成一个误导性的更新时间。</p>
+<p>主要风险：技术先于业务语义；把批源包装成实时；同步耦合拖垮关键源；CDC 丢序/删除或超过保留期；API 分页漂移；重试造成重复副作用；死信含敏感数据无人管；虚拟化传导源故障；相邻层对账产生假通过；schema/代码静默变化；canonical 模型或平台建设过度。以契约、状态、水位、幂等、源清单、三层对账、原子发布、降级和增量复用控制。</p>
+<h2 id="8-依赖与协同">8. 依赖与协同</h2>
+<ul>
+<li><code>designing-data-architecture</code>：给出系统责任、数据流、平台和过渡边界；本技能落地接口并反馈运行依赖。</li>
+<li><code>modeling-data</code>：解决粒度、键、实体和语义；本技能不擅自用转换裁决业务冲突。</li>
+<li><code>managing-reference-and-master-data</code>：主导身份解析、黄金记录、层级、代码和合并/拆分运营。</li>
+<li><code>operating-data-storage</code>：主导持久平台容量、备份恢复和实例运行；共同确定窗口和恢复顺序。</li>
+<li><code>securing-data</code>：保护传输、服务身份、访问、隔离/死信、共享与 custody。</li>
+<li><code>managing-metadata</code>：发布服务、schema、映射、血缘、版本、owner 和消费者影响。</li>
+<li><code>improving-data-quality</code>：制定质量规则、阈值与根因闭环；本技能执行入口/发布门和对账。</li>
+<li><code>delivering-data-warehousing-and-bi</code>：定义分析消费、刷新和事实/维度装载；本技能提供可靠数据流。</li>
+</ul>
+
+      </div>
+    </article>
+  </main>
+  <footer class="docs-footer content-wrap">
+    <span>DAMA DATA PROJECT SKILLS · V1.1.0</span>
+    <a href="../../../../../index.html">返回入口页 / Back to index ↑</a>
+  </footer>
+</body>
+</html>

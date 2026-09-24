@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="数据项目生命周期 — DAMA Data Project Skills documentation">
+  <title>数据项目生命周期 · DAMA Data Project Skills</title>
+  <link rel="stylesheet" href="../../../../../assets/site.css">
+</head>
+<body class="docs-page">
+  <a class="skip-link" href="#document-content">跳转到正文 / Skip to content</a>
+  <header class="docs-header content-wrap">
+    <a class="docs-brand" href="../../../../../index.html">
+      <span class="docs-brand-mark" aria-hidden="true">D</span>
+      <span><strong>DAMA DATA PROJECT SKILLS</strong><small>DOCUMENTATION · RELEASE 1.1.0</small></span>
+    </a>
+    <nav class="docs-nav" aria-label="文档导航 / Document navigation">
+      <a class="docs-home" href="../../../../../index.html">← 技能首页 / Skill index</a>
+      <a href="../../../README.html">中文指南</a>
+      <a href="../../../README.en.html">English guide</a>
+      <a class="source-markdown" href="../../../../../dama-data-project-skills-v1.1.0/skills/managing-data-projects/references/project-lifecycle.md" download rel="alternate">原始 Markdown ↓</a>
+    </nav>
+  </header>
+  <main class="docs-main" id="document-content">
+    <p class="docs-kicker">KNOWLEDGE LIBRARY <span>／</span> V1.1.0</p>
+    <article class="docs-content">
+      <div class="markdown-body">
+<h1 id="数据项目生命周期">数据项目生命周期</h1>
+<h2 id="用法">用法</h2>
+<p>当任务涉及建设、整改、迁移、上线或持续运营时读取本文件。生命周期不是固定瀑布；可以迭代，但每个阶段门都必须有证据。DMBOK 活动类型映射如下：</p>
+<ul>
+<li><strong>Plan</strong>：确定目标、原则、范围、优先级与路线；</li>
+<li><strong>Control</strong>：定义决策权、标准、质量、安全、变更和监督；</li>
+<li><strong>Develop</strong>：分析、设计、构建、测试、部署；</li>
+<li><strong>Operate</strong>：运行、支持、监控、改进和退役。</li>
+</ul>
+<h2 id="1-对齐align">1. 对齐（Align）</h2>
+<p><strong>回答的问题：</strong> 为什么现在做，谁从什么决策或流程中获得价值？</p>
+<p><strong>活动：</strong> 明确业务结果、消费者、价值假设、成功/伤害场景、关键数据对象、约束与赞助人；确认项目是否真需要数据建设。</p>
+<p><strong>交付物：</strong> 项目章程、价值假设、范围边界、利益相关者图、初始风险与决策日志。</p>
+<p><strong>阶段门证据：</strong> 业务负责人确认结果和优先级；数据消费者及用途明确；范围内外可区分；重大伦理/合规疑问已有所有者。</p>
+<h2 id="2-评估assess">2. 评估（Assess）</h2>
+<p><strong>回答的问题：</strong> 当前能力、数据和组织离目标多远，证据是什么？</p>
+<p><strong>活动：</strong> 盘点数据、流程、系统、质量、元数据、控制、角色和已有工件；必要时执行成熟度评估，但不先假定要做全面评估。</p>
+<p><strong>交付物：</strong> 现状图、数据/系统清单、质量基线、控制差距、能力热图、依赖与风险清单。</p>
+<p><strong>阶段门证据：</strong> 结论可追溯到文档、访谈、查询或运行证据；未知项显式标记；差距按业务影响而非工具偏好排序。</p>
+<h2 id="3-规划与设计plan--design">3. 规划与设计（Plan &amp; Design）</h2>
+<p><strong>回答的问题：</strong> 哪个最小能力组合能安全地产生结果？</p>
+<p><strong>活动：</strong> 选择知识域；设计目标状态、治理与组织模型；定义数据产品/接口/模型/规则/控制；确定过渡路径、验收、里程碑和资源。</p>
+<p><strong>交付物：</strong> 目标/过渡架构、领域工作包、RACI、路线图、数据契约、控制矩阵、测试与上线计划。</p>
+<p><strong>阶段门证据：</strong> 每个工作包有责任人、输入、输出和验收；依赖顺序可执行；裁剪项有风险所有者和触发条件；运行责任已指定。</p>
+<h2 id="4-开发与验证develop--validate">4. 开发与验证（Develop &amp; Validate）</h2>
+<p><strong>回答的问题：</strong> 工件和控制是否在代表性条件下工作？</p>
+<p><strong>活动：</strong> 构建与配置；数据剖析、迁移或集成；模型与规则评审；功能、质量、安全、恢复和用户验收；记录血缘、版本和例外。</p>
+<p><strong>交付物：</strong> 可运行增量、测试证据、缺陷/问题台账、更新后的元数据和血缘、培训与运行手册草案。</p>
+<p><strong>阶段门证据：</strong> 关键验收用真实或代表性数据通过；高风险问题关闭或被有权人接受；回滚/恢复经过演练；元数据与实现一致。</p>
+<h2 id="5-部署与转交deploy--transition">5. 部署与转交（Deploy &amp; Transition）</h2>
+<p><strong>回答的问题：</strong> 组织能否安全使用并接管该能力？</p>
+<p><strong>活动：</strong> 灰度或分批发布；数据切换与对账；权限和监控启用；角色培训；支持、升级和沟通；正式移交。</p>
+<p><strong>交付物：</strong> 发布记录、对账报告、批准的例外、培训记录、值班/升级表、服务目标和运营接管签字。</p>
+<p><strong>阶段门证据：</strong> 业务、技术、数据和控制负责人分别签署；回滚路径有效；支持容量足够；用户知道如何使用、质疑和升级。</p>
+<h2 id="6-运营与改进operate--improve">6. 运营与改进（Operate &amp; Improve）</h2>
+<p><strong>回答的问题：</strong> 价值和控制是否持续，何时修正或退役？</p>
+<p><strong>活动：</strong> 监控服务、质量、使用、风险和成本；处理问题与根因；管理变更；复核访问、用途和元数据；衡量采纳与价值；再评估或退役。</p>
+<p><strong>交付物：</strong> 记分卡、问题/变更记录、根因与预防措施、能力改进计划、再认证或退役证据。</p>
+<p><strong>持续门证据：</strong> 指标有趋势和阈值；偏离会触发明确动作；所有权仍有效；新增用途重新评估；无价值或不可控的能力被缩减或退役。</p>
+<h2 id="阶段门审阅规则">阶段门审阅规则</h2>
+<ol type="1">
+<li>证据优先于完成百分比。</li>
+<li>业务、数据、技术和控制责任不能由一个模糊的“项目组”代替。</li>
+<li>每个例外包含风险、批准人、到期日和补救动作。</li>
+<li>未通过阶段门时，明确保持、回退、缩小范围或重新设计，不以日期压力自动放行。</li>
+</ol>
+
+      </div>
+    </article>
+  </main>
+  <footer class="docs-footer content-wrap">
+    <span>DAMA DATA PROJECT SKILLS · V1.1.0</span>
+    <a href="../../../../../index.html">返回入口页 / Back to index ↑</a>
+  </footer>
+</body>
+</html>

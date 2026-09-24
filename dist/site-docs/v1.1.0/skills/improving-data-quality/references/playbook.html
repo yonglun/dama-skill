@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="数据质量项目手册 — DAMA Data Project Skills documentation">
+  <title>数据质量项目手册 · DAMA Data Project Skills</title>
+  <link rel="stylesheet" href="../../../../../assets/site.css">
+</head>
+<body class="docs-page">
+  <a class="skip-link" href="#document-content">跳转到正文 / Skip to content</a>
+  <header class="docs-header content-wrap">
+    <a class="docs-brand" href="../../../../../index.html">
+      <span class="docs-brand-mark" aria-hidden="true">D</span>
+      <span><strong>DAMA DATA PROJECT SKILLS</strong><small>DOCUMENTATION · RELEASE 1.1.0</small></span>
+    </a>
+    <nav class="docs-nav" aria-label="文档导航 / Document navigation">
+      <a class="docs-home" href="../../../../../index.html">← 技能首页 / Skill index</a>
+      <a href="../../../README.html">中文指南</a>
+      <a href="../../../README.en.html">English guide</a>
+      <a class="source-markdown" href="../../../../../dama-data-project-skills-v1.1.0/skills/improving-data-quality/references/playbook.md" download rel="alternate">原始 Markdown ↓</a>
+    </nav>
+  </header>
+  <main class="docs-main" id="document-content">
+    <p class="docs-kicker">KNOWLEDGE LIBRARY <span>／</span> V1.1.0</p>
+    <article class="docs-content">
+      <div class="markdown-body">
+<h1 id="数据质量项目手册">数据质量项目手册</h1>
+<h2 id="1-业务驱动与目标">1. 业务驱动与目标</h2>
+<p>高质量数据是对预期用途适用的数据。用消费者和业务过程描述质量：谁在何时用哪些元素做什么决定或动作，错误、缺失、过期、冲突造成多少损失或风险，可接受什么程度的误差。相同地址字段对营销触达、账单寄送、上门服务可有不同有效性和时效门槛。</p>
+<p>优先选择财务/监管报表、关键运营、客户体验、主/参考数据和高损害流程中的关键数据元素（CDE）。范围表列对象/字段、来源和消费、用途、重要性、业务 owner、技术 owner、损害、基线与目标。将质量改进与业务策略、政策、预算和持续运行责任关联。</p>
+<p>目标需同时包含数据符合率、缺陷进入率、问题关闭/复发、控制覆盖、业务影响与成本收益。不能用修了多少行替代寄送成功、报表差异或人工返工减少。</p>
+<h2 id="2-原则与关键概念">2. 原则与关键概念</h2>
+<ul>
+<li><strong>用途决定要求：</strong> 数据的质量维度、阈值和时效随场景而变；业务 owner 批准适用性与残余风险。</li>
+<li><strong>维度用于测量：</strong> 有效性、完整性、一致性、完整关系、准确性、唯一性、及时性等是词汇；每一项须落到可测试规则及业务影响。</li>
+<li><strong>规则是元数据：</strong> 保留 ID、定义、粒度、逻辑、范围、分母、例外、阈值、owner、版本、生效、依赖与测试。</li>
+<li><strong>画像先于目标：</strong> 实际分布、异常和样本可揭示规则假设是否错误；规则由业务专家确认并回测。</li>
+<li><strong>在错误发生处治理：</strong> 流程、激励、表单、接口、处理、系统设计和监督都可能是根因，不把所有问题归咎于录入人员。</li>
+<li><strong>全生命周期控制：</strong> 创建/接收、处理、共享、使用、更正与退役都可产生或传播质量问题。</li>
+<li><strong>问题可追踪：</strong> 缺陷有严重度、责任人、影响、SLA、争议升级、例外与关闭证据；跨团队不能因界面归属而转嫁业务损害。</li>
+<li><strong>持续循环：</strong> 识别 → 评估/计划 → 根因与改进 → 测量/检查 → 纠正与再计划；存量清洗与新增预防分别衡量。</li>
+</ul>
+<p>指标解释：有效性检查允许域/格式/时间；完整性检查条件必填及应有记录；一致性检查同记录、跨源及跨时间规则；完整关系检查外键和条件关联；准确性需可信外部/业务核实来源；唯一性须区分业务身份与技术行；及时性区分事件发生、可用及消费时点。一个值可有效但不准确，两个系统一致也可共同错误。</p>
+<h2 id="3-plan--control--develop--operate">3. Plan / Control / Develop / Operate</h2>
+<h3 id="plan">Plan</h3>
+<ol type="1">
+<li>任命业务 sponsor、CDE owner、质量管家、源/处理/消费团队和争议裁决人；确认用途与损害。</li>
+<li>盘点生命周期、来源/接口/转换、消费者、质量投诉、现有规则/控制/例外和数据供应方义务。</li>
+<li>按关键程度定义维度和规则，画像实际数据，冻结基线、分母、分群和采样法。</li>
+<li>用业务影响、风险、修复成本/可行性排序，定目标、阶段门、资源和八周/长期路线。</li>
+</ol>
+<h3 id="control">Control</h3>
+<ol type="1">
+<li>批准质量政策、CDE、规则、阈值、允许用途、例外与风险接受；对规则版本做影响、回测和发布控制。</li>
+<li>定义质量 SLA、严重度、升级、事件/问题管理、职责分离和审计。</li>
+<li>将质量门纳入创建、接口、发布、报表和供应商协议；明确阻断、隔离、降级或带标识使用。</li>
+<li>报告质量水平、趋势、问题、控制运行、业务效果和质量团队服务绩效。</li>
+</ol>
+<h3 id="develop">Develop</h3>
+<ol type="1">
+<li>画像值分布、空值、格式、唯一/候选重复、关系、时间、代码和异常分群；抽样核实真值与误报。</li>
+<li>分析问题链路，建立根因假设并用日志、输入、作业、配置、访谈、实验和前后对比验证。</li>
+<li>设计源头表单/流程/参考值/培训等预防；入口和下游校验、控制总额、异常队列等侦测；可审计修复与重送等纠正。</li>
+<li>把规则实现于合适控制点，测试正常、边界、误报、漏报、版本迁移、批量与故障场景。</li>
+<li>对历史问题按损害和使用时限分批修复，保留原值、依据、批准、前后结果与回滚。</li>
+</ol>
+<h3 id="operate">Operate</h3>
+<ol type="1">
+<li>按测点与分群持续监控新增率、存量积压、输入/输出、控制失败和业务损害；阈值失守自动创建问题。</li>
+<li>管家分诊、分配、升级、复测、关闭；根因 owner 对预防动作和复发负责，消费方看见已知限制。</li>
+<li>规则变更经分析、业务批准、历史回测、发布与回退；比较版本前后指标，防止改分母制造假改进。</li>
+<li>定期评估控制有效性、例外、用户反馈、收益、运行成本与剩余风险；扩展到下一个高价值域。</li>
+</ol>
+<h2 id="4-上下文与角色">4. 上下文与角色</h2>
+<table>
+<thead>
+<tr>
+<th>角色</th>
+<th>责任与决策权</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>业务 sponsor/数据 owner</td>
+<td>批准用途、CDE、阈值、优先级、风险接受和阶段门；裁决跨部门业务冲突</td>
+</tr>
+<tr>
+<td>数据质量负责人</td>
+<td>维护方法、规则/评估/评分卡、问题流程、质量 SLA 和独立趋势报告</td>
+</tr>
+<tr>
+<td>数据管家</td>
+<td>调查实例、确认业务规则、分配工单、验证修复、监控复发</td>
+</tr>
+<tr>
+<td>源流程/系统 owner</td>
+<td>对源头缺陷、录入/导入控制、源数据更正和变更负责</td>
+</tr>
+<tr>
+<td>集成/处理 owner</td>
+<td>对转换、传输、对账、拒收、重送和处理缺陷负责</td>
+</tr>
+<tr>
+<td>消费者 owner</td>
+<td>定义适用性、报告影响、验证结果、决定带限制使用/暂停使用</td>
+</tr>
+<tr>
+<td>MDM/RDM owner</td>
+<td>裁决共享实体身份、黄金属性和参考代码权威</td>
+</tr>
+<tr>
+<td>安全/隐私/合规</td>
+<td>对敏感数据、合法用途、修复访问与监管影响作授权判断</td>
+</tr>
+</tbody>
+</table>
+<p>责任落在发生点与控制点：质量团队协调/测量，不替源流程、平台或业务 owner 接受风险；多源身份合并不由质量规则引擎自行批准。</p>
+<h2 id="5-交付物与验收证据">5. 交付物与验收证据</h2>
+<h3 id="用途关键元素质量要求矩阵">用途—关键元素—质量要求矩阵</h3>
+<table>
+<thead>
+<tr>
+<th>用途/消费者</th>
+<th>CDE/定义/来源</th>
+<th>业务损害</th>
+<th>维度与适用要求</th>
+<th>时限/阈值</th>
+<th>测点</th>
+<th>业务/技术 Owner</th>
+<th>例外</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p>例如“账单寄送地址”可要求投递所需组成完整、邮编与国家一致且在寄送前经确认；分析报表可能允许缺失地址但不允许客户身份重复计数。不同用途需分别批准。</p>
+<h3 id="版本化质量规则">版本化质量规则</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Rule ID、名称、业务目的、CDE/实体/字段、维度：</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>适用用途/系统/渠道、对象粒度、条件/排除、分母：</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>判定逻辑、参考值/真值来源、时区、有效期：</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>检测位置（源/接口/下游）、频率、测量窗口、抽样：</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>合格阈值、告警/阻断阈值、误报/漏报复核：</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>失败动作、隔离/降级/重送、例外与通知：</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>业务 owner、技术 owner、版本、生效、批准、测试/回测：</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>依赖、受影响消费者、发布/回退和复审日期：</span></code></pre></div>
+<p>规则必须经真实数据画像和业务专家验证。变更规则、分母、例外或参考版本时保存旧版和历史可解释性；新旧规则并行回测并明确趋势是否可比。</p>
+<h3 id="画像基线和影响">画像、基线和影响</h3>
+<table>
+<thead>
+<tr>
+<th>CDE/规则/用途</th>
+<th>总体/分群/窗口</th>
+<th style="text-align: right;">总量/分母</th>
+<th style="text-align: right;">失败量/率</th>
+<th>样本与置信限制</th>
+<th>业务损害/成本</th>
+<th>责任/证据</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p>按源、渠道、时间、地区、客户群和新旧数据切片；区分候选重复与确认重复、格式有效与真实准确、缺失与业务不适用。记录采样方法、基线冻结时点、运行代码/规则版本和数据水位。影响估计可用退件数×单件成本、报表重算/返工小时、错误交易金额、投诉与合规风险；假设、范围和不确定性可审计。用影响、风险、可修复性和成本排序，防止只修易修的低价值问题。</p>
+<h3 id="根因树与控制图">根因树与控制图</h3>
+<table>
+<thead>
+<tr>
+<th>现象/规则</th>
+<th>发生点/传播路径</th>
+<th>根因假设</th>
+<th>正反证据/验证实验</th>
+<th>责任 Owner</th>
+<th>预防</th>
+<th>侦测</th>
+<th>纠正/回滚</th>
+<th>复发验证</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p>根因类别至少考虑：缺监督/权责、录入流程与用户激励、界面/默认值、上游供应、系统设计/约束、代码/映射/接口、批处理/手工干预、参考值与语义冲突。用 5 Why、鱼骨、Pareto、过程追踪或对照实验，但必须保存能证伪假设的证据。控制图逐点说明覆盖范围、失败时动作、运行责任、日志、有效性测试和下游通知。源头不能即时修复时，可用受控隔离/标记/补偿；必须留源头整改事项和到期复审。</p>
+<h3 id="质量问题与例外流程">质量问题与例外流程</h3>
+<p><code>发现 → 分诊/严重度 → 影响/用途评估 → 归因/责任 → 临时控制 → 根因/修复 → 回测/业务验证 → 关闭 → 复发观察</code></p>
+<p>问题单：ID、规则/版本、样本与范围、首次/再次发生、源与消费者、业务影响、严重度、owner、SLA、根因证据、临时控制、永久修复、变更/批次、复测、批准和关闭。重复事件可关联同一根因但不抹掉发生量；超龄、跨团队争议、阈值失守和高损害升级给数据 owner。</p>
+<p>例外/风险接受单：对象/用途/范围、违反规则与实际损害、批准人、理由、补偿控制、可见警示、开始/到期、复审、撤销条件和受影响消费者。只有授权业务 owner 能接受业务质量风险；安全/隐私/合规红线按其职责另行批准。例外到期自动复查，不能成为永久放行白名单。</p>
+<h3 id="评分卡效益与八周验收">评分卡、效益与八周验收</h3>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th>定义/分母/版本</th>
+<th style="text-align: right;">基线</th>
+<th style="text-align: right;">目标</th>
+<th>频率/分群</th>
+<th>数据源/Owner</th>
+<th>失守动作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>新增缺陷进入率</td>
+<td>新增中失败对象/新增适用对象</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>存量失败率</td>
+<td>当前失败对象/当前适用对象</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>报表/寄送影响</td>
+<td>差异金额、退件、返工、投诉</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>控制有效性</td>
+<td>入口拦截、误报、漏报、下游逃逸</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>问题运营</td>
+<td>积压、超龄、SLA、复发</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>净效益</td>
+<td>经验证节省/避免损失－建设/运行成本</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>八周示例：第 1–2 周确定用途/CDE/owner、规则与画像基线、损失假设；第 3–4 周对高影响问题验证根因并试点源头/下游控制；第 5–6 周分批纠正存量、发布版本化规则并运行问题/例外队列；第 7–8 周按多个周期验证新增与存量趋势、误报/逃逸、寄送和报表效果，交接常态运营。若目标阈值尚无真实基线，先由业务批准测量与设定方法，再锁定数值；不伪造目标。</p>
+<p>No-Go：关键用途/owner 未批准；规则无分母和版本；高损害问题无临时控制；修复不可审计或误合并不可逆；例外无授权与期限；只见存量下降但新增缺陷仍上升；消费者不可见已知不适用性。</p>
+<h2 id="6-工具与技术">6. 工具与技术</h2>
+<ul>
+<li>数据剖析、统计抽样、解析/标准化、地址验证和规则引擎；</li>
+<li>质量监控、异常隔离、控制总额、评分卡、问题/工单与工作流；</li>
+<li>根因分析、过程映射、5 Why、鱼骨、Pareto 和前后对照；</li>
+<li>元数据目录、血缘、版本库、测试/回测、审计和发布管理。</li>
+</ul>
+<p>工具应服务于已批准规则和真实控制点。自动修正需要误改风险、来源可信度、人工裁决区和回滚；外部验证服务需要合法用途、供应商质量、保留和安全评审。购买质量工具不会赋予业务定义和风险接受权。</p>
+<h2 id="7-指标风险与实施">7. 指标、风险与实施</h2>
+<p>常见风险：把“无空值”误当可用；在下游补值掩盖源头；同名异人自动合并；规则一改指标看似改善；样本只覆盖高质量渠道；地址格式通过但不可投递；质量门阻断业务又无降级；问题在团队间推诿；例外长期不清；过度追求完美使成本超过收益。</p>
+<p>控制：用途驱动阈值、分层画像、业务真值样本、规则版本/并行回测、源头责任、三类控制、问题 SLA、例外到期、收益核算与分群趋势。对外报告同时展示测量覆盖与可信限制。若质量低于业务使用门，阻断、降级或附限制由获授权 owner 按损害决定并留下证据。</p>
+<p>改进组合应优先高损害、可验证根因和可持续控制。每个增量完成后复测源头、新增、存量和消费结果，再扩展到下一 CDE/用途；运行团队持续拥有规则、队列、反馈和周期性评审。</p>
+<h2 id="8-依赖与协同">8. 依赖与协同</h2>
+<ul>
+<li><code>establishing-data-governance</code>：授予质量政策、业务 owner、争议和风险接受决策权。</li>
+<li><code>managing-reference-and-master-data</code>：主导共享身份、黄金记录、参考代码、合并/拆分；质量团队测量和反馈错误。</li>
+<li><code>managing-metadata</code>：登记 CDE、规则、版本、质量结果、owner、血缘和适用限制。</li>
+<li><code>integrating-data</code>：在入口/发布执行校验、隔离、重放、对账和差错通知。</li>
+<li><code>delivering-data-warehousing-and-bi</code>：给分析用途、业务验收和已知质量限制；质量团队推动源头修复。</li>
+<li><code>modeling-data</code>：确认粒度、键、关系、允许值和约束，避免错误规则源自错误模型。</li>
+<li><code>securing-data</code> 与 <code>handling-data-ethically</code>：约束敏感数据检测/修复、外部验证和错误带来的差别损害。</li>
+<li><code>leading-data-change</code>：支持录入流程、培训、激励和跨团队持续采纳。</li>
+</ul>
+
+      </div>
+    </article>
+  </main>
+  <footer class="docs-footer content-wrap">
+    <span>DAMA DATA PROJECT SKILLS · V1.1.0</span>
+    <a href="../../../../../index.html">返回入口页 / Back to index ↑</a>
+  </footer>
+</body>
+</html>

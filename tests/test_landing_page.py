@@ -99,11 +99,12 @@ class LandingPageContentTests(unittest.TestCase):
 
     def test_page_links_to_release_package_and_bilingual_html_guides(self) -> None:
         _, page = parse_page()
-        self.assertIn("dama-data-project-skills-v1.0.0.zip", page.links)
-        self.assertIn("site-docs/README.html", page.links)
-        self.assertIn("site-docs/README.en.html", page.links)
-        self.assertIn("site-docs/VALIDATION.html", page.links)
-        self.assertIn("site-docs/skills/managing-data-projects/SKILL.html", page.links)
+        self.assertIn("dama-data-project-skills-v1.1.0.zip", page.links)
+        self.assertIn("site-docs/v1.1.0/README.html", page.links)
+        self.assertIn("site-docs/v1.1.0/README.en.html", page.links)
+        self.assertIn("site-docs/v1.1.0/VALIDATION.html", page.links)
+        self.assertIn("site-docs/v1.1.0/skills/managing-data-projects/SKILL.html", page.links)
+        self.assertIn("site-docs/v1.1.0/skills/managing-data-projects/templates/delivery-pack.en.html", page.links)
         self.assertFalse(
             [target for target in page.links if target.split("#", 1)[0].endswith(".md")]
         )

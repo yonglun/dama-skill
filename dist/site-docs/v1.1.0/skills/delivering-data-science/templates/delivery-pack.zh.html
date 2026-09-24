@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="数据科学交付包 — DAMA Data Project Skills documentation">
+  <title>数据科学交付包 · DAMA Data Project Skills</title>
+  <link rel="stylesheet" href="../../../../../assets/site.css">
+</head>
+<body class="docs-page">
+  <a class="skip-link" href="#document-content">跳转到正文 / Skip to content</a>
+  <header class="docs-header content-wrap">
+    <a class="docs-brand" href="../../../../../index.html">
+      <span class="docs-brand-mark" aria-hidden="true">D</span>
+      <span><strong>DAMA DATA PROJECT SKILLS</strong><small>DOCUMENTATION · RELEASE 1.1.0</small></span>
+    </a>
+    <nav class="docs-nav" aria-label="文档导航 / Document navigation">
+      <a class="docs-home" href="../../../../../index.html">← 技能首页 / Skill index</a>
+      <a href="../../../README.html">中文指南</a>
+      <a href="../../../README.en.html">English guide</a>
+      <a class="source-markdown" href="../../../../../dama-data-project-skills-v1.1.0/skills/delivering-data-science/templates/delivery-pack.zh.md" download rel="alternate">原始 Markdown ↓</a>
+    </nav>
+  </header>
+  <main class="docs-main" id="document-content">
+    <p class="docs-kicker">KNOWLEDGE LIBRARY <span>／</span> V1.1.0</p>
+    <article class="docs-content">
+      <div class="markdown-body">
+<h1 id="数据科学交付包">数据科学交付包</h1>
+<p>Skill: <code>delivering-data-science</code></p>
+<p><a href="../../../../../dama-data-project-skills-v1.1.0/skills/delivering-data-science/templates/report.zh.docx">Word 报告</a> · <a href="../../../../../dama-data-project-skills-v1.1.0/skills/delivering-data-science/templates/register.zh.xlsx">Excel 台账</a></p>
+<h2 id="基本信息">基本信息</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>字段</th>
+<th>填写内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>artifact_id</code></td>
+<td>工件编号</td>
+<td></td>
+</tr>
+<tr>
+<td><code>project</code></td>
+<td>项目</td>
+<td></td>
+</tr>
+<tr>
+<td><code>skill</code></td>
+<td>适用技能</td>
+<td></td>
+</tr>
+<tr>
+<td><code>version</code></td>
+<td>版本</td>
+<td></td>
+</tr>
+<tr>
+<td><code>date</code></td>
+<td>日期</td>
+<td></td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td>状态</td>
+<td></td>
+</tr>
+<tr>
+<td><code>author</code></td>
+<td>编写人</td>
+<td></td>
+</tr>
+<tr>
+<td><code>owner</code></td>
+<td>负责人</td>
+<td></td>
+</tr>
+<tr>
+<td><code>approver</code></td>
+<td>批准人</td>
+<td></td>
+</tr>
+<tr>
+<td><code>purpose</code></td>
+<td>目的</td>
+<td></td>
+</tr>
+<tr>
+<td><code>business_outcome</code></td>
+<td>业务结果</td>
+<td></td>
+</tr>
+<tr>
+<td><code>scope</code></td>
+<td>范围与排除项</td>
+<td></td>
+</tr>
+<tr>
+<td><code>source_inputs</code></td>
+<td>输入与来源</td>
+<td></td>
+</tr>
+<tr>
+<td><code>assumptions</code></td>
+<td>假设与约束</td>
+<td></td>
+</tr>
+<tr>
+<td><code>decisions</code></td>
+<td>决定</td>
+<td></td>
+</tr>
+<tr>
+<td><code>rationale</code></td>
+<td>决定依据</td>
+<td></td>
+</tr>
+<tr>
+<td><code>risks</code></td>
+<td>风险</td>
+<td></td>
+</tr>
+<tr>
+<td><code>exceptions</code></td>
+<td>例外</td>
+<td></td>
+</tr>
+<tr>
+<td><code>open_items</code></td>
+<td>未决项</td>
+<td></td>
+</tr>
+<tr>
+<td><code>due_date</code></td>
+<td>期限</td>
+<td></td>
+</tr>
+<tr>
+<td><code>acceptance_criteria</code></td>
+<td>验收标准</td>
+<td></td>
+</tr>
+<tr>
+<td><code>evidence_location</code></td>
+<td>证据位置</td>
+<td></td>
+</tr>
+<tr>
+<td><code>reviewer_decision</code></td>
+<td>评审决定</td>
+<td></td>
+</tr>
+<tr>
+<td><code>next_gate</code></td>
+<td>下一阶段门</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="专题分析与决策">专题分析与决策</h2>
+<h3 id="业务假设与决策边界-hypothesis">业务假设与决策边界 (<code>hypothesis</code>)</h3>
+<p>定义拟验证的假设、基线方案、成功判据和禁止自动化的决定。</p>
+<blockquote>
+<p>填写项目证据、结论与责任人。</p>
+</blockquote>
+<h3 id="数据特征与标签-data_features">数据特征与标签 (<code>data_features</code>)</h3>
+<p>固定预测时点、数据用途、特征可用性、标签延迟和泄漏检查。</p>
+<blockquote>
+<p>填写项目证据、结论与责任人。</p>
+</blockquote>
+<h3 id="实验与评估协议-evaluation">实验与评估协议 (<code>evaluation</code>)</h3>
+<p>规定时间切分、独立测试、分群误差、成本和对照指标。</p>
+<blockquote>
+<p>填写项目证据、结论与责任人。</p>
+</blockquote>
+<h3 id="可复现证据-reproducibility">可复现证据 (<code>reproducibility</code>)</h3>
+<p>记录数据版本、代码、环境、随机性和评估工件。</p>
+<blockquote>
+<p>填写项目证据、结论与责任人。</p>
+</blockquote>
+<h3 id="模型卡与限制-model_card">模型卡与限制 (<code>model_card</code>)</h3>
+<p>说明目标用途、表现、已知失败模式、受影响方和人工兜底。</p>
+<blockquote>
+<p>填写项目证据、结论与责任人。</p>
+</blockquote>
+<h3 id="生产服务与灰度-production">生产服务与灰度 (<code>production</code>)</h3>
+<p>定义影子或灰度门、人工流程、可观测性和发布批准。</p>
+<blockquote>
+<p>填写项目证据、结论与责任人。</p>
+</blockquote>
+<h3 id="监控重训与变更-monitoring">监控重训与变更 (<code>monitoring</code>)</h3>
+<p>设定漂移、效果、偏差与再训练触发和独立复核。</p>
+<blockquote>
+<p>填写项目证据、结论与责任人。</p>
+</blockquote>
+<h3 id="回滚与退役-rollback">回滚与退役 (<code>rollback</code>)</h3>
+<p>写明停止阈值、回退、数据保留和退役责任。</p>
+<blockquote>
+<p>填写项目证据、结论与责任人。</p>
+</blockquote>
+<h2 id="工作台账">工作台账</h2>
+<h3 id="数据特征-features">数据特征 (<code>features</code>)</h3>
+<p>记录特征来源、时点和用途约束。</p>
+<table>
+<thead>
+<tr>
+<th>特征 (<code>feature</code>)</th>
+<th>定义 (<code>definition</code>)</th>
+<th>来源 (<code>source</code>)</th>
+<th>规则 (<code>rule</code>)</th>
+<th>负责人 (<code>owner</code>)</th>
+<th>证据 (<code>evidence</code>)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="验证监控-validation">验证监控 (<code>validation</code>)</h3>
+<p>跟踪独立验证、漂移和停用动作。</p>
+<table>
+<thead>
+<tr>
+<th>指标 (<code>metric</code>)</th>
+<th>验证 (<code>validation</code>)</th>
+<th>漂移阈值 (<code>drift_threshold</code>)</th>
+<th>测试结果 (<code>test_result</code>)</th>
+<th>负责人 (<code>owner</code>)</th>
+<th>证据 (<code>evidence</code>)</th>
+<th>复核日期 (<code>review_date</code>)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+    </article>
+  </main>
+  <footer class="docs-footer content-wrap">
+    <span>DAMA DATA PROJECT SKILLS · V1.1.0</span>
+    <a href="../../../../../index.html">返回入口页 / Back to index ↑</a>
+  </footer>
+</body>
+</html>

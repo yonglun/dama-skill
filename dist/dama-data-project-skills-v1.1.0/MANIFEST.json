@@ -1,0 +1,31 @@
+{
+  "name": "dama-data-project-skills",
+  "version": "1.1.0",
+  "release_date": "2026-09-24",
+  "skill_count": 17,
+  "template_file_count": 102,
+  "skills": [
+    "assessing-data-management-maturity",
+    "delivering-data-science",
+    "delivering-data-warehousing-and-bi",
+    "designing-data-architecture",
+    "establishing-data-governance",
+    "handling-data-ethically",
+    "improving-data-quality",
+    "integrating-data",
+    "leading-data-change",
+    "managing-data-projects",
+    "managing-documents-and-content",
+    "managing-metadata",
+    "managing-reference-and-master-data",
+    "modeling-data",
+    "operating-data-storage",
+    "organizing-data-management",
+    "securing-data"
+  ],
+  "excluded": [
+    "DMBOK source book",
+    "dmbok/",
+    "tmp/"
+  ]
+}

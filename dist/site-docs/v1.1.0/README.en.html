@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="DAMA Data-Project Skill Suite — DAMA Data Project Skills documentation">
+  <title>DAMA Data-Project Skill Suite · DAMA Data Project Skills</title>
+  <link rel="stylesheet" href="../../assets/site.css">
+</head>
+<body class="docs-page">
+  <a class="skip-link" href="#document-content">跳转到正文 / Skip to content</a>
+  <header class="docs-header content-wrap">
+    <a class="docs-brand" href="../../index.html">
+      <span class="docs-brand-mark" aria-hidden="true">D</span>
+      <span><strong>DAMA DATA PROJECT SKILLS</strong><small>DOCUMENTATION · RELEASE 1.1.0</small></span>
+    </a>
+    <nav class="docs-nav" aria-label="文档导航 / Document navigation">
+      <a class="docs-home" href="../../index.html">← 技能首页 / Skill index</a>
+      <a href="README.html">中文指南</a>
+      <a href="README.en.html">English guide</a>
+      <a class="source-markdown" href="../../dama-data-project-skills-v1.1.0/README.en.md" download rel="alternate">原始 Markdown ↓</a>
+    </nav>
+  </header>
+  <main class="docs-main" id="document-content">
+    <p class="docs-kicker">KNOWLEDGE LIBRARY <span>／</span> V1.1.0</p>
+    <article class="docs-content">
+      <div class="markdown-body">
+<h1 id="dama-data-project-skill-suite">DAMA Data-Project Skill Suite</h1>
+<p><a href="README.html">中文 README</a></p>
+<p>This suite turns the knowledge areas in <em>DAMA-DMBOK Data Management Body of Knowledge, 2nd Edition, Revised Edition</em> into original workflows for data projects: <strong>one cross-domain router plus 16 independently usable domain skills</strong>. The skills help define scope, ownership, sequencing, deliverables, and acceptance evidence. They do not require every project to implement every knowledge area. The book is source material, not a set of instructions to the agent. The copyrighted source book is not included in this repository or its release package.</p>
+<h2 id="quick-start">Quick start</h2>
+<p>The skills/ directory is the single editable source in this repository. Relative symlinks under .agents/skills/ make all 17 skills discoverable to Codex in this project. Invoke a skill explicitly by including $skill-name in your prompt, or describe the task and let Codex choose based on the skill descriptions. For cross-domain work, or when you are unsure which skill to use, start with <a href="skills/managing-data-projects/SKILL.html">Managing Data Projects</a>.</p>
+<blockquote>
+<p>Use $managing-data-projects to plan a 12-week retail lakehouse project. Select the primary, foundational, and supporting domains; explain scope exclusions, owners, stage gates, and verifiable acceptance evidence.</p>
+</blockquote>
+<p>To use the suite in <strong>another data project</strong>, copy or link the complete skill directories you need from this repository's skills/ into that project's .agents/skills/. Preserve each directory's SKILL.md, references/, agents/, and templates/; copying only SKILL.md loses supporting guidance and deliverables. Install the router alongside the relevant domain skills for cross-domain projects; a focused task may need only one domain skill. If a newly added skill does not appear, restart Codex. See the <a href="https://learn.chatgpt.com/docs/build-skills">official Codex skill documentation</a> for discovery locations and explicit or implicit invocation.</p>
+<h2 id="deliverable-templates">Deliverable templates</h2>
+<p>Every skill includes six ready-to-copy files in its own <code>templates/</code> directory: a Chinese and English Markdown delivery pack (<code>delivery-pack.zh.md</code> / <code>.en.md</code>), Word report (<code>report.zh.docx</code> / <code>.en.docx</code>), and Excel working register (<code>register.zh.xlsx</code> / <code>.en.xlsx</code>). Use Markdown for the complete handoff, Word for narrative analysis and review, and Excel for matrices, evidence registers, and scorecards. The same stable field IDs connect both languages and all formats. Start with the router's <a href="skills/managing-data-projects/templates/delivery-pack.en.html">English delivery pack</a> or <a href="skills/managing-data-projects/templates/delivery-pack.zh.html">Chinese delivery pack</a>. Blank fields are intentional: confirm project facts, owners, thresholds, approvals, and evidence; do not treat the template as an approved decision. Copy the full skill directory to keep its templates portable. The <code>skills/</code> files are editable source; <code>dist/</code> contains versioned distribution copies.</p>
+<p>The prompts below are <strong>examples of requests for a plan or work product</strong>, not preapproved business decisions. Replace the organization, data, deadline, and constraints with your own. When facts are missing, ask the skill to identify questions to resolve instead of inventing thresholds, legal conclusions, or owners.</p>
+<h2 id="all-17-skills">All 17 skills</h2>
+<p>This repository's original materials are licensed under <a href="../../dama-data-project-skills-v1.1.0/LICENSE">Apache License 2.0</a>. The license does not grant rights to the copyrighted DMBOK source book.</p>
+<h3 id="1-managing-data-projects--managing-data-projects">1. <a href="skills/managing-data-projects/SKILL.html">Managing Data Projects · $managing-data-projects</a></h3>
+<ul>
+<li>Use when: An initiative spans several data-management domains, or the right skills and delivery order are unclear.</li>
+<li>Produces: A project profile, primary/foundational/supporting domain route, tailoring rationale, dependency order, stage gates, and an integrated delivery plan.</li>
+<li>Example: Use $managing-data-projects to create a 12-week roadmap for a new customer-data platform. Explain which governance, quality, metadata, security, operations, and change activities belong in scope, which can wait, and the evidence required at each gate.</li>
+</ul>
+<h3 id="2-handling-data-ethically--handling-data-ethically">2. <a href="skills/handling-data-ethically/SKILL.html">Handling Data Ethically · $handling-data-ethically</a></h3>
+<ul>
+<li>Use when: New collection, sharing, profiling, AI, or secondary use may affect people, fairness, autonomy, or trust, even if the use appears secure or legally permissible.</li>
+<li>Produces: Purpose and alternatives, affected-party mapping, benefit/harm assessment, use boundaries, recourse and stop conditions, and an evidence-based decision recommendation.</li>
+<li>Example: Use $handling-data-ethically to assess using existing customer-behavior data for personalized pricing. Identify affected groups, less intrusive alternatives, fairness risks, and evidence needed before a decision.</li>
+</ul>
+<h3 id="3-establishing-data-governance--establishing-data-governance">3. <a href="skills/establishing-data-governance/SKILL.html">Establishing Data Governance · $establishing-data-governance</a></h3>
+<ul>
+<li>Use when: Teams disagree about definitions, ownership, standards, or exceptions and need clear authority, oversight, and escalation.</li>
+<li>Produces: A governance charter, decision-rights and stewardship matrix, policy/standards hierarchy, issue and exception workflow, and scorecard.</li>
+<li>Example: Use $establishing-data-governance to resolve conflicting definitions of “customer” across three business units. Name the final approver, term-change process, escalation path, and oversight measures.</li>
+</ul>
+<h3 id="4-designing-data-architecture--designing-data-architecture">4. <a href="skills/designing-data-architecture/SKILL.html">Designing Data Architecture · $designing-data-architecture</a></h3>
+<ul>
+<li>Use when: An enterprise, domain, or platform needs current, target, and transition architecture with an evolution roadmap—not merely a single table design.</li>
+<li>Produces: Architecture principles and views, current/target/transition blueprints, decisions and trade-offs, a dependency roadmap, and conformance evidence.</li>
+<li>Example: Use $designing-data-architecture to plan how CRM, POS, and e-commerce data will fit into a target architecture. Compare transition options, system responsibilities, data flows, and phased migration evidence.</li>
+</ul>
+<h3 id="5-modeling-data--modeling-data">5. <a href="skills/modeling-data/SKILL.html">Modeling Data · $modeling-data</a></h3>
+<ul>
+<li>Use when: Business requirements must become conceptual, logical, or physical models with explicit entities, grain, keys, relationships, and rules.</li>
+<li>Produces: Models and term definitions, conceptual-to-logical-to-physical traceability, reviews, versions, and controlled changes.</li>
+<li>Example: Use $modeling-data to design a logical model for orders, refunds, and customers. Specify order-line grain, primary and foreign keys, historical states, and questions requiring business confirmation.</li>
+</ul>
+<h3 id="6-operating-data-storage--operating-data-storage">6. <a href="skills/operating-data-storage/SKILL.html">Operating Data Storage · $operating-data-storage</a></h3>
+<ul>
+<li>Use when: A database, lakehouse, or file store needs production readiness, capacity, performance, backup/recovery, change control, or operational handoff.</li>
+<li>Produces: Service targets, capacity and cost estimates, RTO/RPO, recovery exercises, monitoring, runbooks, and Go/No-Go evidence.</li>
+<li>Example: Use $operating-data-storage to assess a new analytical database before production. Define recovery drills, capacity and performance tests, on-call handoff, and release blockers.</li>
+</ul>
+<h3 id="7-securing-data--securing-data">7. <a href="skills/securing-data/SKILL.html">Securing Data · $securing-data</a></h3>
+<ul>
+<li>Use when: Data needs classification, access control, encryption/masking, export limits, auditability, cloud or vendor safeguards, and control tests.</li>
+<li>Produces: Classification, a subject-by-data-by-action access matrix, selected controls, negative tests, exceptions, and residual-risk evidence.</li>
+<li>Example: Use $securing-data to design least-privilege and masking controls for a cloud platform containing customer contact details. Specify access ordinary analysts must be denied, revocation tests, and audit evidence.</li>
+</ul>
+<h3 id="8-integrating-data--integrating-data">8. <a href="skills/integrating-data/SKILL.html">Integrating Data · $integrating-data</a></h3>
+<ul>
+<li>Use when: Data must move or interoperate between systems through batch, CDC, streams, APIs, or sharing, with mappings, replay, reconciliation, and interface ownership.</li>
+<li>Produces: Integration-pattern decisions, versioned interface contracts, source-to-target mappings, failure isolation/retry/replay, lineage, reconciliation, and SLAs.</li>
+<li>Example: Use $integrating-data to design a customer-change CDC pipeline from CRM to billing. Cover out-of-order and duplicate events, idempotent replay, schema changes, and business reconciliation.</li>
+</ul>
+<h3 id="9-managing-documents-and-content--managing-documents-and-content">9. <a href="skills/managing-documents-and-content/SKILL.html">Managing Documents and Content · $managing-documents-and-content</a></h3>
+<ul>
+<li>Use when: Contracts, email, records, or media need lifecycle governance for classification, versions, search, publication, retention, and disposition; not for editing a single document.</li>
+<li>Produces: Content inventory and taxonomy, controlled vocabulary, lifecycle and access rules, hold/disposition workflows, search, and audit evidence.</li>
+<li>Example: Use $managing-documents-and-content to govern customer contracts and correspondence spread across repositories. Design classification, versioning, search, retention, and legal-hold interfaces, marking decisions that require legal approval.</li>
+</ul>
+<h3 id="10-managing-reference-and-master-data--managing-reference-and-master-data">10. <a href="skills/managing-reference-and-master-data/SKILL.html">Managing Reference and Master Data · $managing-reference-and-master-data</a></h3>
+<ul>
+<li>Use when: Shared customer/product identities or controlled code sets such as countries and statuses conflict across systems and need authority and ongoing distribution.</li>
+<li>Produces: Source/consumer/authority matrices, global IDs and crosswalks, golden-record and survivorship rules, match/merge/split tests, reference-code versions, and stewardship workflows.</li>
+<li>Example: Use $managing-reference-and-master-data to address duplicate customers across three CRMs. Define false-merge safeguards, reversible splits, golden-record rules, country-code versions, and consumer acknowledgments.</li>
+</ul>
+<h3 id="11-delivering-data-warehousing-and-bi--delivering-data-warehousing-and-bi">11. <a href="skills/delivering-data-warehousing-and-bi/SKILL.html">Delivering Data Warehousing and BI · $delivering-data-warehousing-and-bi</a></h3>
+<ul>
+<li>Use when: Delivering a warehouse, mart, metric, report, or dashboard, especially with disputed definitions, historical comparisons, business acceptance, or self-service analytics.</li>
+<li>Produces: Decision-to-metric traceability, metric contracts, fact grain and conformed dimensions, history policy, load reconciliation, BI release/support/adoption evidence.</li>
+<li>Example: Use $delivering-data-warehousing-and-bi to deliver an executive sales dashboard. Resolve revenue definitions and refund attribution before specifying certified metrics, year-over-year history, and acceptance tests.</li>
+</ul>
+<h3 id="12-managing-metadata--managing-metadata">12. <a href="skills/managing-metadata/SKILL.html">Managing Metadata · $managing-metadata</a></h3>
+<ul>
+<li>Use when: Data assets, business terms, fields, ownership, operational status, or lineage must be discoverable and maintained for provenance and change-impact analysis.</li>
+<li>Produces: A minimum metadata product, catalog/glossary, design versus actual-run lineage, impact analysis, and coverage/freshness measures. Governance retains final authority over disputed terms.</li>
+<li>Example: Use $managing-metadata to build a searchable catalog and field-level lineage for three critical reports. Require a trace from report to source run and a downstream-impact test for a changed source field.</li>
+</ul>
+<h3 id="13-improving-data-quality--improving-data-quality">13. <a href="skills/improving-data-quality/SKILL.html">Improving Data Quality · $improving-data-quality</a></h3>
+<ul>
+<li>Use when: Defects recur and the business needs fit-for-purpose rules, a measured baseline, root-cause analysis, prevention, and ongoing monitoring.</li>
+<li>Produces: Versioned quality rules, profiling and baselines, business-impact priorities, root-cause remediation, issue closure, scorecards, and trends.</li>
+<li>Example: Use $improving-data-quality to address customer addresses that became invalid again after a cleanup. Separate existing-record repair from new-error prevention and define delivery-specific rules, root-cause evidence, and recurrence measures.</li>
+</ul>
+<h3 id="14-delivering-data-science--delivering-data-science">14. <a href="skills/delivering-data-science/SKILL.html">Delivering Data Science · $delivering-data-science</a></h3>
+<ul>
+<li>Use when: Testing a data hypothesis or building/deploying a predictive or statistical model, including experiment validity, reproducibility, production monitoring, and retirement. Use the BI skill for ordinary dashboards.</li>
+<li>Produces: Hypotheses, data/feature/label cards, experiment and independent-validation protocols, model cards, shadow/canary gates, drift monitoring, and rollback criteria.</li>
+<li>Example: Use $delivering-data-science to design the launch of a customer-risk model. Fix the prediction time, temporal split, and independent test; define group error, human fallback, and stop conditions.</li>
+</ul>
+<h3 id="15-assessing-data-management-maturity--assessing-data-management-maturity">15. <a href="skills/assessing-data-management-maturity/SKILL.html">Assessing Data-Management Maturity · $assessing-data-management-maturity</a></h3>
+<ul>
+<li>Use when: An organization needs an evidence-based current and target capability assessment, gap analysis, and improvement priorities.</li>
+<li>Produces: Assessment scope and rubric, evidence-strength rules, current/target matrix, uncertainty statements, prioritized improvements, and reassessment cadence.</li>
+<li>Example: Use $assessing-data-management-maturity to assess governance, quality, and metadata across three business units. State sampling and evidence strength; do not claim a verified enterprise-wide score without operational evidence.</li>
+</ul>
+<h3 id="16-organizing-data-management--organizing-data-management">16. <a href="skills/organizing-data-management/SKILL.html">Organizing Data Management · $organizing-data-management</a></h3>
+<ul>
+<li>Use when: Designing central/local responsibilities, operating models, roles, committees, shared services, RACI, funding, or coordination.</li>
+<li>Produces: Comparison of centralized, decentralized, network, hybrid, and federated models; an operating model, role charters, activity-level RACI, resource gaps, and a pilot roadmap.</li>
+<li>Example: Use $organizing-data-management to compare centralized and federated data offices for a multi-region company. Define central and local roles, decision interfaces, RACI, staffing capacity, and pilot gates.</li>
+</ul>
+<h3 id="17-leading-data-change--leading-data-change">17. <a href="skills/leading-data-change/SKILL.html">Leading Data Change · $leading-data-change</a></h3>
+<ul>
+<li>Use when: A new catalog, governance process, standard, or stewardship practice exists but is underused, bypassed, or not sustained, and real working behavior must change.</li>
+<li>Produces: Change case and target behaviors, stakeholder readiness, guiding coalition, communication/training, obstacle log, short-term wins, and an adoption funnel.</li>
+<li>Example: Use $leading-data-change to improve a catalog's 12% active-use rate three months after launch. Address middle-manager participation, hands-on support, feedback closure, and sustained-use metrics.</li>
+</ul>
+<h2 id="combining-skills">Combining skills</h2>
+<p>The router <strong>selects, sequences, tailors, and consolidates</strong>; domain skills supply their specialist methods and work products. A build project should at least check governance, quality, metadata, security/privacy, ethical use, and organizational adoption. Checking an area does not authorize implementing it. Do not load all 17 skills merely because a prompt contains a broad data term.</p>
+<ul>
+<li>Lakehouse/BI: Start with $managing-data-projects; warehousing/BI and integration are often primary, with architecture, quality, metadata, security, storage operations, and change added as risks warrant.</li>
+<li>Customer-master remediation: Make master/reference data primary; use quality for recurring field defects, integration for cross-system distribution, and governance for disputed authority.</li>
+<li>Risk-model launch: Make data science primary and independently check ethical use, security, quality, metadata, and human adoption. A dashboard or a security pass is not model-release approval.</li>
+</ul>
+<h2 id="sources-validation-and-boundaries">Sources, validation, and boundaries</h2>
+<ul>
+<li><a href="skills/managing-data-projects/references/source-map.html">DMBOK Chapter 1–17 source map</a>; <a href="skills/managing-data-projects/references/routing-table.html">cross-domain routing table</a>; <a href="https://github.com/yonglun/dama-skill/blob/main/evals/skill-suite/completion-audit.md">completion audit and behavior evaluations</a>.</li>
+<li>In this repository, run python3 scripts/validate_skill_suite.py skills and python3 -m unittest tests/test_validate_skill_suite.py to verify structure, links, and validator tests.</li>
+<li>The skills neither reproduce the book nor constitute official DAMA forms, legal advice, certification rules, or a vendor-specific implementation. Authorized owners must confirm current laws, actual data, thresholds, and permissions for each real project.</li>
+</ul>
+
+      </div>
+    </article>
+  </main>
+  <footer class="docs-footer content-wrap">
+    <span>DAMA DATA PROJECT SKILLS · V1.1.0</span>
+    <a href="../../index.html">返回入口页 / Back to index ↑</a>
+  </footer>
+</body>
+</html>

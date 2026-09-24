@@ -1,0 +1,4 @@
+interface:
+  display_name: "数据质量持续改进"
+  short_description: "定义可用质量、规则与基线，闭环根因、控制和业务效果"
+  default_prompt: "使用 $improving-data-quality 为这个数据质量问题设计评估、根因、控制、运营和验收方案。"

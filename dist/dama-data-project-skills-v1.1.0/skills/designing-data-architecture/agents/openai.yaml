@@ -1,0 +1,4 @@
+interface:
+  display_name: "设计数据架构"
+  short_description: "从业务能力和数据需求设计当前、目标、过渡数据架构与演进路线"
+  default_prompt: "使用 $designing-data-architecture 设计这个项目的数据架构、过渡路径和验收证据。"

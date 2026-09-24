@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="数据存储与运行项目手册 — DAMA Data Project Skills documentation">
+  <title>数据存储与运行项目手册 · DAMA Data Project Skills</title>
+  <link rel="stylesheet" href="../../../../../assets/site.css">
+</head>
+<body class="docs-page">
+  <a class="skip-link" href="#document-content">跳转到正文 / Skip to content</a>
+  <header class="docs-header content-wrap">
+    <a class="docs-brand" href="../../../../../index.html">
+      <span class="docs-brand-mark" aria-hidden="true">D</span>
+      <span><strong>DAMA DATA PROJECT SKILLS</strong><small>DOCUMENTATION · RELEASE 1.1.0</small></span>
+    </a>
+    <nav class="docs-nav" aria-label="文档导航 / Document navigation">
+      <a class="docs-home" href="../../../../../index.html">← 技能首页 / Skill index</a>
+      <a href="../../../README.html">中文指南</a>
+      <a href="../../../README.en.html">English guide</a>
+      <a class="source-markdown" href="../../../../../dama-data-project-skills-v1.1.0/skills/operating-data-storage/references/playbook.md" download rel="alternate">原始 Markdown ↓</a>
+    </nav>
+  </header>
+  <main class="docs-main" id="document-content">
+    <p class="docs-kicker">KNOWLEDGE LIBRARY <span>／</span> V1.1.0</p>
+    <article class="docs-content">
+      <div class="markdown-body">
+<h1 id="数据存储与运行项目手册">数据存储与运行项目手册</h1>
+<h2 id="1-业务驱动与目标">1. 业务驱动与目标</h2>
+<p>业务连续性是存储与运行的首要驱动。目标是：</p>
+<ul>
+<li>在数据生命周期内管理可用性，保证数据资产完整性；</li>
+<li>让交易、装载和查询性能符合业务服务目标；</li>
+<li>控制数据库/存储技术、环境、变更、备份、恢复、容量、保留和处置；</li>
+<li>以自动化、可复用对象和清晰责任降低错误、返工、停机和长期成本。</li>
+</ul>
+<p>生产就绪必须以可复现证据证明“服务能运行、失败能恢复、变化可控制、责任有人接”，不能只提交架构图、厂商 SLA、备份成功标志或 runbook 文档。</p>
+<h2 id="2-原则与关键概念">2. 原则与关键概念</h2>
+<ul>
+<li><strong>业务目标先于产品参数：</strong> 数据重要性、工作负载、服务时段、增长和风险决定技术与控制。</li>
+<li><strong>全链路服务：</strong> 数据库实例只是服务的一部分；身份、密钥、网络、DNS、调度、对象存储、目录和消费者同样影响恢复。</li>
+<li><strong>HA、备份、DR 分离：</strong> HA 降低局部中断；备份恢复误删/损坏/勒索；DR 恢复站点级服务，不能互相替代。</li>
+<li><strong>RTO/RPO 可测：</strong> RTO 从事件宣布到最低业务服务恢复；RPO 表示可接受的数据损失点，均需业务批准和演练实测。</li>
+<li><strong>生命周期闭环：</strong> 获取/迁移、维护、归档、保留、法律保全、到期处置覆盖主库、副本、缓存、导出、日志和备份。</li>
+<li><strong>变更可逆且可审计：</strong> 低环境测试、受控脚本、批准、观测、前滚/回退；紧急变更也要事后补证。</li>
+<li><strong>容量提前管理：</strong> 为数据、索引、日志、暂存、镜像、快照、恢复副本和峰值预留扩容前置时间。</li>
+<li><strong>托管不等于转责：</strong> 明确客户/供应商在配置、备份、升级、访问、恢复、事件和证据上的共同责任。</li>
+</ul>
+<h2 id="3-plan--control--develop--operate">3. Plan / Control / Develop / Operate</h2>
+<h3 id="plan">Plan</h3>
+<ol type="1">
+<li>建服务任务书：业务用途、重要性、数据/消费者范围、依赖、工作负载、服务窗口、关键日期和预算。</li>
+<li>估算初始规模、增长、查询/装载/维护并发、保留和灾备开销；未知项记录 owner、验证日期和超限动作。</li>
+<li>比较数据库/存储能力：处理模式、规模/速度、事务/一致性、可用性、工具、技能、成本、支持和退出路径；必要时 POC。</li>
+<li>定义环境、SLO、RTO/RPO、容量、恢复、保留、监控、事件和值班目标。</li>
+</ol>
+<h3 id="control">Control</h3>
+<ol type="1">
+<li>维护技术/配置/补丁生命周期、批准标准、例外、供应商支持和资产清单。</li>
+<li>所有数据库、模式、配置和数据修复通过可重放脚本或等效受控机制，由服务请求/变更单触发。</li>
+<li>在开发→测试→预生产→生产逐级验证；环境差异有明确理由，性能环境具有代表性。</li>
+<li>执行访问、审计、备份、恢复、容量、保留、补丁、许可证和 SLO 定期复核。</li>
+</ol>
+<h3 id="develop">Develop</h3>
+<ol type="1">
+<li>建立实例、存储、网络、身份、密钥、审计、监控和环境隔离；记录配置基线。</li>
+<li>把批准的 PDM 实现为物理对象、数据类型、约束、分区/索引/分布、统计和维护策略。</li>
+<li>建备份/PITR、复制/故障转移、恢复环境、归档/清理和法律保全；保护恢复凭据。</li>
+<li>构建发布流水线、兼容性检查、扩展—迁移—收缩、回填和前滚/回退方案。</li>
+<li>以代表性数据测试功能、负载、峰值、耐久、维护竞争、故障、恢复、安全和成本。</li>
+</ol>
+<h3 id="operate">Operate</h3>
+<ol type="1">
+<li>监控连接、错误、锁、延迟、吞吐、队列、资源、空间、复制、备份、质量、新鲜度、成本、权限异常和审计失效。</li>
+<li>按事件级别确认、通知、缓解、恢复和复盘；根因整改回到变更流程。</li>
+<li>主动调优查询/批处理、统计、索引/分区、缓存和工作负载隔离；物理重构前先验证较低风险措施。</li>
+<li>按风险频率演练恢复/切换、复核访问、容量/成本、保留/处置和供应商升级；更新 runbook 和 SLO。</li>
+</ol>
+<h2 id="4-上下文与角色">4. 上下文与角色</h2>
+<table>
+<thead>
+<tr>
+<th>角色</th>
+<th>责任与决策权</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>业务服务负责人</td>
+<td>批准服务窗口、RTO/RPO、降级、预算、上线和残余业务风险</td>
+</tr>
+<tr>
+<td>数据所有者</td>
+<td>批准用途、质量、保留、处置、归档和数据例外</td>
+</tr>
+<tr>
+<td>DBA/数据库或平台工程</td>
+<td>对实例、配置、物理运行、性能、容量、备份恢复和技术就绪负责</td>
+</tr>
+<tr>
+<td>数据工程/应用团队</td>
+<td>对装载、查询、兼容性、重跑、对账和端到端应用验证负责</td>
+</tr>
+<tr>
+<td>SRE/基础设施/网络</td>
+<td>对平台依赖、可观测性、资源、可靠性、故障演练和值班机制负责</td>
+</tr>
+<tr>
+<td>安全/隐私/记录管理</td>
+<td>决定分类、访问、密钥、审计、保留、保全和销毁控制要求</td>
+</tr>
+<tr>
+<td>变更/发布经理</td>
+<td>管理窗口、批准、冻结、编排、沟通和回退触发</td>
+</tr>
+<tr>
+<td>运行负责人/值班团队</td>
+<td>签署接管，执行日常、事件、恢复、容量和供应商升级</td>
+</tr>
+<tr>
+<td>供应商/托管方</td>
+<td>按合同提供平台、通知与升级支持；不接受内部业务风险</td>
+</tr>
+</tbody>
+</table>
+<p>每项关键操作必须有主责、替补、值班队列、权限和升级链；“平台团队负责”不构成可执行分工。</p>
+<h2 id="5-交付物与验收证据">5. 交付物与验收证据</h2>
+<h3 id="生产就绪清单">生产就绪清单</h3>
+<table>
+<thead>
+<tr>
+<th>领域</th>
+<th>必须定义</th>
+<th>验收证据</th>
+<th>Owner</th>
+<th>结论/到期</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>服务/依赖</td>
+<td>消费者、窗口、数据流、上下游、降级</td>
+<td>业务批准；抽样查询可追至源和消费者</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>环境/配置</td>
+<td>拓扑、隔离、版本、参数、配额、漂移</td>
+<td>从空环境重建；差异有批准</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>物理运行</td>
+<td>对象、分区/索引、统计、维护</td>
+<td>代表性查询/装载与设计评审</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>容量/成本</td>
+<td>基线、增长、峰值、备份/副本、阈值</td>
+<td>可复算模型；阈值触发工单</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>变更/发布</td>
+<td>版本、兼容、测试、前滚/回退</td>
+<td>预生产发布和回退演练</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>HA/DR</td>
+<td>故障域、切换、回切、最低服务</td>
+<td>故障演练及实测恢复时间线</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>备份/恢复</td>
+<td>全量/增量/PITR、隔离、密钥、校验</td>
+<td>从非当前备份隔离恢复并业务对账</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>生命周期</td>
+<td>保留、归档、保全、处置、证明</td>
+<td>全副本范围测试及删除/保全证据</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>监控/事件</td>
+<td>SLI、阈值、通知、级别、runbook</td>
+<td>告警注入到工单和值班确认</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>移交</td>
+<td>手册、培训、资产、支持、日历</td>
+<td>非项目值班人员独立演练并签署</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="rtorpo-与恢复演练">RTO/RPO 与恢复演练</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>业务服务、重要性、允许降级与批准人：</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>故障场景和影响范围：</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>RTO 起止点、目标；RPO 定义、目标：</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>恢复点/备份、依赖、凭据和责任顺序：</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>宣告、切换、数据校验、应用重连、消费者验证、回切、沟通步骤：</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>实测时间线、实际数据损失、结构/权限/校验和/业务对账结果：</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>与目标差距、缺陷、补偿、owner、复测日期：</span></code></pre></div>
+<h3 id="变更与发布记录">变更与发布记录</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>变更 ID、业务理由、配置/模式/数据范围：</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>风险、依赖、锁定/容量/兼容影响：</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>脚本/版本、代码评审、低环境与预生产证据：</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>备份/恢复点、前滚/回退、触发阈值、最后决策时间：</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>窗口、批准人、执行人、观测和沟通：</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>实际结果、验证、事件、残留项和复盘：</span></code></pre></div>
+<h3 id="运行手册条目">运行手册条目</h3>
+<table>
+<thead>
+<tr>
+<th>触发/告警</th>
+<th>业务影响</th>
+<th>诊断证据</th>
+<th>安全动作</th>
+<th>升级/通知</th>
+<th>恢复验证</th>
+<th>证据保留</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="六周快速路径与容量证据模板">六周快速路径与容量/证据模板</h3>
+<p>六周最小路径：W1 冻结服务范围、依赖、业务影响、SLO 和 RTO/RPO；W2 建可重建环境、身份/审计/监控骨架和发布通道；W3 完成物理运行、兼容变更、容量与生命周期；W4 用代表性负载验证性能、成本、故障和隔离恢复；W5 由未来值班人员完成告警、恢复、回退与供应商升级演练并签署接管；W6 分阶段发布、加强监控并以稳定期证据退出。任何周次都不得把恢复、回退、告警或接管推为“上线后补”。</p>
+<table>
+<thead>
+<tr>
+<th>情景</th>
+<th>初始主数据</th>
+<th>日/月增长</th>
+<th>索引/日志/暂存系数</th>
+<th>副本/时间旅行/备份</th>
+<th>峰值并发/维护空间</th>
+<th>恢复副本</th>
+<th>单价/预算</th>
+<th>阈值与提前期</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>基线</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>峰值/关键周期</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>12/36 月增长</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>灾备/恢复并行</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>总容量至少按“主数据 + 索引 + 日志 + 暂存/重写 + 副本/时间旅行 + 备份 + 恢复演练空间 + 增长裕度”估算；分别做增长率、压缩率、保留期和单价的敏感性分析，并记录观察/计划/执行/硬限阈值及动作。</p>
+<table>
+<thead>
+<tr>
+<th>证据 ID</th>
+<th>阶段门/控制</th>
+<th>位置/不可变引用</th>
+<th>配置/数据版本</th>
+<th>生成时间/环境</th>
+<th>Owner</th>
+<th>审核/批准</th>
+<th>有效期/复测</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p>恢复演练频率按业务重要性和变化风险确定：关键服务至少季度验证关键恢复路径、至少年度完成完整端到端演练；其他服务至少年度验证。发生重大版本/拓扑/地域变更、密钥或身份机制轮换、备份策略变化、实际恢复事件、恢复缺陷修复，或连续失败/未达 RTO/RPO 后，必须触发复测，不等待固定周期。</p>
+<p>阶段门：任务书/业务影响批准 → 服务目标/设计批准 → 环境与发布通道就绪 → 数据/变更候选版 → 负载/故障/恢复通过 → 运行接管 → 分阶段发布和稳定期退出。没有成功恢复、关键 SLO 未达、发布不可回退、关键告警无人响应或值班未接管时必须 No-Go。</p>
+<h2 id="6-工具与技术">6. 工具与技术</h2>
+<ul>
+<li>数据库/存储原生管理工具：实例、配置、补丁、备份恢复、复制、统计和清理。</li>
+<li>配置/IaC 与版本控制：重建环境、检测漂移、审查和回退；禁止不留证据的生产手工修补。</li>
+<li>监控/日志/查询分析：形成趋势、基线、告警和根因证据；仅有仪表盘不算通知。</li>
+<li>建模/DDL 生成与逆向：同步 PDM 和实际结构；物理运行改变语义时必须回到模型评审。</li>
+<li>负载/故障注入与恢复环境：验证峰值、耐久、资源竞争、故障域、恢复点和依赖链。</li>
+<li>数据生成/脱敏：非生产环境优先合成或最小化数据；生产样本须批准、脱敏和受控。</li>
+</ul>
+<p>技术选择应验证事务/一致性、容量/速度、工作负载、平台/OS、工具、弹性、错误处理、技能、总拥有成本、厂商支持与退出，不假设一种 DBMS 适合所有用例。</p>
+<h2 id="7-指标风险与实施">7. 指标、风险与实施</h2>
+<table>
+<thead>
+<tr>
+<th>指标族</th>
+<th>最低定义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>可用性/新鲜度</td>
+<td>服务窗口、分母、计划维护、合成查询、数据发布时间和来源</td>
+</tr>
+<tr>
+<td>性能</td>
+<td>查询等级 p50/p95/p99、吞吐、超时、队列、批窗口、代表性规模</td>
+</tr>
+<tr>
+<td>恢复</td>
+<td>RTO/RPO 目标与实测、恢复成功率、备份年龄/校验、演练间隔</td>
+</tr>
+<tr>
+<td>容量/成本</td>
+<td>数据/索引/日志/副本/备份使用、增长、阈值、单位成本和预测</td>
+</tr>
+<tr>
+<td>变更/事件</td>
+<td>部署成功/失败/回退/紧急率、MTTA/MTTR、误报/漏报和复盘行动</td>
+</tr>
+<tr>
+<td>生命周期/控制</td>
+<td>到期归档/删除成功、保全例外、访问复核、审计覆盖和证据完整</td>
+</tr>
+</tbody>
+</table>
+<p>每个指标写明目标、测量点、窗口、数据源、频率、owner、豁免和升级条件。容量至少设观察、计划、执行和硬限制阈值，并确保执行提前量大于采购/扩容前置期。</p>
+<p>主要风险：平台 SLA 被误当端到端服务；备份不可读或密钥不可用；HA 复制逻辑损坏；负载假设失真；维护与业务争抢资源；破坏性变更无兼容/回退；保留只作用主库；告警无人接；运行知识留在项目团队；技能/供应商支持不足。以依赖模型、代表性测试、隔离恢复、故障注入、生命周期矩阵、值班演练和阶段硬门控制。</p>
+<h2 id="8-依赖与协同">8. 依赖与协同</h2>
+<ul>
+<li><code>designing-data-architecture</code>：提供平台方向、位置、复制和过渡约束；本技能反馈运行事实和技术生命周期。</li>
+<li><code>modeling-data</code>：提供批准 PDM 与语义；本技能验证物理可运行性，不擅自改变业务含义。</li>
+<li><code>integrating-data</code>：负责跨系统装载、接口、重放、错误队列和对账；共同定义批窗口与恢复顺序。</li>
+<li><code>securing-data</code>：定义分类、最小权限、加密、审计和事件要求；本技能落实数据库/存储控制。</li>
+<li><code>managing-documents-and-content</code>：提供适用的记录保留、法律保全和处置规则。</li>
+<li><code>managing-metadata</code>：登记实例、模式、版本、血缘、owner、SLO 和影响关系。</li>
+<li><code>improving-data-quality</code>：定义质量门和问题闭环；本技能运行监控与阻断。</li>
+<li><code>delivering-data-warehousing-and-bi</code>、<code>delivering-data-science</code>：提供分析/模型工作负载、刷新和消费者服务目标。</li>
+</ul>
+
+      </div>
+    </article>
+  </main>
+  <footer class="docs-footer content-wrap">
+    <span>DAMA DATA PROJECT SKILLS · V1.1.0</span>
+    <a href="../../../../../index.html">返回入口页 / Back to index ↑</a>
+  </footer>
+</body>
+</html>

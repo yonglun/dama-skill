@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="数据管理领域路由表 — DAMA Data Project Skills documentation">
+  <title>数据管理领域路由表 · DAMA Data Project Skills</title>
+  <link rel="stylesheet" href="../../../../../assets/site.css">
+</head>
+<body class="docs-page">
+  <a class="skip-link" href="#document-content">跳转到正文 / Skip to content</a>
+  <header class="docs-header content-wrap">
+    <a class="docs-brand" href="../../../../../index.html">
+      <span class="docs-brand-mark" aria-hidden="true">D</span>
+      <span><strong>DAMA DATA PROJECT SKILLS</strong><small>DOCUMENTATION · RELEASE 1.1.0</small></span>
+    </a>
+    <nav class="docs-nav" aria-label="文档导航 / Document navigation">
+      <a class="docs-home" href="../../../../../index.html">← 技能首页 / Skill index</a>
+      <a href="../../../README.html">中文指南</a>
+      <a href="../../../README.en.html">English guide</a>
+      <a class="source-markdown" href="../../../../../dama-data-project-skills-v1.1.0/skills/managing-data-projects/references/routing-table.md" download rel="alternate">原始 Markdown ↓</a>
+    </nav>
+  </header>
+  <main class="docs-main" id="document-content">
+    <p class="docs-kicker">KNOWLEDGE LIBRARY <span>／</span> V1.1.0</p>
+    <article class="docs-content">
+      <div class="markdown-body">
+<h1 id="数据管理领域路由表">数据管理领域路由表</h1>
+<h2 id="路由方法">路由方法</h2>
+<p>先选择一个直接产生业务结果的 <strong>主技能</strong>，再增加确有风险或依赖的基础/支持技能。一个项目可以有多个主技能，但必须说明边界，避免每个团队都对同一工件负责。</p>
+<h2 id="按项目场景路由">按项目场景路由</h2>
+<table>
+<thead>
+<tr>
+<th>场景或信号</th>
+<th>主技能</th>
+<th>常见基础/支持技能</th>
+<th>关键依赖顺序</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>企业数据战略、跨域路线图、项目组合</td>
+<td><code>managing-data-projects</code></td>
+<td><code>assessing-data-management-maturity</code>, <code>establishing-data-governance</code>, <code>organizing-data-management</code>, <code>leading-data-change</code></td>
+<td>结果与现状 → 决策权与组织 → 路线图 → 采纳</td>
+</tr>
+<tr>
+<td>治理委员会、所有权、政策、标准、术语争议</td>
+<td><code>establishing-data-governance</code></td>
+<td><code>organizing-data-management</code>, <code>managing-metadata</code>, <code>leading-data-change</code></td>
+<td>决策范围 → 角色 → 流程/工件 → 嵌入运营</td>
+</tr>
+<tr>
+<td>当前/目标数据蓝图、能力与迁移路线</td>
+<td><code>designing-data-architecture</code></td>
+<td><code>modeling-data</code>, <code>securing-data</code>, <code>managing-metadata</code>, <code>integrating-data</code></td>
+<td>原则/需求 → 视图 → 过渡态 → 合规审查</td>
+</tr>
+<tr>
+<td>概念、逻辑或物理数据结构</td>
+<td><code>modeling-data</code></td>
+<td><code>designing-data-architecture</code>, <code>managing-metadata</code>, <code>improving-data-quality</code></td>
+<td>业务语义 → 模型层级 → 物理实现 → 模型治理</td>
+</tr>
+<tr>
+<td>数据库、存储、备份、恢复、容量、运行可靠性</td>
+<td><code>operating-data-storage</code></td>
+<td><code>securing-data</code>, <code>managing-metadata</code>, <code>improving-data-quality</code></td>
+<td>服务目标 → 物理设计 → 运行控制 → 监控改进</td>
+</tr>
+<tr>
+<td>分类分级、访问、加密、审计、泄露风险</td>
+<td><code>securing-data</code></td>
+<td><code>handling-data-ethically</code>, <code>establishing-data-governance</code>, <code>managing-metadata</code></td>
+<td>数据/用途分类 → 控制设计 → 测试 → 持续复核</td>
+</tr>
+<tr>
+<td>ETL/ELT、API、流处理、交换、互操作、对账</td>
+<td><code>integrating-data</code></td>
+<td><code>designing-data-architecture</code>, <code>managing-metadata</code>, <code>improving-data-quality</code>, <code>securing-data</code></td>
+<td>契约 → 映射/设计 → 构建 → 血缘/对账/监控</td>
+</tr>
+<tr>
+<td>合同、邮件、档案、网页等非结构化内容</td>
+<td><code>managing-documents-and-content</code></td>
+<td><code>managing-metadata</code>, <code>securing-data</code>, <code>establishing-data-governance</code></td>
+<td>盘点/分类 → 生命周期规则 → 发布/检索 → 保留处置</td>
+</tr>
+<tr>
+<td>客户/产品/供应商黄金记录、代码表、层级</td>
+<td><code>managing-reference-and-master-data</code></td>
+<td><code>improving-data-quality</code>, <code>establishing-data-governance</code>, <code>integrating-data</code>, <code>managing-metadata</code></td>
+<td>域/权威源 → 身份与规则 → 管理工作流 → 分发对账</td>
+</tr>
+<tr>
+<td>数仓、数据集市、指标、语义层、报表、自助 BI</td>
+<td><code>delivering-data-warehousing-and-bi</code></td>
+<td><code>modeling-data</code>, <code>integrating-data</code>, <code>managing-metadata</code>, <code>improving-data-quality</code></td>
+<td>决策需求 → 模型/语义 → 数据供应 → 验收与采纳</td>
+</tr>
+<tr>
+<td>目录、术语、技术元数据、血缘、影响分析</td>
+<td><code>managing-metadata</code></td>
+<td><code>establishing-data-governance</code>, <code>designing-data-architecture</code></td>
+<td>用例 → 最小元数据 → 采集/治理 → 检索/影响分析</td>
+</tr>
+<tr>
+<td>重复、缺失、无效、不一致、质量记分卡</td>
+<td><code>improving-data-quality</code></td>
+<td><code>establishing-data-governance</code>, <code>managing-metadata</code>; 主数据问题再加 <code>managing-reference-and-master-data</code></td>
+<td>定义适用质量 → 基线 → 根因 → 预防/纠正 → 监控</td>
+</tr>
+<tr>
+<td>预测、评分、实验、模型上线与监控</td>
+<td><code>delivering-data-science</code></td>
+<td><code>handling-data-ethically</code>, <code>securing-data</code>, <code>managing-metadata</code>, <code>improving-data-quality</code>, <code>leading-data-change</code></td>
+<td>用途/假设 → 数据与控制 → 实验 → 部署门 → 监控退役</td>
+</tr>
+<tr>
+<td>能力盘点、等级评分、改进优先级</td>
+<td><code>assessing-data-management-maturity</code></td>
+<td><code>managing-data-projects</code>, <code>organizing-data-management</code></td>
+<td>评估目的 → 证据 → 当前/目标差距 → 改进组合</td>
+</tr>
+<tr>
+<td>CDO/数据办公室、集中或联邦组织、RACI</td>
+<td><code>organizing-data-management</code></td>
+<td><code>establishing-data-governance</code>, <code>leading-data-change</code></td>
+<td>现状参与者 → 模式选择 → 角色互动 → 能力建设</td>
+</tr>
+<tr>
+<td>低采纳、抵触、培训、沟通、文化改变</td>
+<td><code>leading-data-change</code></td>
+<td>对应主领域技能, <code>organizing-data-management</code></td>
+<td>利益相关者/准备度 → 联盟/愿景 → 参与支持 → 采纳巩固</td>
+</tr>
+<tr>
+<td>新用途、二次使用、偏差、公平、潜在伤害</td>
+<td><code>handling-data-ethically</code></td>
+<td><code>securing-data</code>, <code>establishing-data-governance</code>, <code>delivering-data-science</code></td>
+<td>目的与受影响方 → 伤害/权利 → 限制与决策 → 持续观察</td>
+</tr>
+</tbody>
+</table>
+<h2 id="相邻技能边界">相邻技能边界</h2>
+<ul>
+<li><strong>治理 vs 组织：</strong> 治理定义决策和控制如何运作；组织定义谁以何种结构承担职责。</li>
+<li><strong>治理 vs 变更：</strong> 治理建立制度；变更让人理解、采用并持续执行制度。</li>
+<li><strong>架构 vs 建模：</strong> 架构组织企业级能力、系统和数据流；建模定义数据语义和结构。</li>
+<li><strong>安全 vs 伦理：</strong> 安全判断如何保护数据；伦理判断某种用途是否应当发生以及如何限制伤害。</li>
+<li><strong>质量 vs 主数据：</strong> 质量适用于任何数据的适用性；主数据管理负责共享核心实体的权威身份、规则和分发。</li>
+<li><strong>集成 vs 存储：</strong> 集成负责系统间移动与一致；存储运营负责持久化服务的可靠运行。</li>
+<li><strong>BI vs 数据科学：</strong> BI 主要支持已定义指标和可重复决策；数据科学以假设、统计/机器学习模型和不确定性为核心。</li>
+</ul>
+<h2 id="最小完备检查">最小完备检查</h2>
+<p>选完技能后，回答：</p>
+<ol type="1">
+<li>谁拥有数据与关键决策？</li>
+<li>什么数据质量足以支持该用途？</li>
+<li>如何追溯含义、来源、转换和影响？</li>
+<li>如何保护数据，且该用途是否合宜？</li>
+<li>谁运行、监控、处理异常和批准变更？</li>
+<li>用户如何采用，何时停止或退役？</li>
+</ol>
+<p>任何问题无答案时，增加相应技能或明确记录风险与后续触发条件。</p>
+
+      </div>
+    </article>
+  </main>
+  <footer class="docs-footer content-wrap">
+    <span>DAMA DATA PROJECT SKILLS · V1.1.0</span>
+    <a href="../../../../../index.html">返回入口页 / Back to index ↑</a>
+  </footer>
+</body>
+</html>

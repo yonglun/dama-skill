@@ -1,0 +1,4 @@
+interface:
+  display_name: "元数据管理"
+  short_description: "建立可维护的目录、业务语义、实际血缘与变更影响证据"
+  default_prompt: "使用 $managing-metadata 设计这个数据目录、元数据或字段血缘项目的采集、策展和验收方案。"

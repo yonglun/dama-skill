@@ -1,0 +1,4 @@
+interface:
+  display_name: "数据建模与设计"
+  short_description: "从业务需求构建可追溯、可评审、可实施和可演进的数据模型"
+  default_prompt: "使用 $modeling-data 把这些业务需求转化为可评审、可实施且可演进的数据模型。"

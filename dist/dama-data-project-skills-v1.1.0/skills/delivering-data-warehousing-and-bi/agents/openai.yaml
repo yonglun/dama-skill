@@ -1,0 +1,4 @@
+interface:
+  display_name: "数据仓库与 BI 交付"
+  short_description: "从决策与指标到仓库、语义、报表、自助分析和运行验收"
+  default_prompt: "使用 $delivering-data-warehousing-and-bi 设计这个分析数据产品或仪表板的语义、数据、发布和验收方案。"

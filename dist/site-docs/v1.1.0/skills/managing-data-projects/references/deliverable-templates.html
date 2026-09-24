@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="数据项目通用交付模板 — DAMA Data Project Skills documentation">
+  <title>数据项目通用交付模板 · DAMA Data Project Skills</title>
+  <link rel="stylesheet" href="../../../../../assets/site.css">
+</head>
+<body class="docs-page">
+  <a class="skip-link" href="#document-content">跳转到正文 / Skip to content</a>
+  <header class="docs-header content-wrap">
+    <a class="docs-brand" href="../../../../../index.html">
+      <span class="docs-brand-mark" aria-hidden="true">D</span>
+      <span><strong>DAMA DATA PROJECT SKILLS</strong><small>DOCUMENTATION · RELEASE 1.1.0</small></span>
+    </a>
+    <nav class="docs-nav" aria-label="文档导航 / Document navigation">
+      <a class="docs-home" href="../../../../../index.html">← 技能首页 / Skill index</a>
+      <a href="../../../README.html">中文指南</a>
+      <a href="../../../README.en.html">English guide</a>
+      <a class="source-markdown" href="../../../../../dama-data-project-skills-v1.1.0/skills/managing-data-projects/references/deliverable-templates.md" download rel="alternate">原始 Markdown ↓</a>
+    </nav>
+  </header>
+  <main class="docs-main" id="document-content">
+    <p class="docs-kicker">KNOWLEDGE LIBRARY <span>／</span> V1.1.0</p>
+    <article class="docs-content">
+      <div class="markdown-body">
+<h1 id="数据项目通用交付模板">数据项目通用交付模板</h1>
+<p>模板是输出契约，不是要求复制所有字段。删除不适用项时说明理由；未知项标为未决并指定所有者和日期。</p>
+<h2 id="1-项目章程">1. 项目章程</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># &lt;项目名称&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">## 业务结果</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>要改善的决策/流程：</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>目标使用者与受影响方：</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>价值假设及验证方式：</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">## 范围</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>包含的数据域、系统、地域、时间：</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>明确排除：</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>重新纳入触发条件：</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">## 约束</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>法规/伦理/安全：</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>时间/预算/资源：</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">## 决策权</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>业务结果批准者：</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>数据所有者：</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>技术批准者：</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>风险/控制否决者：</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="fu">## 完成证据</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>业务验收：</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>数据验收：</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>技术与运行验收：</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>控制与采纳验收：</span></code></pre></div>
+<h2 id="2-知识域工作包">2. 知识域工作包</h2>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>内容要求</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>知识域</td>
+<td>主/基础/支持及选择理由</td>
+</tr>
+<tr>
+<td>目标</td>
+<td>与项目业务结果的直接关系</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>已批准且可获得的前置工件/数据</td>
+</tr>
+<tr>
+<td>活动</td>
+<td>Plan / Control / Develop / Operate 分类</td>
+</tr>
+<tr>
+<td>责任</td>
+<td>执行者、批准者、咨询者、消费者</td>
+</tr>
+<tr>
+<td>交付物</td>
+<td>具体可审阅的工件或运行能力</td>
+</tr>
+<tr>
+<td>验收证据</td>
+<td>查询、测试、签字、演练、趋势或运行记录</td>
+</tr>
+<tr>
+<td>依赖</td>
+<td>前置/后续工作包及接口</td>
+</tr>
+<tr>
+<td>指标与阈值</td>
+<td>结果、过程、质量和风险指标</td>
+</tr>
+<tr>
+<td>裁剪</td>
+<td>不做的活动、理由、风险所有者、触发条件</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-路线图">3. 路线图</h2>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>目标状态</th>
+<th>工作包</th>
+<th>前置依赖</th>
+<th>负责人</th>
+<th>可验证出口</th>
+<th>回退/停止条件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>对齐</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>评估</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>规划与设计</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>开发与验证</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>部署与转交</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>运营与改进</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="4-决策权与-raci">4. 决策权与 RACI</h2>
+<table>
+<thead>
+<tr>
+<th>决策/工件</th>
+<th>Accountable（最终负责）</th>
+<th>Responsible（执行）</th>
+<th>Consulted</th>
+<th>Informed</th>
+<th>时限</th>
+<th>冲突升级</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p>规则：每行只有一个最终负责角色；委员会不能代替未命名的负责人；涉及伦理、安全或监管否决权时单列。</p>
+<h2 id="5-风险与控制登记册">5. 风险与控制登记册</h2>
+<table>
+<thead>
+<tr>
+<th>风险事件</th>
+<th>受影响结果/主体</th>
+<th>原因</th>
+<th>预防控制</th>
+<th>侦测控制</th>
+<th>纠正/回退</th>
+<th>指标阈值</th>
+<th>所有者</th>
+<th>升级时限</th>
+<th>剩余风险批准</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p>不要只写“加强监控”。每个控制应有执行频率、证据位置、失败动作和责任人。</p>
+<h2 id="6-阶段门记录">6. 阶段门记录</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## 阶段门：&lt;名称&gt; / &lt;日期&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>预期出口：</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>已提供证据：</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>未满足项及影响：</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>例外：风险、批准人、到期日、补救：</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>决定：Go / Conditional Go / Hold / Rework / Stop</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>决策人及理由：</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>下一门及所需证据：</span></code></pre></div>
+<h2 id="7-证据型成熟度评估">7. 证据型成熟度评估</h2>
+<table>
+<thead>
+<tr>
+<th>能力</th>
+<th>当前实践</th>
+<th>证据及日期</th>
+<th>证据强度</th>
+<th>当前能力结论</th>
+<th>业务所需目标</th>
+<th>差距影响</th>
+<th>优先动作</th>
+<th>负责人/期限</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p>证据强度使用：<code>0 无证据</code>、<code>1 仅陈述</code>、<code>2 有文档/样例</code>、<code>3 有重复运行记录</code>、<code>4 有趋势与改进闭环</code>。能力结论不能高于证据能够支持的水平。</p>
+<h2 id="8-完成审计">8. 完成审计</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> 业务结果有量化或可观察证据</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> 所选知识域及裁剪理由完整</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> 关键角色和决策权唯一明确</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> 交付物均有验收证据</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> 数据质量、元数据/血缘、安全/隐私/伦理已检查</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> 运行、变更、采纳与退役责任明确</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> 风险、阈值、升级和回退可执行</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> 未决项有所有者和期限</span></code></pre></div>
+
+      </div>
+    </article>
+  </main>
+  <footer class="docs-footer content-wrap">
+    <span>DAMA DATA PROJECT SKILLS · V1.1.0</span>
+    <a href="../../../../../index.html">返回入口页 / Back to index ↑</a>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="数据架构项目手册 — DAMA Data Project Skills documentation">
+  <title>数据架构项目手册 · DAMA Data Project Skills</title>
+  <link rel="stylesheet" href="../../../../../assets/site.css">
+</head>
+<body class="docs-page">
+  <a class="skip-link" href="#document-content">跳转到正文 / Skip to content</a>
+  <header class="docs-header content-wrap">
+    <a class="docs-brand" href="../../../../../index.html">
+      <span class="docs-brand-mark" aria-hidden="true">D</span>
+      <span><strong>DAMA DATA PROJECT SKILLS</strong><small>DOCUMENTATION · RELEASE 1.1.0</small></span>
+    </a>
+    <nav class="docs-nav" aria-label="文档导航 / Document navigation">
+      <a class="docs-home" href="../../../../../index.html">← 技能首页 / Skill index</a>
+      <a href="../../../README.html">中文指南</a>
+      <a href="../../../README.en.html">English guide</a>
+      <a class="source-markdown" href="../../../../../dama-data-project-skills-v1.1.0/skills/designing-data-architecture/references/playbook.md" download rel="alternate">原始 Markdown ↓</a>
+    </nav>
+  </header>
+  <main class="docs-main" id="document-content">
+    <p class="docs-kicker">KNOWLEDGE LIBRARY <span>／</span> V1.1.0</p>
+    <article class="docs-content">
+      <div class="markdown-body">
+<h1 id="数据架构项目手册">数据架构项目手册</h1>
+<h2 id="1-业务驱动与目标">1. 业务驱动与目标</h2>
+<p>数据架构在业务、应用、技术架构之间组织数据及其关系，目标包括：</p>
+<ul>
+<li>识别当前和长期的数据存储、处理、共享和消费需求；</li>
+<li>用主蓝图指导集成、控制复制、管理数据资产并协调投资；</li>
+<li>建立共同业务语义，使项目实现能追溯到企业数据需求；</li>
+<li>降低点对点“接口意大利面”、重复数据、不一致和技术僵化；</li>
+<li>既改善架构质量，也支持新产品、分析、AI 和外部数据机会；</li>
+<li>通过可演进的过渡架构平衡目标状态、遗留约束、风险、成本和交付速度。</li>
+</ul>
+<p>成功不是完成一张图，而是项目反复使用架构工件、减少无控复制与重复建设、提高互操作和交付效率，并能说明架构选择产生的业务价值。</p>
+<h2 id="2-原则与关键概念">2. 原则与关键概念</h2>
+<ul>
+<li><strong>业务能力驱动：</strong> 业务架构定义所需能力、过程、事件和信息；数据架构组织支持它们的数据。</li>
+<li><strong>整体与分层：</strong> 同时考虑企业、领域和项目；概念主题域、逻辑语义与物理实现可纵向追溯。</li>
+<li><strong>现状—目标—过渡：</strong> 目标描述方向，过渡状态管理依赖、风险和临时共存，现状以证据为基准。</li>
+<li><strong>需求与实现分离：</strong> 先表达需要什么和为何需要，再选择平台、模式和产品。</li>
+<li><strong>共享语义：</strong> 共同词汇、定义、主数据、参考数据和模型是互操作的基础。</li>
+<li><strong>生命周期与血缘：</strong> 从创建/获取、存储维护、使用增强到处置，记录来源、移动、转换和责任。</li>
+<li><strong>有意复制：</strong> 复制服务性能和可用性，但必须规定权威来源、同步、延迟、质量和退役。</li>
+<li><strong>标准化与例外：</strong> 原则、蓝图、标准和评审控制长期一致；例外有理由、风险、到期和补救。</li>
+<li><strong>迭代维护：</strong> 架构随战略、能力、技术和证据演进，不能成为一次性文档。</li>
+</ul>
+<p>核心架构域及关系：业务架构提出能力/过程/事件与价值需求；数据架构定义数据组织、流向和管理；应用架构规定处理数据的功能；技术架构提供平台、网络、安全和运行环境。</p>
+<h2 id="3-plan--control--develop--operate">3. Plan / Control / Develop / Operate</h2>
+<h3 id="plan">Plan</h3>
+<ol type="1">
+<li>建立数据架构实践：范围、框架、角色、工作方法、工件、工具和与企业架构的接口。</li>
+<li>将战略拆成业务能力、信息需求、数据原则、质量/风险目标和外部约束。</li>
+<li>评估现有规范、模型、数据流、系统清单和技术路线是否准确、完整和仍被使用。</li>
+<li>规划当前、目标、过渡视图和 3–5 年或适当周期路线图；按能力与数据依赖排序。</li>
+</ol>
+<h3 id="control">Control</h3>
+<ol type="1">
+<li>发布架构原则、模式、接口、复制、位置、生命周期、元数据、安全和质量标准。</li>
+<li>在项目立项、方案、模型、采购、发布和退役门检查符合性。</li>
+<li>管理架构决策、例外、技术版本/更新、资产复用与淘汰。</li>
+<li>与治理和数据管家对齐主题域、实体、术语、所有权和过程监督。</li>
+</ol>
+<h3 id="develop">Develop</h3>
+<ol type="1">
+<li>从业务能力、过程、事件和消费者导出数据需求与概念主题域。</li>
+<li>描述当前数据生态：权威源、系统、存储、流向、复制、依赖、质量、风险和成本。</li>
+<li>比较目标方案，形成数据组织、交换、处理、存储、消费、元数据和控制视图。</li>
+<li>定义过渡状态、迁移/共存/退役路径、项目工作包和架构决定。</li>
+<li>为项目提供企业数据要求并审查概念、逻辑、物理模型与架构一致性。</li>
+</ol>
+<h3 id="operate">Operate</h3>
+<ol type="1">
+<li>维护架构仓库、视图、决定、标准和技术生命周期，使其反映生产事实。</li>
+<li>监控项目符合、例外、复制、接口增长、资产复用、交付效率和业务满意。</li>
+<li>将运行事件、性能/成本、数据质量和变更影响反馈到路线图。</li>
+<li>定期复核目标状态和路线；复用、替换、退役或新增工件并记录理由。</li>
+</ol>
+<h2 id="4-上下文与角色">4. 上下文与角色</h2>
+<table>
+<thead>
+<tr>
+<th>角色</th>
+<th>责任与决策权</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>企业/业务架构师</td>
+<td>提供战略、能力、过程、事件和跨架构约束；共同批准跨域权衡</td>
+</tr>
+<tr>
+<td>企业数据架构师</td>
+<td>对数据架构原则、视图一致性、目标/过渡架构、标准和路线图负责</td>
+</tr>
+<tr>
+<td>领域/解决方案数据架构师</td>
+<td>将企业约束应用到领域/项目，产生方案和影响分析，提出例外</td>
+</tr>
+<tr>
+<td>数据所有者/业务数据管家</td>
+<td>批准语义、权威来源、用途、质量、共享和生命周期要求</td>
+</tr>
+<tr>
+<td>数据建模师</td>
+<td>建立可追溯的概念/逻辑/物理模型，验证结构实现架构意图</td>
+</tr>
+<tr>
+<td>集成、平台、数据库、安全、元数据、质量专业人员</td>
+<td>设计并运行相应技术/控制，提供限制、成本和运行证据</td>
+</tr>
+<tr>
+<td>产品/项目经理与业务负责人</td>
+<td>明确结果、优先级、时间/成本，接受过渡状态和业务风险</td>
+</tr>
+<tr>
+<td>架构治理/评审机构</td>
+<td>在授权范围内批准标准、重大决定和例外；不替代具名架构责任人</td>
+</tr>
+</tbody>
+</table>
+<p>每个主题域至少明确业务数据管家和数据架构责任；业务事件主题应与业务过程监督对齐。</p>
+<h2 id="5-交付物与验收证据">5. 交付物与验收证据</h2>
+<h3 id="架构任务书">架构任务书</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>业务结果、能力、事件和消费者：</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>架构范围与非范围：</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>当前问题和证据：</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>时间视野与过渡限制：</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>功能/数据需求：</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>质量、服务、安全、隐私、地域、保留、成本要求：</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>已选技术与不可改变约束（含批准来源）：</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>必须做出的架构决定：</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>视图、批准人、阶段门和验收证据：</span></code></pre></div>
+<h3 id="视图目录">视图目录</h3>
+<table>
+<thead>
+<tr>
+<th>视图</th>
+<th>回答的问题</th>
+<th>元素/关系</th>
+<th>主要受众</th>
+<th>来源证据</th>
+<th>负责人</th>
+<th>验收</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>能力—数据</td>
+<td>哪些能力产生/使用哪些数据，依赖顺序是什么</td>
+<td>能力、事件、主题域、CRUD/流向</td>
+<td>业务/企业架构</td>
+<td>能力图、过程、访谈</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>概念主题域</td>
+<td>企业讨论哪些数据及边界</td>
+<td>主题域、核心实体和高层关系</td>
+<td>业务/治理/项目</td>
+<td>术语、模型、数据清单</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>数据流/血缘</td>
+<td>数据从哪里来、如何变、到哪里去</td>
+<td>源、接口、转换、存储、消费</td>
+<td>架构/集成/风险</td>
+<td>配置、作业、日志</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>系统/应用</td>
+<td>哪个系统承担何种数据责任</td>
+<td>权威源、记录系统、消费、复制</td>
+<td>应用/项目</td>
+<td>系统清单、契约</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>技术部署</td>
+<td>数据放在哪里、如何处理和保护</td>
+<td>平台、区域、网络、服务、环境</td>
+<td>技术/安全/运行</td>
+<td>云/基础设施配置</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>生命周期/控制</td>
+<td>各阶段的所有权、质量、安全和处置</td>
+<td>阶段、角色、控制、证据</td>
+<td>治理/审计/运行</td>
+<td>政策、控制、日志</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="架构决策记录adr">架构决策记录（ADR）</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># ADR-&lt;编号&gt;：&lt;决定&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>状态/日期/决策人：</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>业务和数据背景：</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>驱动、约束与质量属性：</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>候选方案（含维持现状）：</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>比较证据与权衡：</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>决定及理由：</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>影响、风险、补偿与后续：</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>何时重新评估：</span></code></pre></div>
+<h3 id="目标与过渡路线">目标与过渡路线</h3>
+<table>
+<thead>
+<tr>
+<th>能力/数据依赖</th>
+<th>现状证据</th>
+<th>目标状态</th>
+<th>过渡状态/共存</th>
+<th>工作包</th>
+<th>前置依赖</th>
+<th>复用/替换/退役</th>
+<th>出口证据</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="符合性记录">符合性记录</h3>
+<table>
+<thead>
+<tr>
+<th>项目/变更</th>
+<th>适用原则/标准</th>
+<th>证据</th>
+<th>符合/例外</th>
+<th>风险与补偿</th>
+<th>批准人</th>
+<th>到期/复核</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="快速架构与可复用评估模板">快速架构与可复用评估模板</h3>
+<p>四周快速路径的最小集：第 1 周批准任务书并核实关键现状；第 2 周完成能力—数据、主题域、系统责任和关键流向；第 3 周比较目标/过渡方案并形成关键 ADR；第 4 周批准依赖路线、首个工作包和符合性门。只制作能回答当前决定的视图，未使用的视图写明省略理由与后续触发条件。</p>
+<table>
+<thead>
+<tr>
+<th>场景</th>
+<th>峰值/规模</th>
+<th>延迟/新鲜度</th>
+<th>故障/恢复</th>
+<th>地域/敏感性</th>
+<th>审计/血缘</th>
+<th>预期变化</th>
+<th>验证证据</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>产品/能力</th>
+<th>数据类型/规模</th>
+<th>批/流延迟</th>
+<th>地域/安全适配</th>
+<th>RTO/RPO</th>
+<th>成本边界</th>
+<th>锁定/退出</th>
+<th>运行责任</th>
+<th>结论/差距</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th>基线</th>
+<th>目标/阈值</th>
+<th>数据源</th>
+<th>频率</th>
+<th>Owner</th>
+<th>升级条件</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p>对跨境或敏感约束未决项按影响和紧迫度分级，记录决策 owner、升级时限和阻断门。临时例外至少包含最小化字段/记录范围、隔离位置、访问名单、加密/脱敏、禁止下游用途、删除期限、补偿监控、批准人与到期复核；高影响且无充分补偿时不得放行。</p>
+<p>架构图的验收必须验证视图之间名称和关系一致、可追溯到需求/证据、被目标受众理解，并能支持一个真实决定；美观不是验收标准。</p>
+<h2 id="6-工具与技术">6. 工具与技术</h2>
+<ul>
+<li><strong>能力—数据矩阵/CRUD：</strong> 识别数据产生、使用和依赖，帮助确定权威来源与路线顺序。</li>
+<li><strong>主题域/企业数据模型：</strong> 建立共同语义和高层边界；详细模型交由 <code>modeling-data</code>。</li>
+<li><strong>数据流与血缘：</strong> 结合设计图和生产配置/日志，揭示点对点依赖、复制与跨境。</li>
+<li><strong>生命周期投影：</strong> 对关键数据逐阶段检查存储、处理、保留、质量、安全与责任。</li>
+<li><strong>场景/质量属性分析：</strong> 用峰值、故障、并发、延迟、地域、审计、变更等场景比较架构。</li>
+<li><strong>适配—差距与权衡矩阵：</strong> 将已选技术和候选模式对照需求；记录不适配、补偿、成本和风险接受。</li>
+<li><strong>依赖网络与过渡规划：</strong> 从相对独立的主/参考能力开始，再推进依赖它们的交易、分析和产品能力。</li>
+<li><strong>图示清晰性：</strong> 每图声明目的、范围、时间状态、图例、责任人和版本；同一概念保持一致标识。</li>
+</ul>
+<p>建模和资产管理工具用于维护关系与追溯；绘图工具只负责表达。架构仓库的价值取决于更新责任、版本、生产证据和使用流程。</p>
+<h2 id="7-指标风险与实施">7. 指标、风险与实施</h2>
+<p>指标组合：</p>
+<ul>
+<li><strong>符合与采用：</strong> 适用项目参与评审率、标准符合率、例外数量/逾期/重复原因；</li>
+<li><strong>复用与生命周期：</strong> 复用、替换、退役、新建资产比例，重复数据集/接口/技术减少；</li>
+<li><strong>交付效率：</strong> 设计/集成交付周期、返工、缺陷、项目成本与可复用工件带来的变化；</li>
+<li><strong>运行结果：</strong> 数据新鲜度、可靠性、质量、互操作、恢复、成本和安全事件趋势；</li>
+<li><strong>业务价值：</strong> 能力上线、决策速度、产品/分析采用和利益相关者满意度。</li>
+</ul>
+<p>主要风险：以厂商图代替架构；只描述目标不处理遗留；现状文档不可信；视图互相矛盾；过度中心化造成瓶颈；项目例外长期化；无控复制；架构脱离运行；路线按系统而非能力依赖排序。用来源证据、视图一致性检查、过渡状态、ADR、例外到期和运行反馈控制。</p>
+<p>阶段门：任务书/需求获批 → 现状与未知项核实 → 原则/方案/权衡批准 → 目标和过渡视图一致 → 首个工作包验证 → 项目符合与运营反馈。关键跨境、安全、权威源或生命周期要求未决时，不批准物理落地。</p>
+<h2 id="8-依赖与协同">8. 依赖与协同</h2>
+<ul>
+<li><code>establishing-data-governance</code>：批准原则、所有权、标准和例外，监督项目符合。</li>
+<li><code>modeling-data</code>：把主题域和语义细化为概念、逻辑和物理模型，并维持纵向追溯。</li>
+<li><code>integrating-data</code>：把数据流视图实现为接口、映射、编排、对账与监控。</li>
+<li><code>operating-data-storage</code>：把技术部署/服务要求实现为数据库、存储、备份、恢复、容量和运行控制。</li>
+<li><code>managing-metadata</code>：维护架构资产、术语、血缘、所有权、版本和影响分析。</li>
+<li><code>improving-data-quality</code>：定义适用质量、基线、规则和持续控制。</li>
+<li><code>securing-data</code>、<code>handling-data-ethically</code>：定义数据位置、用途、访问、保护和高风险约束。</li>
+<li><code>assessing-data-management-maturity</code>：当路线优先级取决于组织能力时提供证据；不把成熟度模型当目标架构。</li>
+<li>企业、业务、应用和技术架构：共同解析跨域依赖，避免数据架构在孤立状态优化。</li>
+</ul>
+
+      </div>
+    </article>
+  </main>
+  <footer class="docs-footer content-wrap">
+    <span>DAMA DATA PROJECT SKILLS · V1.1.0</span>
+    <a href="../../../../../index.html">返回入口页 / Back to index ↑</a>
+  </footer>
+</body>
+</html>

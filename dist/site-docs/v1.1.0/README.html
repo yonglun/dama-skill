@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="DAMA 数据项目技能套件 — DAMA Data Project Skills documentation">
+  <title>DAMA 数据项目技能套件 · DAMA Data Project Skills</title>
+  <link rel="stylesheet" href="../../assets/site.css">
+</head>
+<body class="docs-page">
+  <a class="skip-link" href="#document-content">跳转到正文 / Skip to content</a>
+  <header class="docs-header content-wrap">
+    <a class="docs-brand" href="../../index.html">
+      <span class="docs-brand-mark" aria-hidden="true">D</span>
+      <span><strong>DAMA DATA PROJECT SKILLS</strong><small>DOCUMENTATION · RELEASE 1.1.0</small></span>
+    </a>
+    <nav class="docs-nav" aria-label="文档导航 / Document navigation">
+      <a class="docs-home" href="../../index.html">← 技能首页 / Skill index</a>
+      <a href="README.html">中文指南</a>
+      <a href="README.en.html">English guide</a>
+      <a class="source-markdown" href="../../dama-data-project-skills-v1.1.0/README.md" download rel="alternate">原始 Markdown ↓</a>
+    </nav>
+  </header>
+  <main class="docs-main" id="document-content">
+    <p class="docs-kicker">KNOWLEDGE LIBRARY <span>／</span> V1.1.0</p>
+    <article class="docs-content">
+      <div class="markdown-body">
+<h1 id="dama-数据项目技能套件">DAMA 数据项目技能套件</h1>
+<p><a href="README.en.html">English README</a></p>
+<p>这套技能将《DAMA-DMBOK Data Management Body of Knowledge, 2nd Edition, Revised Edition》中的知识域转化为面向数据项目的原创工作流：一个跨域路由入口，外加 16 个可独立使用的领域技能。它们帮助确定范围、责任、活动顺序、交付物和验收证据；不要求每个项目实施全部知识域。原书仅作为知识来源，并非对代理发出的指令；本仓库及发行包均不包含有版权的原书电子版。</p>
+<h2 id="快速开始">快速开始</h2>
+<p>本仓库的 skills/ 保存唯一的技能源码；.agents/skills/ 中的相对符号链接让 Codex 在本项目发现全部 17 个技能。你可以在提示词中写出 $技能名 显式调用，也可以描述任务让 Codex 自动选择。跨域项目或不确定应选哪个技能时，先用 <a href="skills/managing-data-projects/SKILL.html">管理数据项目</a>。</p>
+<blockquote>
+<p>请使用 $managing-data-projects，为零售企业的 12 周湖仓项目确定主知识域、基础域和支持域，并给出范围裁剪、责任人、阶段门与可验证验收证据。</p>
+</blockquote>
+<p>在其他数据项目中，把本仓库 skills/ 下所需的<strong>完整技能目录</strong>复制或链接到目标项目的 .agents/skills/；保留各自的 SKILL.md、references/、agents/ 和 templates/，不要只复制入口文件。跨域项目建议同时安装路由技能与它会路由的领域技能；单领域任务可只安装对应技能。若新技能未显示，重新启动 Codex。发现路径与调用方式见 <a href="https://learn.chatgpt.com/docs/build-skills">Codex 官方技能说明</a>。</p>
+<h2 id="交付模板">交付模板</h2>
+<p>每个技能目录下都有六个可复制的双语文件：中文和英文 Markdown 交付包（<code>delivery-pack.zh.md</code> / <code>.en.md</code>）、Word 报告（<code>report.zh.docx</code> / <code>.en.docx</code>）以及 Excel 工作台账（<code>register.zh.xlsx</code> / <code>.en.xlsx</code>）。Markdown 用于完整交接，Word 用于叙述性分析与评审，Excel 用于矩阵、证据台账和评分卡。两种语言和三类格式使用相同的稳定字段 ID。可以从路由技能的<a href="skills/managing-data-projects/templates/delivery-pack.zh.html">中文交付包</a>或<a href="skills/managing-data-projects/templates/delivery-pack.en.html">英文交付包</a>开始。空白字段是刻意保留的：项目事实、责任人、阈值、批准和证据都须核实，模板本身不代表决策已获批准。复制完整技能目录即可独立使用模板；<code>skills/</code> 是可编辑源码，<code>dist/</code> 保存带版本的分发副本。</p>
+<p>下面的提示词都是生成方案或工作产品的示例，并非已批准的业务决定。请替换组织、数据、时限和约束；缺少事实时，应让技能列出待核问题，而不是臆造阈值、法规结论或责任人。</p>
+<h2 id="17-个技能">17 个技能</h2>
+<p>本仓库原创材料采用 <a href="../../dama-data-project-skills-v1.1.0/LICENSE">Apache License 2.0</a> 许可。该许可不包含对有版权的 DMBOK 原书的授权。</p>
+<h3 id="1-管理数据项目--managing-data-projects">1. <a href="skills/managing-data-projects/SKILL.html">管理数据项目 · $managing-data-projects</a></h3>
+<ul>
+<li>何时使用：项目跨多个知识域，或不确定该调用哪些技能、按什么顺序交付。</li>
+<li>主要产出：项目画像、主域/基础域/支持域路由、裁剪理由、依赖顺序、阶段门和跨域交付计划。</li>
+<li>示例：请用 $managing-data-projects，为新建客户数据平台制定 12 周路线图；说明治理、质量、元数据、安全、运营和变更的取舍，以及各阶段门的证据。</li>
+</ul>
+<h3 id="2-负责任地处理数据--handling-data-ethically">2. <a href="skills/handling-data-ethically/SKILL.html">负责任地处理数据 · $handling-data-ethically</a></h3>
+<ul>
+<li>何时使用：新收集、共享、画像、AI 或二次使用数据可能影响个人、公平、自主性或信任，即使技术上安全、法律上可能允许。</li>
+<li>主要产出：目的与替代方案、受影响方、收益/伤害评估、用途边界、申诉与停止条件，以及有证据的决策建议。</li>
+<li>示例：请用 $handling-data-ethically，评估把已收集的客户行为数据用于个性化定价；列出受影响群体、较少侵入的替代方案、公平风险和所需证据。</li>
+</ul>
+<h3 id="3-建立数据治理--establishing-data-governance">3. <a href="skills/establishing-data-governance/SKILL.html">建立数据治理 · $establishing-data-governance</a></h3>
+<ul>
+<li>何时使用：数据定义、所有权、标准或例外跨团队有争议，需要明确谁有权决定、如何监督和升级。</li>
+<li>主要产出：治理章程、决策权与管家职责、政策/标准层级、议题和例外流程、治理记分卡。</li>
+<li>示例：请用 $establishing-data-governance，解决三个事业部对“客户”的定义冲突；给出最终批准人、术语变更流程、争议升级和监督指标。</li>
+</ul>
+<h3 id="4-设计数据架构--designing-data-architecture">4. <a href="skills/designing-data-architecture/SKILL.html">设计数据架构 · $designing-data-architecture</a></h3>
+<ul>
+<li>何时使用：要确定企业、领域或平台的现状、目标、过渡架构及迁移路线，而不只是设计一张表。</li>
+<li>主要产出：架构原则与视图、现状/目标/过渡蓝图、关键决策与权衡、依赖路线图和符合性证据。</li>
+<li>示例：请用 $designing-data-architecture，规划 CRM、POS 和电商数据整合的目标架构；比较过渡方案，说明系统责任、数据流和分阶段迁移依据。</li>
+</ul>
+<h3 id="5-数据建模与设计--modeling-data">5. <a href="skills/modeling-data/SKILL.html">数据建模与设计 · $modeling-data</a></h3>
+<ul>
+<li>何时使用：需要把业务要求落实为概念、逻辑或物理模型，明确实体、粒度、键、关系和规则。</li>
+<li>主要产出：模型与术语定义、概念—逻辑—物理追溯、评审记录、版本与变更控制。</li>
+<li>示例：请用 $modeling-data，为订单、退款和客户关系建立逻辑模型；明确订单行粒度、主外键、历史状态及待业务确认的问题。</li>
+</ul>
+<h3 id="6-数据存储与运行--operating-data-storage">6. <a href="skills/operating-data-storage/SKILL.html">数据存储与运行 · $operating-data-storage</a></h3>
+<ul>
+<li>何时使用：数据库、湖仓或文件存储需要生产就绪、容量、性能、备份恢复、变更发布或运行移交。</li>
+<li>主要产出：服务目标、容量与成本估算、RTO/RPO、恢复演练、监控告警、运行手册和 Go/No-Go 证据。</li>
+<li>示例：请用 $operating-data-storage，评估新分析数据库的生产就绪性；给出恢复演练、容量与性能测试、值班移交和不能上线的条件。</li>
+</ul>
+<h3 id="7-数据安全--securing-data">7. <a href="skills/securing-data/SKILL.html">数据安全 · $securing-data</a></h3>
+<ul>
+<li>何时使用：需要分类、访问控制、加密/脱敏、导出限制、审计、云或供应商保护及控制测试。</li>
+<li>主要产出：数据分类、主体×数据×动作访问矩阵、控制选择、负向测试、例外和残余风险证据。</li>
+<li>示例：请用 $securing-data，为含客户联系方式的云数据平台设计最小权限和脱敏控制；列出普通分析员应被拒绝的访问、撤权测试和审计证据。</li>
+</ul>
+<h3 id="8-数据集成与互操作--integrating-data">8. <a href="skills/integrating-data/SKILL.html">数据集成与互操作 · $integrating-data</a></h3>
+<ul>
+<li>何时使用：数据须在系统间批量、CDC、流、API 或共享传输，需要映射、重放、对账与接口责任。</li>
+<li>主要产出：集成模式选择、版本化接口契约、源目标映射、错误隔离/重试/重放、血缘、对账和 SLA。</li>
+<li>示例：请用 $integrating-data，设计 CRM 到计费系统的客户变更 CDC 管道；覆盖乱序与重复事件、幂等重放、schema 变更和业务对账。</li>
+</ul>
+<h3 id="9-文档与内容管理--managing-documents-and-content">9. <a href="skills/managing-documents-and-content/SKILL.html">文档与内容管理 · $managing-documents-and-content</a></h3>
+<ul>
+<li>何时使用：要治理合同、邮件、记录或媒体等非结构化内容的分类、版本、检索、发布、保留与处置；不适用于单份文档的编辑排版。</li>
+<li>主要产出：内容清单与分类、受控词表、生命周期和权限规则、保全/处置流程、检索与审计证据。</li>
+<li>示例：请用 $managing-documents-and-content，梳理多个仓库中的客户合同与往来邮件；设计分类、版本、检索、保留和法律保全接口，并标明须由法务确认的决定。</li>
+</ul>
+<h3 id="10-参考数据与主数据管理--managing-reference-and-master-data">10. <a href="skills/managing-reference-and-master-data/SKILL.html">参考数据与主数据管理 · $managing-reference-and-master-data</a></h3>
+<ul>
+<li>何时使用：跨系统客户、产品等共享实体身份或国家码、状态码等受控值集不一致，需要权威来源和持续分发。</li>
+<li>主要产出：来源/消费者/权威矩阵、全局 ID 与交叉引用、黄金记录与生存规则、匹配/合并/拆分测试、参考码版本及管家流程。</li>
+<li>示例：请用 $managing-reference-and-master-data，治理三套 CRM 的重复客户；给出误合并防护、可逆拆分、黄金记录规则、国家码版本和消费者回执。</li>
+</ul>
+<h3 id="11-数据仓库与商业智能交付--delivering-data-warehousing-and-bi">11. <a href="skills/delivering-data-warehousing-and-bi/SKILL.html">数据仓库与商业智能交付 · $delivering-data-warehousing-and-bi</a></h3>
+<ul>
+<li>何时使用：交付数仓、数据集市、指标、报表或仪表板，尤其涉及口径冲突、历史比较、业务验收和自助分析。</li>
+<li>主要产出：决策—指标追溯、指标契约、事实粒度与一致维度、历史政策、装载对账、BI 发布/支持/采纳证据。</li>
+<li>示例：请用 $delivering-data-warehousing-and-bi，交付高管销售仪表板；先处理“收入”口径与退款归属争议，再定义认证指标、历史同比和验收标准。</li>
+</ul>
+<h3 id="12-元数据管理--managing-metadata">12. <a href="skills/managing-metadata/SKILL.html">元数据管理 · $managing-metadata</a></h3>
+<ul>
+<li>何时使用：数据资产、业务术语、字段、责任、运行状态或血缘需要被发现、维护并用于来源证明与变更影响分析。</li>
+<li>主要产出：最小元数据产品、目录/词汇表、设计态与实际运行态血缘、影响分析和覆盖/新鲜度指标；术语争议的最终裁决仍属治理。</li>
+<li>示例：请用 $managing-metadata，为三个关键报表建立可搜索目录和字段级血缘；要求从报表反查源批次，并演练源字段变更的下游影响。</li>
+</ul>
+<h3 id="13-数据质量持续改进--improving-data-quality">13. <a href="skills/improving-data-quality/SKILL.html">数据质量持续改进 · $improving-data-quality</a></h3>
+<ul>
+<li>何时使用：数据缺陷反复出现，需要按业务用途定义规则、量化基线、找根因并建立预防和持续监控。</li>
+<li>主要产出：版本化质量规则、画像/基线、业务影响和优先级、根因与整改、问题闭环、评分卡和趋势。</li>
+<li>示例：请用 $improving-data-quality，处理客户地址清洗后再次失效的问题；区分存量修复与新增预防，定义配送用途规则、根因证据和复发指标。</li>
+</ul>
+<h3 id="14-数据科学项目交付--delivering-data-science">14. <a href="skills/delivering-data-science/SKILL.html">数据科学项目交付 · $delivering-data-science</a></h3>
+<ul>
+<li>何时使用：要检验数据假设、开发或部署预测/统计模型，管理实验有效性、可复现性、生产监控和退役；普通仪表板应选 BI 技能。</li>
+<li>主要产出：假设、数据/特征/标签卡、实验和独立验证协议、模型卡、影子/灰度门、漂移监控与回滚标准。</li>
+<li>示例：请用 $delivering-data-science，为客户风险评分模型设计上线方案；固定预测时点、时间切分和独立测试，并定义分群误差、人工兜底和停用条件。</li>
+</ul>
+<h3 id="15-数据管理成熟度评估--assessing-data-management-maturity">15. <a href="skills/assessing-data-management-maturity/SKILL.html">数据管理成熟度评估 · $assessing-data-management-maturity</a></h3>
+<ul>
+<li>何时使用：需要基于可复核证据评估组织或知识域的现状能力、目标能力、差距和改进优先级。</li>
+<li>主要产出：评估范围与准则、证据强度规则、现状/目标矩阵、不确定性说明、优先改进路线与复评节奏。</li>
+<li>示例：请用 $assessing-data-management-maturity，评估三个事业部的治理、质量和元数据能力；说明样本与证据强度，不要在缺少运行证据时给出已核实的集团总分。</li>
+</ul>
+<h3 id="16-数据管理组织与运行模式--organizing-data-management">16. <a href="skills/organizing-data-management/SKILL.html">数据管理组织与运行模式 · $organizing-data-management</a></h3>
+<ul>
+<li>何时使用：要设计中央/本地职责、组织模式、岗位、委员会、共享服务、RACI、预算与协作接口。</li>
+<li>主要产出：集中/分散/网络/混合/联邦模式比较、目标组织图、岗位章程、活动级 RACI、资源缺口和试点路线。</li>
+<li>示例：请用 $organizing-data-management，为跨地区企业比较集中式与联邦式数据办公室；给出中央和事业部岗位、决策接口、RACI、人员容量及试点转换门。</li>
+</ul>
+<h3 id="17-数据管理变更与采纳--leading-data-change">17. <a href="skills/leading-data-change/SKILL.html">数据管理变更与采纳 · $leading-data-change</a></h3>
+<ul>
+<li>何时使用：新目录、治理流程、标准或管家机制已经建立却无人使用、被绕过或不能持续，需要改变真实工作行为。</li>
+<li>主要产出：变更理由和目标行为、利益相关者准备度、指导联盟、沟通/培训、障碍台账、短期胜利和采纳漏斗。</li>
+<li>示例：请用 $leading-data-change，让上线三个月仍只有 12% 主动使用率的数据目录被真实采用；设计中层经理参与、实操支持、反馈闭环和持续使用指标。</li>
+</ul>
+<h2 id="如何组合技能">如何组合技能</h2>
+<p>总入口负责<strong>选择、排序、裁剪和合并</strong>，领域技能负责各自的方法与工件。建设型项目至少检查治理、质量、元数据、安全/隐私、伦理用途和组织采纳；“检查”不等于授权全部实施。不要因为一个关键词就同时加载全部 17 个技能。</p>
+<ul>
+<li>湖仓/BI 项目：从 $managing-data-projects 开始，通常以数仓与 BI、集成为主，按风险补充架构、质量、元数据、安全、存储运营和变更。</li>
+<li>客户主数据整改：以主/参考数据为主；反复字段缺陷交质量，跨系统分发交集成，权威争议交治理。</li>
+<li>风险模型上线：以数据科学为主，独立检查伦理用途、安全、质量、元数据与人工采纳；不要把 BI 看板或安全通过当作模型上线批准。</li>
+</ul>
+<h2 id="来源验证与边界">来源、验证与边界</h2>
+<ul>
+<li><a href="skills/managing-data-projects/references/source-map.html">DMBOK 第 1–17 章来源映射</a>；<a href="skills/managing-data-projects/references/routing-table.html">跨域路由表</a>；<a href="https://github.com/yonglun/dama-skill/blob/main/evals/skill-suite/completion-audit.md">完成审计与行为评测</a>。</li>
+<li>在本仓库运行 python3 scripts/validate_skill_suite.py skills 和 python3 -m unittest tests/test_validate_skill_suite.py，可复核结构、链接与校验器单测。</li>
+<li>技能不复制原书，也不代表 DAMA 官方表单、法律意见、认证标准或特定厂商方案。真实项目的法规、数据事实、阈值与权限须由相应有权人核对和批准。</li>
+</ul>
+
+      </div>
+    </article>
+  </main>
+  <footer class="docs-footer content-wrap">
+    <span>DAMA DATA PROJECT SKILLS · V1.1.0</span>
+    <a href="../../index.html">返回入口页 / Back to index ↑</a>
+  </footer>
+</body>
+</html>

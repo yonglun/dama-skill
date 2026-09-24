@@ -1,0 +1,4 @@
+interface:
+  display_name: "数据安全"
+  short_description: "设计可审计的数据分类、最小权限、保护、例外与安全运行控制"
+  default_prompt: "使用 $securing-data 为这个数据场景设计可验证的数据安全控制与证据。"

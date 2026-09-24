@@ -13,8 +13,10 @@ from urllib.parse import quote, unquote, urlsplit, urlunsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 DIST_ROOT = ROOT / "dist"
-PACKAGE_ROOT = DIST_ROOT / "dama-data-project-skills-v1.0.0"
-DOCS_ROOT = DIST_ROOT / "site-docs"
+VERSION = "1.1.0"
+PACKAGE_ROOT = DIST_ROOT / f"dama-data-project-skills-v{VERSION}"
+DOCS_REL = PurePosixPath("site-docs") / f"v{VERSION}"
+DOCS_ROOT = DIST_ROOT / DOCS_REL
 
 
 def split_front_matter(markdown: str) -> tuple[dict[str, str], str]:
@@ -71,7 +73,7 @@ def rewrite_local_href(
     )
 
     if source_target.lower().endswith(".md"):
-        output_target = PurePosixPath("site-docs") / PurePosixPath(source_target).with_suffix(".html")
+        output_target = DOCS_REL / PurePosixPath(source_target).with_suffix(".html")
     else:
         output_target = PurePosixPath(PACKAGE_ROOT.name) / source_target
 
@@ -145,13 +147,8 @@ def rewrite_markdown_links(
 
 
 def relative_url(target: PurePosixPath, current_output: PurePosixPath) -> str:
-    if target.parts and target.parts[0] == "site-docs":
-        target_from_mirror = PurePosixPath(*target.parts[1:])
-    else:
-        target_from_mirror = PurePosixPath("..") / target
-    relative = posixpath.relpath(
-        target_from_mirror.as_posix(), start=current_output.parent.as_posix()
-    )
+    current_in_dist = DOCS_REL / current_output
+    relative = posixpath.relpath(target.as_posix(), start=current_in_dist.parent.as_posix())
     return quote(relative, safe="/-._~")
 
 
@@ -180,10 +177,11 @@ def page_shell(
     stylesheet = relative_url(PurePosixPath("assets/site.css"), relative_output)
     home = relative_url(PurePosixPath("index.html"), relative_output)
     source = relative_url(PurePosixPath(PACKAGE_ROOT.name) / relative_source, relative_output)
-    chinese_guide = relative_url(PurePosixPath("site-docs/README.html"), relative_output)
-    english_guide = relative_url(PurePosixPath("site-docs/README.en.html"), relative_output)
+    chinese_guide = relative_url(DOCS_REL / "README.html", relative_output)
+    english_guide = relative_url(DOCS_REL / "README.en.html", relative_output)
     heading = escape(title)
-    summary = skill_metadata(metadata)
+    summary_html = skill_metadata(metadata)
+    summary = f"      {summary_html}\n" if summary_html else ""
     return f'''<!doctype html>
 <html lang="{language}">
 <head>
@@ -198,7 +196,7 @@ def page_shell(
   <header class="docs-header content-wrap">
     <a class="docs-brand" href="{home}">
       <span class="docs-brand-mark" aria-hidden="true">D</span>
-      <span><strong>DAMA DATA PROJECT SKILLS</strong><small>DOCUMENTATION · RELEASE 1.0.0</small></span>
+      <span><strong>DAMA DATA PROJECT SKILLS</strong><small>DOCUMENTATION · RELEASE {VERSION}</small></span>
     </a>
     <nav class="docs-nav" aria-label="文档导航 / Document navigation">
       <a class="docs-home" href="{home}">← 技能首页 / Skill index</a>
@@ -208,16 +206,15 @@ def page_shell(
     </nav>
   </header>
   <main class="docs-main" id="document-content">
-    <p class="docs-kicker">KNOWLEDGE LIBRARY <span>／</span> V1.0.0</p>
+    <p class="docs-kicker">KNOWLEDGE LIBRARY <span>／</span> V{VERSION}</p>
     <article class="docs-content">
-      {summary}
-      <div class="markdown-body">
+{summary}      <div class="markdown-body">
 {fragment}
       </div>
     </article>
   </main>
   <footer class="docs-footer content-wrap">
-    <span>独立制作 · 项目化重组 / Independently authored · Project-oriented</span>
+    <span>DAMA DATA PROJECT SKILLS · V{VERSION}</span>
     <a href="{home}">返回入口页 / Back to index ↑</a>
   </footer>
 </body>
@@ -241,7 +238,7 @@ def render_source(pandoc: str, source_path: Path, relative_source: PurePosixPath
 
     relative_output = relative_source.with_suffix(".html")
     fragment = rewrite_markdown_links(completed.stdout, relative_source, relative_output)
-    language = "en" if relative_source.name == "README.en.md" else "zh-CN"
+    language = "en" if relative_source.name.endswith(".en.md") else "zh-CN"
     return page_shell(title, language, fragment, metadata, relative_source, relative_output)
 
 
