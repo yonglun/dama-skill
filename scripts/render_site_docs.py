@@ -175,6 +175,7 @@ def page_shell(
     relative_output: PurePosixPath,
 ) -> str:
     stylesheet = relative_url(PurePosixPath("assets/site.css"), relative_output)
+    language_script = relative_url(PurePosixPath("assets/docs-language.js"), relative_output)
     home = relative_url(PurePosixPath("index.html"), relative_output)
     source = relative_url(PurePosixPath(PACKAGE_ROOT.name) / relative_source, relative_output)
     chinese_guide = relative_url(DOCS_REL / "README.html", relative_output)
@@ -190,6 +191,7 @@ def page_shell(
   <meta name="description" content="{heading} — DAMA Data Project Skills documentation">
   <title>{heading} · DAMA Data Project Skills</title>
   <link rel="stylesheet" href="{stylesheet}">
+  <script src="{language_script}" defer></script>
 </head>
 <body class="docs-page">
   <a class="skip-link" href="#document-content">跳转到正文 / Skip to content</a>

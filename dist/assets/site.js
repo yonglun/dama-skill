@@ -24,7 +24,15 @@
       description: "A bilingual suite of 17 DAMA-informed skills for planning and delivering data projects.",
     },
   };
-  const state = { language: "en", group: "all", query: "" };
+  const languagePreferenceKey = "dama-data-project-skills-language";
+  function savedLanguage() {
+    try {
+      return localStorage.getItem(languagePreferenceKey) === "zh" ? "zh" : "en";
+    } catch {
+      return "en";
+    }
+  }
+  const state = { language: savedLanguage(), group: "all", query: "" };
 
   function updateResultsStatus(count) {
     if (!resultsStatus) return;
@@ -72,6 +80,11 @@
   function setLanguage(language) {
     if (language !== "zh" && language !== "en") return state.language;
     state.language = language;
+    try {
+      localStorage.setItem(languagePreferenceKey, language);
+    } catch {
+      // Language switching remains usable when browser storage is unavailable.
+    }
     document.documentElement.lang = language === "zh" ? "zh-CN" : "en";
 
     document.querySelectorAll("[data-lang]").forEach((element) => {

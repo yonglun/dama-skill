@@ -17,6 +17,7 @@ class PageInspector(HTMLParser):
         super().__init__()
         self.links: list[tuple[str, set[str]]] = []
         self.stylesheets: list[str] = []
+        self.scripts: list[str] = []
         self.ids: set[str] = set()
         self.tags: set[str] = set()
         self.title_parts: list[str] = []
@@ -31,6 +32,8 @@ class PageInspector(HTMLParser):
             self.links.append((values["href"] or "", set((values.get("class") or "").split())))
         if tag == "link" and "stylesheet" in (values.get("rel") or "").split():
             self.stylesheets.append(values.get("href") or "")
+        if tag == "script" and values.get("src"):
+            self.scripts.append(values["src"] or "")
         if tag == "title":
             self.in_title = True
 
@@ -82,6 +85,9 @@ class DocumentationMirrorTests(unittest.TestCase):
                 self.assertEqual(len(page.stylesheets), 1)
                 stylesheet = (page_path.parent / page.stylesheets[0]).resolve()
                 self.assertEqual(stylesheet, (ROOT / "dist/assets/site.css").resolve())
+                self.assertEqual(len(page.scripts), 1)
+                script = (page_path.parent / page.scripts[0]).resolve()
+                self.assertEqual(script, (ROOT / "dist/assets/docs-language.js").resolve())
 
     def test_generated_markdown_links_point_to_existing_html_mirrors(self) -> None:
         for page_path in sorted(DOCS_ROOT.rglob("*.html")):

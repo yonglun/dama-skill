@@ -4,6 +4,9 @@ import unittest
 from html.parser import HTMLParser
 from pathlib import Path
 import re
+import os
+import shutil
+import subprocess
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -196,6 +199,18 @@ class LandingPageContentTests(unittest.TestCase):
         for interface in ("window.DamaSkillSite", "setLanguage", "setGroup", "filterSkills"):
             with self.subTest(interface=interface):
                 self.assertIn(interface, script)
+
+    def test_language_choice_survives_page_reload(self) -> None:
+        node = os.environ.get("DAMA_NODE") or shutil.which("node")
+        self.assertIsNotNone(node, "Node.js is required for site language runtime tests")
+        result = subprocess.run(
+            [node, "--test", str(ROOT / "tests/site_language_runtime.test.js")],
+            cwd=ROOT,
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
 
     def test_page_uses_no_remote_runtime_assets(self) -> None:
         sources = [
