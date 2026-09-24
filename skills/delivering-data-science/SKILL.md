@@ -27,6 +27,10 @@ description: Use when a project must test a data-driven hypothesis, develop or d
 6. 用面向决策者的图表和解释呈现结果、置信度、适用范围与替代方案；记录业务选择和客户影响。
 7. 影子/灰度部署，监控输入质量、漂移、结果、延迟、标签反馈、群体影响与人工队列；设置暂停、回滚、再验证和退役门。
 
+## 交付模板
+
+使用 [中文交付包](templates/delivery-pack.zh.md) 或 [English delivery pack](templates/delivery-pack.en.md) 组织输出。叙述性方案和评审记录使用同目录 Word 模板；矩阵、台账和评分卡使用同目录 Excel 模板。模板中的责任、阈值、批准和证据须由实际项目确认。
+
 ## 输出契约
 
 输出业务假设与决策边界；来源与用途论证；数据/特征/标签卡；实验与评估协议；可复现证据；模型卡和独立验证；可视化/沟通；生产服务与人工流程；监控、重训/变更、回滚和退役标准；阶段门、角色、风险、例外与验收证据。

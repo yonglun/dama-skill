@@ -26,6 +26,10 @@ description: Use when data is unfit for a business purpose, recurring errors or 
 6. 在产生处预防，在流转/消费点侦测，并对历史错误做可审计纠正；为隔离、降级和恢复设置责任。
 7. 按严重度运行问题、争议、例外/风险接受、SLA、升级和关闭复测；用质量趋势与业务效果持续评估控制。
 
+## 交付模板
+
+使用 [中文交付包](templates/delivery-pack.zh.md) 或 [English delivery pack](templates/delivery-pack.en.md) 组织输出。叙述性方案和评审记录使用同目录 Word 模板；矩阵、台账和评分卡使用同目录 Excel 模板。模板中的责任、阈值、批准和证据须由实际项目确认。
+
 ## 输出契约
 
 输出用途/关键数据/责任矩阵；维度与版本化规则；画像和基线；业务影响、损失与优先级；根因树/证据；预防—侦测—纠正控制图；问题与例外工作流；评分卡、趋势、SLA 和效益；阶段门、风险、残余例外与验收证据。

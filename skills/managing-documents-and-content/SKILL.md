@@ -27,6 +27,10 @@ description: Use when governing documents, records, email, media, or other unstr
 6. 用已标注查询、允许/拒绝访问、保全开立/解除、处置模拟、迁移对账和隔离恢复验证端到端控制。
 7. 发布责任、例外、运行日历和指标；持续监控盘点、捕获、元数据、搜索、保全、处置、迁移和采用。
 
+## 交付模板
+
+使用 [中文交付包](templates/delivery-pack.zh.md) 或 [English delivery pack](templates/delivery-pack.en.md) 组织输出。叙述性方案和评审记录使用同目录 Word 模板；矩阵、台账和评分卡使用同目录 Excel 模板。模板中的责任、阈值、批准和证据须由实际项目确认。
+
 ## 输出契约
 
 输出范围/紧急保全；内容源清单和风险；记录/副本判定；分类/词表/内容模型；捕获/版本/发布；访问/检索；保留/保全/处置；e-discovery/证据链；连续性/迁移；角色、阶段门、指标和审计证据。

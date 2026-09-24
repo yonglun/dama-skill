@@ -26,6 +26,10 @@ description: Use when designing or changing how data-management work is staffed,
 6. 测算需求量与人员可用工时、替补、技能差距、培训、共享服务费用和绩效；必要资源未落实时调整模式或范围。
 7. 试点并以决策时效、标准采用、业务结果、负载、满意度和成本复盘；设扩面、模式升级或回退门槛。
 
+## 交付模板
+
+使用 [中文交付包](templates/delivery-pack.zh.md) 或 [English delivery pack](templates/delivery-pack.en.md) 组织输出。叙述性方案和评审记录使用同目录 Word 模板；矩阵、台账和评分卡使用同目录 Excel 模板。模板中的责任、阈值、批准和证据须由实际项目确认。
+
 ## 输出契约
 
 输出业务/组织约束；现状参与者与利益相关者图；五模式比较和选择记录；目标/过渡运行图；授权章程与岗位说明；活动级 RACI；交互/升级/传播流程；人力与技能/费用测算；十周试点路线、指标和转换门。

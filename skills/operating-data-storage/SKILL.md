@@ -27,6 +27,10 @@ description: Use when a database, lake, warehouse, file store, or other persiste
 6. 用代表性规模做基线、峰值、耐久、故障、恢复、权限和生命周期测试；任何硬门缺证据则 No-Go 或缩小范围。
 7. 将 runbook、仪表盘、资产、支持链路和运行日历交给具名团队；持续监控容量、性能、变更、事件、恢复与成本。
 
+## 交付模板
+
+使用 [中文交付包](templates/delivery-pack.zh.md) 或 [English delivery pack](templates/delivery-pack.en.md) 组织输出。叙述性方案和评审记录使用同目录 Word 模板；矩阵、台账和评分卡使用同目录 Excel 模板。模板中的责任、阈值、批准和证据须由实际项目确认。
+
 ## 输出契约
 
 输出服务范围和依赖；环境/配置基线；技术适配与物理运行设计；容量/成本；SLO、RTO/RPO；备份恢复与生命周期；变更发布；监控告警与事件；runbook、值班和移交；测试证据、风险、Go/No-Go 及后续运行日历。

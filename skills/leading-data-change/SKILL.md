@@ -26,6 +26,10 @@ description: Use when people must adopt or sustain new data-management practices
 6. 预先定义可在短期验证的业务胜利，用真实证据而非登录/出席宣传，公开经验并扩大到下批团队。
 7. 测量漏斗转化、分群留存、绕行、术语/质量结果、工作负担和收益；将新行为嵌入现有评审、经理日常、入职和绩效/反馈，持续复盘。
 
+## 交付模板
+
+使用 [中文交付包](templates/delivery-pack.zh.md) 或 [English delivery pack](templates/delivery-pack.en.md) 组织输出。叙述性方案和评审记录使用同目录 Word 模板；矩阵、台账和评分卡使用同目录 Excel 模板。模板中的责任、阈值、批准和证据须由实际项目确认。
+
 ## 输出契约
 
 输出变更理由/愿景/目标行为；分群利益相关者与准备度图；指导联盟章程；沟通矩阵；参与/培训/支持计划；障碍与阻力台账；短期胜利定义和扩散路线；采用漏斗、业务效果、强化和交接；阶段门、角色、例外与验收证据。

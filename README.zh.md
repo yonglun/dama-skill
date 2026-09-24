@@ -10,7 +10,11 @@
 
 > 请使用 $managing-data-projects，为零售企业的 12 周湖仓项目确定主知识域、基础域和支持域，并给出范围裁剪、责任人、阶段门与可验证验收证据。
 
-在其他数据项目中，把本仓库 skills/ 下所需的**完整技能目录**复制或链接到目标项目的 .agents/skills/；保留各自的 SKILL.md、references/ 和 agents/，不要只复制入口文件。跨域项目建议同时安装路由技能与它会路由的领域技能；单领域任务可只安装对应技能。若新技能未显示，重新启动 Codex。发现路径与调用方式见 [Codex 官方技能说明](https://learn.chatgpt.com/docs/build-skills)。
+在其他数据项目中，把本仓库 skills/ 下所需的**完整技能目录**复制或链接到目标项目的 .agents/skills/；保留各自的 SKILL.md、references/、agents/ 和 templates/，不要只复制入口文件。跨域项目建议同时安装路由技能与它会路由的领域技能；单领域任务可只安装对应技能。若新技能未显示，重新启动 Codex。发现路径与调用方式见 [Codex 官方技能说明](https://learn.chatgpt.com/docs/build-skills)。
+
+## 交付模板
+
+每个技能目录下都有六个可复制的双语文件：中文和英文 Markdown 交付包（`delivery-pack.zh.md` / `.en.md`）、Word 报告（`report.zh.docx` / `.en.docx`）以及 Excel 工作台账（`register.zh.xlsx` / `.en.xlsx`）。Markdown 用于完整交接，Word 用于叙述性分析与评审，Excel 用于矩阵、证据台账和评分卡。两种语言和三类格式使用相同的稳定字段 ID。可以从路由技能的[中文交付包](skills/managing-data-projects/templates/delivery-pack.zh.md)或[英文交付包](skills/managing-data-projects/templates/delivery-pack.en.md)开始。空白字段是刻意保留的：项目事实、责任人、阈值、批准和证据都须核实，模板本身不代表决策已获批准。复制完整技能目录即可独立使用模板；`skills/` 是可编辑源码，`dist/` 保存带版本的分发副本。
 
 下面的提示词都是生成方案或工作产品的示例，并非已批准的业务决定。请替换组织、数据、时限和约束；缺少事实时，应让技能列出待核问题，而不是臆造阈值、法规结论或责任人。
 

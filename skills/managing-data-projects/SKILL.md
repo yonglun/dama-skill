@@ -25,6 +25,10 @@ description: Use when a data initiative spans multiple data-management domains, 
 
 任何建设型项目都检查治理责任、数据质量、元数据/血缘、安全与隐私、伦理用途和组织采纳。检查不代表全部实施；若裁剪，记录理由、风险所有者和重新纳入的触发条件。
 
+## 交付模板
+
+使用 [中文交付包](templates/delivery-pack.zh.md) 或 [English delivery pack](templates/delivery-pack.en.md) 组织输出。叙述性方案和评审记录使用同目录 Word 模板；矩阵、台账和评分卡使用同目录 Excel 模板。模板中的责任、阈值、批准和证据须由实际项目确认。
+
 ## 输出契约
 
 除纯问答外，输出依次包含：业务结果与范围；假设/约束/未决问题；所选知识域及理由；活动与依赖顺序；角色和决策权；交付物与验收证据；指标/风险/控制/升级；裁剪项与理由；下一阶段门及证据。

@@ -27,6 +27,10 @@ description: Use when data needs security requirements, classification, risk ass
 6. 用允许/拒绝、撤权、导出、管理员、外包、脱敏失败、日志中断和事件演练验证控制；证据必须可重放、可归责。
 7. 管理有期限的例外、访问复核、审计发现、事件和指标；控制通过不代表用途伦理或法律门已通过。
 
+## 交付模板
+
+使用 [中文交付包](templates/delivery-pack.zh.md) 或 [English delivery pack](templates/delivery-pack.en.md) 组织输出。叙述性方案和评审记录使用同目录 Word 模板；矩阵、台账和评分卡使用同目录 Excel 模板。模板中的责任、阈值、批准和证据须由实际项目确认。
+
 ## 输出契约
 
 输出范围/责任；数据与风险分类；威胁/暴露；安全要求；身份/角色/entitlement 与 CRUD/访问矩阵；控制选择和共同责任；非生产数据方案；审计/监控/事件；测试证据；例外；指标、阶段门和残余风险。

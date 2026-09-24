@@ -26,6 +26,10 @@ description: Use when an organization needs an evidence-based current-state asse
 6. 若需要集团摘要，先验证预设权重、覆盖门槛与关键能力否决项；否则只报告分布、短板与风险，禁止伪精确均分。
 7. 为每项目标级写业务结果、风险、前置能力、成本/收益和时间；形成排序改进组合、owner、阶段证据与复评日历。
 
+## 交付模板
+
+使用 [中文交付包](templates/delivery-pack.zh.md) 或 [English delivery pack](templates/delivery-pack.en.md) 组织输出。叙述性方案和评审记录使用同目录 Word 模板；矩阵、台账和评分卡使用同目录 Excel 模板。模板中的责任、阈值、批准和证据须由实际项目确认。
+
 ## 输出契约
 
 输出目标/范围与抽样；框架选择/裁剪；准则级评分表和证据强度规则；访谈/文件/运行三角验证台账；现状矩阵及分歧/不确定性；集团摘要适用性与算法；目标级业务理由；改进组合/路线图；沟通、复评与验收证据。

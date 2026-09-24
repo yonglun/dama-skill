@@ -41,6 +41,17 @@ class SkillSuiteValidatorTest(unittest.TestCase):
             "Read [the lifecycle](references/project-lifecycle.md).\n",
             encoding="utf-8",
         )
+        with (skill_dir / "SKILL.md").open("a", encoding="utf-8") as skill:
+            skill.write("\n[中文交付包](templates/delivery-pack.zh.md) · [English delivery pack](templates/delivery-pack.en.md)\n")
+        templates = skill_dir / "templates"
+        templates.mkdir()
+        for lang in ("zh", "en"):
+            (templates / f"delivery-pack.{lang}.md").write_text(
+                f"# {name}\n\n[Word](report.{lang}.docx) · [Excel](register.{lang}.xlsx)\n",
+                encoding="utf-8",
+            )
+            (templates / f"report.{lang}.docx").write_bytes(b"fixture")
+            (templates / f"register.{lang}.xlsx").write_bytes(b"fixture")
         references = skill_dir / "references"
         references.mkdir()
         if child:
@@ -117,6 +128,15 @@ class SkillSuiteValidatorTest(unittest.TestCase):
             source_map.write_text("# Source map\n\n- 第 1 章\n", encoding="utf-8")
             errors = self.validator.validate_suite(root)
         self.assertTrue(any("source map missing chapter 17" in error for error in errors))
+
+    def test_rejects_missing_deliverable_template(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            for name in self.validator.EXPECTED_SKILLS:
+                self._write_skill(root, name, child=name != "managing-data-projects")
+            (root / "modeling-data" / "templates" / "delivery-pack.en.md").unlink()
+            errors = self.validator.validate_suite(root)
+        self.assertTrue(any("modeling-data: missing template: delivery-pack.en.md" in error for error in errors))
 
 
 if __name__ == "__main__":

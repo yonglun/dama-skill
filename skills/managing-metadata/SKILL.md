@@ -27,6 +27,10 @@ description: Use when data assets, business terms, technical schemas, operationa
 6. 用上下游图遍历做变更影响分析；暴露未解析、过期和低置信边，要求关键变更前由受影响 owner 确认。
 7. 发布搜索、术语、血缘、质量、访问与 API 服务；监控覆盖、完整性、准确性、新鲜度、使用、反馈和修复队列。
 
+## 交付模板
+
+使用 [中文交付包](templates/delivery-pack.zh.md) 或 [English delivery pack](templates/delivery-pack.en.md) 组织输出。叙述性方案和评审记录使用同目录 Word 模板；矩阵、台账和评分卡使用同目录 Excel 模板。模板中的责任、阈值、批准和证据须由实际项目确认。
+
 ## 输出契约
 
 输出元数据策略与范围；用户任务和需求；源/消费者清单；元模型和最小元数据产品；集中/分布/混合架构；采集/策展/冲突流程；业务词汇表；设计态与实现态字段级血缘及证据；影响分析与变更门；权限/敏感元数据控制；质量/新鲜度/覆盖/采用指标；角色、阶段门和验收证据。

@@ -26,6 +26,10 @@ description: Use when an enterprise, domain, platform, program, or project needs
 6. 设计目标状态、过渡架构和按能力/数据依赖排序的路线图；同时标记复用、替换、退役与临时状态。
 7. 把标准和符合性检查嵌入项目、模型、集成、采购和技术更新；用实际结果维护架构。
 
+## 交付模板
+
+使用 [中文交付包](templates/delivery-pack.zh.md) 或 [English delivery pack](templates/delivery-pack.en.md) 组织输出。叙述性方案和评审记录使用同目录 Word 模板；矩阵、台账和评分卡使用同目录 Excel 模板。模板中的责任、阈值、批准和证据须由实际项目确认。
+
 ## 输出契约
 
 输出业务结果与范围；现状证据；原则/需求；视图目录；目标与过渡架构；关键决定和权衡；能力/数据依赖路线图；标准与符合性；风险和例外；指标与验收证据。

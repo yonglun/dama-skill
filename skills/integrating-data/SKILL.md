@@ -27,6 +27,10 @@ description: Use when data must move or interoperate across stores, applications
 6. 用记录级、分组级和总量级对账及质量门验证全量/增量、故障、重跑、坏 schema、源迟到和消费者兼容。
 7. 发布并监控可用性、量级、速度、延迟、成本、复杂度、使用和错误积压；业务 owner 批准映射/转换变化。
 
+## 交付模板
+
+使用 [中文交付包](templates/delivery-pack.zh.md) 或 [English delivery pack](templates/delivery-pack.en.md) 组织输出。叙述性方案和评审记录使用同目录 Word 模板；矩阵、台账和评分卡使用同目录 Excel 模板。模板中的责任、阈值、批准和证据须由实际项目确认。
+
 ## 输出契约
 
 输出范围/需求；发现与源能力；模式选择和权衡；接口/数据产品契约；映射/血缘；编排与状态；错误/重试/隔离/重放；对账/质量；schema 演进；共享协议；SLA/监控；角色、阶段门、风险和验收证据。

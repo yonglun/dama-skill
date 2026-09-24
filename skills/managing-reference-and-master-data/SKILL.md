@@ -31,6 +31,10 @@ description: Use when shared business entities or controlled code sets must be m
 7. 选择 registry、consolidation、coexistence 或 transaction hub 等模式；按写入权威和业务能力选择，不由产品名称反推架构。
 8. 灰度发布并按对象数、标识映射、属性/代码版本、层级、拒绝/例外和消费者确认对账；监控合并质量、漂移、队列与采用。
 
+## 交付模板
+
+使用 [中文交付包](templates/delivery-pack.zh.md) 或 [English delivery pack](templates/delivery-pack.en.md) 组织输出。叙述性方案和评审记录使用同目录 Word 模板；矩阵、台账和评分卡使用同目录 Excel 模板。模板中的责任、阈值、批准和证据须由实际项目确认。
+
 ## 输出契约
 
 输出业务范围与域章程；角色/决策权；来源—消费者—权威矩阵；实体/参考模型；全局 ID 与交叉引用；黄金记录/生存规则；匹配、合并、拆分测试与回滚；层级治理；参考数据变更控制；管家工作流；发布契约、分发/回执/对账；质量与运行指标；阶段门、风险、例外和验收证据。

@@ -26,6 +26,10 @@ description: Use when an organization needs authority, shared decision rights, o
 6. 以一个有业务价值的域或项目增量实施；同步沟通、培训、反馈和采纳。
 7. 用业务结果、风险/质量改善、合规、决策时效和采纳衡量治理；定期调整而非把路线图冻结。
 
+## 交付模板
+
+使用 [中文交付包](templates/delivery-pack.zh.md) 或 [English delivery pack](templates/delivery-pack.en.md) 组织输出。叙述性方案和评审记录使用同目录 Word 模板；矩阵、台账和评分卡使用同目录 Excel 模板。模板中的责任、阈值、批准和证据须由实际项目确认。
+
 ## 输出契约
 
 输出治理范围与价值；原则；章程与层级；决策权矩阵；角色/责任；政策标准层级；议题/例外/合规流程；术语表治理；实施路线图；记分卡和嵌入计划。每项包含批准人、时限和验收证据。

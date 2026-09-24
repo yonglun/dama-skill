@@ -49,6 +49,12 @@ ROUTER_REFERENCES = (
     "source-map.md",
 )
 
+TEMPLATE_FILES = (
+    "delivery-pack.zh.md", "delivery-pack.en.md",
+    "report.zh.docx", "report.en.docx",
+    "register.zh.xlsx", "register.en.xlsx",
+)
+
 PLACEHOLDER_RE = re.compile(
     r"(?im)(?:\bTODO\b|\bTBD\b|PLACEHOLDER|fill[ -]?in|待补充|待填写|占位符)"
 )
@@ -98,6 +104,28 @@ def _validate_text_file(path: Path, errors: list[str]) -> str:
     return text
 
 
+def _validate_templates(skill_dir: Path, name: str, errors: list[str]) -> None:
+    for filename in TEMPLATE_FILES:
+        path = skill_dir / "templates" / filename
+        if not path.is_file():
+            errors.append(f"{name}: missing template: {filename}")
+            continue
+        if path.suffix != ".md":
+            continue
+        body = _read(path, errors)
+        _validate_links(path, body, errors)
+        lang = "zh" if ".zh." in filename else "en"
+        if not body.startswith("# ") or name not in body:
+            errors.append(f"{path}: missing heading or skill id")
+        if f"report.{lang}.docx" not in body or f"register.{lang}.xlsx" not in body:
+            errors.append(f"{path}: missing Office links")
+
+    skill_body = _read(skill_dir / "SKILL.md", errors)
+    for filename in ("delivery-pack.zh.md", "delivery-pack.en.md"):
+        if f"templates/{filename}" not in skill_body:
+            errors.append(f"{name}: missing skill link to {filename}")
+
+
 def _validate_skill(skill_dir: Path, name: str, errors: list[str]) -> None:
     skill_file = skill_dir / "SKILL.md"
     if not skill_file.is_file():
@@ -128,6 +156,7 @@ def _validate_skill(skill_dir: Path, name: str, errors: list[str]) -> None:
             for chapter in range(1, 18):
                 if not re.search(rf"第\s*{chapter}\s*章", source_text):
                     errors.append(f"{source_map}: source map missing chapter {chapter}")
+        _validate_templates(skill_dir, name, errors)
         return
 
     playbook = references_dir / "playbook.md"
@@ -138,6 +167,7 @@ def _validate_skill(skill_dir: Path, name: str, errors: list[str]) -> None:
     for heading in CANONICAL_PLAYBOOK_HEADINGS:
         if heading not in playbook_text:
             errors.append(f"{playbook}: missing playbook heading: {heading}")
+    _validate_templates(skill_dir, name, errors)
 
 
 def validate_suite(root: Path) -> list[str]:

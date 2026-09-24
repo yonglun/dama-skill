@@ -28,6 +28,10 @@ description: Use when proposed data collection, sharing, analysis, profiling, AI
 5. 给出 `推进`、`附条件推进`、`暂停重设` 或 `停止` 结论。条件必须包含责任人、测试、阈值、期限、申诉/纠正和停止触发器。
 6. 将批准的用途限制、控制、例外和复核周期交给治理、安全、元数据、质量及变更流程持续执行。
 
+## 交付模板
+
+使用 [中文交付包](templates/delivery-pack.zh.md) 或 [English delivery pack](templates/delivery-pack.en.md) 组织输出。叙述性方案和评审记录使用同目录 Word 模板；矩阵、台账和评分卡使用同目录 Excel 模板。模板中的责任、阈值、批准和证据须由实际项目确认。
+
 ## 输出契约
 
 依次输出：目的与替代方案；数据/用途边界；受影响方；原则逐项判断；收益/伤害与不确定性；必需控制和证据；决策权与申诉；结论及理由；持续监控、复核和停止条件。

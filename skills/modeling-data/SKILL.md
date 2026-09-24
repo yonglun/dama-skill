@@ -26,6 +26,10 @@ description: Use when business requirements must be represented as conceptual, l
 6. 记录批准、问题、被否决方案、版本和变化原因；破坏性变更必须做影响分析、迁移、兼容/弃用与回退安排。
 7. 发布图、定义、映射、血缘、决策和验收证据的同一版本；从实现逆向核对模型，修复漂移。
 
+## 交付模板
+
+使用 [中文交付包](templates/delivery-pack.zh.md) 或 [English delivery pack](templates/delivery-pack.en.md) 组织输出。叙述性方案和评审记录使用同目录 Word 模板；矩阵、台账和评分卡使用同目录 Excel 模板。模板中的责任、阈值、批准和证据须由实际项目确认。
+
 ## 输出契约
 
 输出业务范围与用例；建模层级/方案选择；需求与术语；模型图及定义；粒度、键、关系和规则；命名/设计标准；概念—逻辑—物理和源—目标追溯；开放问题；评审与批准；变更/版本；质量评分、指标和验收证据。
