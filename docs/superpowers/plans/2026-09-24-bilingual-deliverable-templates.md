@@ -6,7 +6,9 @@
 
 **Architecture:** A versioned catalog defines shared field identifiers, translations, and domain work products. A build command generates two Markdown packs, two Word reports, and two Excel workbooks per skill in that skill's `templates/` folder; each skill then remains portable on its own. A separate release command packages the complete source suite as v1.1.0, and the existing documentation renderer mirrors the new Markdown while linking to downloadable Office files.
 
-**Tech Stack:** Python 3, `python-docx` 1.2.0, `openpyxl` 3.1.5 from the Codex bundled Python runtime, Python standard-library `unittest`, and installed Pandoc. Use `/Users/yonglun/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3` for commands that import Office libraries.
+**Tech Stack:** Python 3 with bundled `python-docx` 1.2.0 for Word, bundled Node.js with `@oai/artifact-tool` for Excel, Python standard-library `unittest`, and installed Pandoc. Use the executables returned by `load_workspace_dependencies`; system Python does not include `python-docx`.
+
+**Implementation note:** The illustrative `openpyxl` authoring code in Task 3 is superseded by `scripts/build_template_workbooks.mjs`, which uses `@oai/artifact-tool` to create XLSX files. `openpyxl` remains read-only in tests. The builder normalizes OOXML relationship IDs so the 102 generated files are byte-reproducible.
 
 ## Global Constraints
 

@@ -1,0 +1,425 @@
+{
+  "schema_version": 1,
+  "common_fields": {
+    "artifact_id": ["工件编号", "Artifact ID"],
+    "project": ["项目", "Project"],
+    "skill": ["适用技能", "Skill"],
+    "version": ["版本", "Version"],
+    "date": ["日期", "Date"],
+    "status": ["状态", "Status"],
+    "author": ["编写人", "Author"],
+    "owner": ["负责人", "Owner"],
+    "approver": ["批准人", "Approver"],
+    "purpose": ["目的", "Purpose"],
+    "business_outcome": ["业务结果", "Business outcome"],
+    "scope": ["范围与排除项", "Scope and exclusions"],
+    "source_inputs": ["输入与来源", "Inputs and sources"],
+    "assumptions": ["假设与约束", "Assumptions and constraints"],
+    "decisions": ["决定", "Decisions"],
+    "rationale": ["决定依据", "Rationale"],
+    "risks": ["风险", "Risks"],
+    "exceptions": ["例外", "Exceptions"],
+    "open_items": ["未决项", "Open items"],
+    "due_date": ["期限", "Due date"],
+    "acceptance_criteria": ["验收标准", "Acceptance criteria"],
+    "evidence_location": ["证据位置", "Evidence location"],
+    "reviewer_decision": ["评审决定", "Reviewer decision"],
+    "next_gate": ["下一阶段门", "Next stage gate"]
+  },
+  "column_fields": {
+    "domain": ["知识域", "Domain", "说明工作包对应的知识域及选择原因。", "Name the knowledge area and why it is included."],
+    "goal": ["目标", "Goal", "写出可观察的业务或控制结果。", "State an observable business or control outcome."],
+    "owner": ["负责人", "Owner", "填写对结果负责的具名角色。", "Name the role accountable for the result."],
+    "dependency": ["前置依赖", "Dependency", "列出必须先完成的工件或决定。", "List the artifact or decision required first."],
+    "deliverable": ["交付物", "Deliverable", "写出可供评审的具体工件。", "Name the concrete work product to review."],
+    "acceptance_evidence": ["验收证据", "Acceptance evidence", "注明测试、记录或批准的存放位置。", "Identify the test, record, or approval location."],
+    "event": ["风险事件", "Risk event", "描述可能发生的事件而非抽象风险类别。", "Describe a possible event, not a broad risk category."],
+    "impact": ["影响", "Impact", "说明受影响的业务结果或主体。", "State the affected outcome or party."],
+    "control": ["控制措施", "Control", "说明预防、侦测或纠正动作。", "State the preventive, detective, or corrective action."],
+    "threshold": ["阈值", "Threshold", "记录经责任人批准的触发阈值。", "Record the owner-approved trigger threshold."],
+    "escalation": ["升级路径", "Escalation", "列明升级对象和时限。", "Name the escalation recipient and deadline."],
+    "stage": ["阶段", "Stage", "记录当前阶段门的名称。", "Name the current stage gate."],
+    "exit_criteria": ["出口条件", "Exit criteria", "写出进入下一阶段的可验证条件。", "State the verifiable condition for progression."],
+    "evidence": ["证据", "Evidence", "提供可复核的证据引用或位置。", "Provide a reviewable evidence reference or location."],
+    "decision": ["决定", "Decision", "记录批准、拒绝、暂缓或附条件决定。", "Record approve, reject, hold, or conditional decision."],
+    "rationale": ["依据", "Rationale", "记录决策依据、替代方案与权衡。", "Record the decision basis, alternatives, and trade-offs."],
+    "approver": ["批准人", "Approver", "填写具有实际授权的具名角色。", "Name the role with actual approval authority."],
+    "date": ["日期", "Date", "记录决定或证据的日期。", "Record the decision or evidence date."],
+    "affected_party": ["受影响方", "Affected party", "列明可能受到数据用途影响的人群。", "Name groups potentially affected by the data use."],
+    "harm": ["潜在伤害", "Potential harm", "写出具体损害、严重度和不确定性。", "Describe concrete harm, severity, and uncertainty."],
+    "recourse": ["申诉与救济", "Recourse", "说明受影响方如何质疑或纠正结果。", "Explain how affected people can challenge or correct outcomes."],
+    "policy": ["政策或标准", "Policy or standard", "引用受控的政策或标准版本。", "Reference the controlled policy or standard version."],
+    "accountable": ["最终负责", "Accountable", "每项决定只指定一个最终负责角色。", "Assign one accountable role per decision."],
+    "responsible": ["执行负责", "Responsible", "填写实际执行工作的角色。", "Name the role doing the work."],
+    "consulted": ["征询", "Consulted", "列出必须参与意见的角色。", "List roles whose input is required."],
+    "informed": ["知会", "Informed", "列出需要接收结果的角色。", "List roles who must receive the outcome."],
+    "capability": ["能力", "Capability", "名称应对应业务所需能力。", "Name the capability required by the business."],
+    "current": ["现状", "Current state", "依据当前证据描述状态。", "Describe the state supported by current evidence."],
+    "target": ["目标", "Target state", "写出业务所需且可检验的目标。", "State a testable target needed by the business."],
+    "entity": ["实体或事实", "Entity or fact", "写明模型对象及其业务含义。", "Name the model object and its business meaning."],
+    "attribute": ["属性", "Attribute", "记录字段及其所属对象。", "Name the field and parent object."],
+    "definition": ["定义", "Definition", "使用可由业务方确认的精确定义。", "Use a precise definition business owners can confirm."],
+    "key": ["键", "Key", "注明主键、外键或业务键及规则。", "Specify primary, foreign, or business key and rule."],
+    "source": ["来源", "Source", "引用来源系统、工件或数据集。", "Reference the source system, artifact, or dataset."],
+    "consumer": ["消费方", "Consumer", "列出使用该数据或定义的对象。", "Name who or what consumes the data or definition."],
+    "service": ["服务", "Service", "明确生产数据服务及依赖边界。", "Identify the production data service and dependencies."],
+    "rto": ["RTO", "RTO", "记录获批的恢复时间目标及单位。", "Record the approved recovery-time objective and unit."],
+    "rpo": ["RPO", "RPO", "记录获批的恢复点目标及单位。", "Record the approved recovery-point objective and unit."],
+    "test_result": ["测试结果", "Test result", "记录实际演练结果与证据位置。", "Record the actual exercise result and evidence location."],
+    "subject": ["主体", "Subject", "填写访问数据的角色、服务或身份。", "Name the role, service, or identity accessing data."],
+    "data": ["数据范围", "Data scope", "明确数据集、分类或敏感字段。", "Specify dataset, classification, or sensitive fields."],
+    "action": ["操作", "Action", "写明读取、创建、修改、删除或导出。", "Specify read, create, update, delete, or export."],
+    "source_field": ["源字段", "Source field", "包含来源版本和字段路径。", "Include source version and field path."],
+    "target_field": ["目标字段", "Target field", "包含目标版本和字段路径。", "Include target version and field path."],
+    "transformation": ["转换规则", "Transformation", "写出可测试的映射或转换规则。", "Write a testable mapping or transformation rule."],
+    "rule": ["规则", "Rule", "写出可执行或可验证的业务规则。", "State an executable or verifiable business rule."],
+    "test": ["测试", "Test", "记录测试场景、结果和证据。", "Record test case, result, and evidence."],
+    "content_type": ["内容类型", "Content type", "按受控分类定义内容类型。", "Use the controlled taxonomy for content type."],
+    "retention_rule": ["保留规则", "Retention rule", "记录触发事件、期限及批准来源。", "Record triggering event, period, and authority."],
+    "disposition": ["处置", "Disposition", "说明保全检查、批准和销毁证据。", "Describe hold checks, approval, and disposal evidence."],
+    "source_id": ["源标识", "Source ID", "记录来源系统及其本地标识。", "Record source system and local identifier."],
+    "global_id": ["全局标识", "Global ID", "记录受控的跨系统身份标识。", "Record the governed cross-system identity."],
+    "match_rule": ["匹配规则", "Match rule", "注明版本、置信条件和人工裁决门。", "State version, confidence condition, and manual-review gate."],
+    "metric": ["指标", "Metric", "写明指标名称及业务决定。", "Name the metric and business decision it supports."],
+    "term": ["术语", "Term", "记录受控业务术语和唯一标识。", "Record the governed business term and identifier."],
+    "denominator": ["分母", "Denominator", "说明总体、排除条件和测量窗口。", "Define population, exclusions, and measurement window."],
+    "baseline": ["基线", "Baseline", "记录测量值、窗口和样本来源。", "Record measured value, window, and sample source."],
+    "feature": ["特征", "Feature", "写明特征定义与预测时点可用性。", "Define the feature and its availability at prediction time."],
+    "validation": ["验证", "Validation", "记录独立验证方法、切分和结果。", "Record independent validation method, split, and result."],
+    "drift_threshold": ["漂移阈值", "Drift threshold", "记录获批的监控阈值和停用动作。", "Record approved monitoring threshold and stop action."],
+    "criterion": ["评估准则", "Criterion", "描述可观察的能力评估准则。", "Describe an observable capability criterion."],
+    "evidence_strength": ["证据强度", "Evidence strength", "按照已定义的证据强度规则评分。", "Rate evidence under the defined strength rubric."],
+    "activity": ["活动", "Activity", "命名需要清晰分工的具体活动。", "Name the concrete activity requiring role clarity."],
+    "stakeholder": ["利益相关方", "Stakeholder", "按群体和影响而非仅职称分组。", "Group by impact and role, not title alone."],
+    "adoption_metric": ["采纳指标", "Adoption metric", "记录行为、总体、窗口和目标。", "Record behavior, population, window, and target."],
+    "due_date": ["期限", "Due date", "记录负责人承诺的完成日期。", "Record the owner-committed due date."],
+    "status": ["状态", "Status", "用清晰状态记录进展和阻塞。", "Use a clear status to show progress and blockers."],
+    "review_date": ["复核日期", "Review date", "明确下一次复核日期。", "Set the next review date."],
+    "exception": ["例外", "Exception", "记录偏离要求的理由、批准与到期。", "Record deviation rationale, approval, and expiry."],
+    "version": ["版本", "Version", "记录受控规则、接口或工件版本。", "Record the controlled rule, interface, or artifact version."]
+  },
+  "skills": {
+    "managing-data-projects": {
+      "title": ["数据项目交付包", "Data Project Delivery Pack"],
+      "report_title": ["综合项目计划与阶段门记录", "Integrated Project Plan and Gate Record"],
+      "register_title": ["工作包与决策台账", "Work Packages and Decisions"],
+      "sections": [
+        ["business_outcome", "业务结果", "Business outcome", "说明要改善的决策或流程、受益者和观察结果的方法。", "Identify the decision or process to improve, beneficiaries, and how the outcome will be observed."],
+        ["scope", "范围与裁剪", "Scope and tailoring", "列出纳入和排除的数据域、系统及重新纳入的触发条件。", "List included and excluded domains and systems, with triggers for reconsidering exclusions."],
+        ["assumptions", "假设与约束", "Assumptions and constraints", "区分已核实事实、工作假设和会改变方案的未决问题。", "Separate verified facts, working assumptions, and open questions that could change the plan."],
+        ["domain_route", "知识域选择", "Domain route", "区分主、基础和支持知识域，并记录选择及不选择理由。", "Classify primary, foundational, and supporting domains, with reasons for inclusion and exclusion."],
+        ["dependencies", "活动与依赖", "Activities and dependencies", "按前置决定、Plan、Control、Develop 和 Operate 排列工作。", "Sequence prerequisite decisions and Plan, Control, Develop, and Operate activities."],
+        ["decision_rights", "角色与决策权", "Roles and decision rights", "每项关键决定确定唯一最终负责角色及风险否决角色。", "Name one accountable role per key decision and any risk veto authority."],
+        ["risks_controls", "风险与控制", "Risks and controls", "记录风险事件、控制、阈值、升级时限及残余风险批准。", "Record risk events, controls, thresholds, escalation deadlines, and residual-risk approval."],
+        ["acceptance_evidence", "交付物与验收证据", "Deliverables and acceptance evidence", "为每个工作包写出可审阅工件、验收方法和证据位置。", "For each work package, specify a reviewable artifact, acceptance method, and evidence location."],
+        ["next_gate", "下一阶段门", "Next stage gate", "写明 Go、Conditional Go、Hold、Rework 或 Stop 的出口条件。", "State exit criteria for Go, Conditional Go, Hold, Rework, or Stop."]
+      ],
+      "sheets": [
+        ["work_packages", "工作包", "Work Packages", "追踪知识域工作与业务结果的关系。", "Track how domain work contributes to business outcomes.", ["domain", "goal", "owner", "dependency", "deliverable", "acceptance_evidence", "status"]],
+        ["risks", "风险控制", "Risks and Controls", "记录风险事件、控制和升级责任。", "Record risk events, controls, and escalation responsibility.", ["event", "impact", "control", "threshold", "owner", "escalation", "evidence"]],
+        ["gates", "阶段门", "Stage Gates", "记录阶段出口、证据和批准决定。", "Record gate exits, evidence, and approval decisions.", ["stage", "exit_criteria", "evidence", "decision", "approver", "date"]]
+      ]
+    },
+    "handling-data-ethically": {
+      "title": ["数据伦理评估交付包", "Data Ethics Assessment Pack"],
+      "report_title": ["数据用途伦理影响评估", "Ethical Data Use Impact Assessment"],
+      "register_title": ["受影响方与控制台账", "Affected Parties and Controls"],
+      "sections": [
+        ["purpose", "目的与替代方案", "Purpose and alternatives", "写明拟议用途、必要性，以及较少侵入性的可行替代方案。", "State the proposed use, necessity, and feasible less-intrusive alternatives."],
+        ["use_boundary", "数据与用途边界", "Data and use boundary", "限定数据来源、二次用途、共享范围和禁止用途。", "Bound data sources, secondary uses, sharing, and prohibited uses."],
+        ["affected_parties", "受影响方", "Affected parties", "识别可能受到差异影响的群体和未被代表者。", "Identify groups with different impacts and those not represented."],
+        ["harms", "收益伤害与不确定性", "Benefits harms and uncertainty", "按群体比较收益、潜在伤害、证据不足和剩余不确定性。", "Compare benefits, potential harms, evidence gaps, and remaining uncertainty by group."],
+        ["controls", "控制与证据", "Controls and evidence", "说明减害、人工复核、记录、监测和独立评审措施。", "Specify harm reduction, human review, records, monitoring, and independent review."],
+        ["recourse", "申诉与救济", "Recourse", "说明受影响方如何知情、质疑、纠正或退出。", "Explain how affected people can learn, challenge, correct, or opt out."],
+        ["decision", "结论与决策权", "Conclusion and decision rights", "提出批准、附条件批准或停止的建议，并指定有权决定者。", "Recommend approval, conditional approval, or stop and name the authorized decision maker."],
+        ["stop_conditions", "复核与停止条件", "Review and stop conditions", "定义出现伤害、证据失效或用途漂移时的复核与停用触发。", "Define review and stop triggers for harm, invalidated evidence, or use drift."]
+      ],
+      "sheets": [
+        ["impacts", "影响评估", "Impact Assessment", "按受影响方记录收益与伤害。", "Record benefits and harms by affected party.", ["affected_party", "impact", "harm", "evidence", "owner", "review_date"]],
+        ["controls", "减害控制", "Harm Controls", "追踪控制、申诉渠道和停止阈值。", "Track controls, recourse, and stop thresholds.", ["harm", "control", "recourse", "threshold", "owner", "evidence", "status"]]
+      ]
+    },
+    "establishing-data-governance": {
+      "title": ["数据治理交付包", "Data Governance Delivery Pack"],
+      "report_title": ["数据治理章程与决策机制", "Data Governance Charter and Decision Model"],
+      "register_title": ["决策权与例外台账", "Decision Rights and Exceptions"],
+      "sections": [
+        ["charter", "治理章程与价值", "Charter and value", "写明治理范围、业务价值、授权层级和参与角色。", "Define governance scope, business value, authority levels, and participating roles."],
+        ["decision_rights", "决策权", "Decision rights", "为术语、标准、质量和例外明确唯一最终批准权。", "Assign one final approver for terms, standards, quality, and exceptions."],
+        ["policy", "政策与标准层级", "Policy and standards hierarchy", "区分政策、标准、指南和流程及其生效和修订规则。", "Distinguish policies, standards, guidance, and procedures with effective-date and change rules."],
+        ["stewardship", "所有权与管家职责", "Ownership and stewardship", "说明业务所有者、数据管家和技术团队的活动级责任。", "Define activity-level duties of business owners, stewards, and technical teams."],
+        ["exceptions", "议题与例外", "Issues and exceptions", "设计提交、裁决、到期、补偿控制和升级闭环。", "Design intake, adjudication, expiry, compensating controls, and escalation closure."],
+        ["glossary", "术语治理", "Glossary governance", "规定术语提议、争议、批准、发布和废止的版本流程。", "Set versioned proposal, dispute, approval, publication, and retirement steps for terms."],
+        ["scorecard", "实施与记分卡", "Implementation and scorecard", "定义采纳、决策时效、例外和问题关闭的可验证指标。", "Define verifiable adoption, decision-timeliness, exception, and issue-closure measures."],
+        ["acceptance_evidence", "批准与验收", "Approval and acceptance", "列出章程、角色和流程生效所需批准及运行证据。", "List the approvals and operating evidence needed for the charter, roles, and workflow to take effect."]
+      ],
+      "sheets": [
+        ["rights", "决策权", "Decision Rights", "以活动为单位维护最终负责和执行角色。", "Maintain accountable and responsible roles by activity.", ["activity", "decision", "accountable", "responsible", "consulted", "informed", "escalation"]],
+        ["exceptions", "议题例外", "Issues and Exceptions", "追踪例外的控制、审批与到期。", "Track controls, approval, and expiry of exceptions.", ["exception", "policy", "impact", "control", "approver", "due_date", "status", "evidence"]]
+      ]
+    },
+    "designing-data-architecture": {
+      "title": ["数据架构交付包", "Data Architecture Delivery Pack"],
+      "report_title": ["当前目标与过渡架构决策", "Current Target and Transition Architecture"],
+      "register_title": ["能力与过渡依赖台账", "Capabilities and Transition Dependencies"],
+      "sections": [
+        ["business_outcome", "业务目标与范围", "Business outcome and scope", "说明架构必须支持的业务能力、决定和边界。", "State the business capabilities, decisions, and boundaries the architecture must support."],
+        ["current_state", "现状证据", "Current-state evidence", "以系统、数据流、责任和已知问题描述现状，并标明证据日期。", "Describe systems, flows, ownership, and known problems with evidence dates."],
+        ["principles", "原则与需求", "Principles and requirements", "区分必须遵守的约束和可权衡的设计偏好。", "Distinguish mandatory constraints from negotiable design preferences."],
+        ["target_state", "目标架构", "Target architecture", "描述能力、数据边界、接口、治理和运行责任的目标状态。", "Describe target capabilities, data boundaries, interfaces, governance, and operations ownership."],
+        ["transition", "过渡架构", "Transition architecture", "定义可交付的过渡状态、迁移顺序和兼容安排。", "Define deliverable interim states, migration order, and compatibility measures."],
+        ["tradeoffs", "关键决定与权衡", "Key decisions and trade-offs", "记录备选方案、取舍、批准角色和重新评估条件。", "Record alternatives, trade-offs, approval roles, and triggers for revisiting decisions."],
+        ["conformance", "符合性与验收", "Conformance and acceptance", "列出标准、例外、测试和视图审查证据。", "List standards, exceptions, tests, and view-review evidence."],
+        ["roadmap", "依赖路线图", "Dependency roadmap", "将能力和数据依赖映射到阶段门及可验证出口。", "Map capability and data dependencies to gates and verifiable exits."]
+      ],
+      "sheets": [
+        ["capabilities", "能力清单", "Capabilities", "比较能力现状与目标以及依赖。", "Compare current and target capabilities with dependencies.", ["capability", "current", "target", "dependency", "owner", "evidence"]],
+        ["decisions", "架构决策", "Architecture Decisions", "记录架构选择、权衡和批准证据。", "Record architectural choices, trade-offs, and approval evidence.", ["decision", "rationale", "impact", "owner", "approver", "evidence", "review_date"]]
+      ]
+    },
+    "modeling-data": {
+      "title": ["数据模型交付包", "Data Modeling Delivery Pack"],
+      "report_title": ["数据模型规范与评审记录", "Data Model Specification and Review"],
+      "register_title": ["数据字典与映射台账", "Data Dictionary and Mappings"],
+      "sections": [
+        ["use_cases", "业务用例与范围", "Business use cases and scope", "说明模型支持的业务过程、决定和消费者。", "State the business processes, decisions, and consumers supported by the model."],
+        ["model_level", "模型层级与方案", "Model level and approach", "选择概念、逻辑或物理层级及关系、维度或其他适用模式。", "Choose conceptual, logical, or physical level and the appropriate relational, dimensional, or other pattern."],
+        ["requirements", "需求与术语", "Requirements and terms", "列出受控定义、术语冲突和业务规则的批准状态。", "List governed definitions, disputed terms, and approval status of business rules."],
+        ["grain_keys", "粒度键与关系", "Grain keys and relationships", "固定实体或事实粒度、键、基数、可选性及时态规则。", "Fix entity or fact grain, keys, cardinality, optionality, and temporal rules."],
+        ["traceability", "模型与来源追溯", "Model and source traceability", "追踪概念到逻辑到物理，以及源到目标的映射和偏差。", "Trace conceptual to logical to physical design and source-to-target mappings and deviations."],
+        ["review", "评审与批准", "Review and approval", "记录需求、设计和物理可行性评审中的问题与决定。", "Record findings and decisions from requirements, design, and physical feasibility reviews."],
+        ["change_control", "版本与变更", "Version and change control", "对破坏性变更记录影响、迁移、兼容和回退。", "For breaking changes, record impact, migration, compatibility, and rollback."],
+        ["acceptance_evidence", "质量与验收证据", "Quality and acceptance evidence", "用场景、数据剖析和实现逆向核对模型正确性。", "Use scenarios, profiling, and reverse comparison with implementation to verify the model."]
+      ],
+      "sheets": [
+        ["dictionary", "数据字典", "Data Dictionary", "维护实体字段键和精确定义。", "Maintain entities, attributes, keys, and precise definitions.", ["entity", "attribute", "definition", "key", "source", "owner", "version"]],
+        ["mappings", "模型映射", "Model Mappings", "追踪源字段到目标字段及转换规则。", "Trace source fields to target fields and transformation rules.", ["source_field", "target_field", "transformation", "rule", "owner", "test", "evidence"]]
+      ]
+    },
+    "operating-data-storage": {
+      "title": ["数据存储运营交付包", "Data Storage Operations Pack"],
+      "report_title": ["生产就绪与运行手册", "Production Readiness and Runbook"],
+      "register_title": ["服务目标与恢复演练台账", "Service Targets and Recovery Tests"],
+      "sections": [
+        ["service_scope", "服务范围与依赖", "Service scope and dependencies", "说明持久化服务、环境、消费者和上游下游依赖。", "Define the persistence service, environments, consumers, and upstream and downstream dependencies."],
+        ["configuration", "配置与容量基线", "Configuration and capacity baseline", "记录版本、配置、容量预测、成本和性能测量。", "Record version, configuration, capacity forecast, cost, and performance measurement."],
+        ["slo", "服务目标", "Service objectives", "明确可用性、性能、RTO 和 RPO 的批准值与测点。", "Specify approved availability, performance, RTO, and RPO values and measurement points."],
+        ["recovery", "备份与恢复", "Backup and recovery", "记录备份频率、恢复演练、数据完整性和失败动作。", "Record backup cadence, recovery exercises, data integrity, and failure action."],
+        ["release_control", "变更与发布", "Change and release control", "规定环境隔离、发布门、兼容、回滚和配置漂移检查。", "Set environment isolation, release gates, compatibility, rollback, and configuration-drift checks."],
+        ["runbook", "监控值班与移交", "Monitoring on-call and handoff", "列出告警、事件、值班、升级和运营日历。", "List alerts, incidents, on-call coverage, escalation, and the operations calendar."],
+        ["go_no_go", "上线决定", "Go or no-go decision", "汇总测试证据、阻断项、例外和具名上线批准。", "Summarize test evidence, blockers, exceptions, and named launch approval."]
+      ],
+      "sheets": [
+        ["targets", "服务目标", "Service Targets", "记录服务目标、责任和实测结果。", "Record service targets, ownership, and measured results.", ["service", "rto", "rpo", "threshold", "owner", "evidence", "review_date"]],
+        ["recovery_tests", "恢复演练", "Recovery Tests", "记录恢复场景、结果和纠正动作。", "Record recovery scenarios, results, and corrective actions.", ["service", "test", "test_result", "impact", "owner", "evidence", "due_date"]]
+      ]
+    },
+    "securing-data": {
+      "title": ["数据安全交付包", "Data Security Delivery Pack"],
+      "report_title": ["数据安全评估与控制设计", "Data Security Assessment and Control Design"],
+      "register_title": ["访问权限与控制测试台账", "Access Rights and Control Tests"],
+      "sections": [
+        ["scope", "安全范围与责任", "Security scope and responsibility", "说明数据资产、处理链、供应商和共同责任边界。", "Define assets, processing chain, vendors, and shared-responsibility boundaries."],
+        ["classification", "数据与风险分类", "Data and risk classification", "按用途、敏感性和损害程度确定分类及处理要求。", "Classify data and handling requirements by use, sensitivity, and potential harm."],
+        ["threats", "威胁与暴露", "Threats and exposure", "记录威胁路径、暴露面、既有控制和剩余风险。", "Record threat paths, exposure, existing controls, and residual risk."],
+        ["access_design", "身份与访问设计", "Identity and access design", "按主体、数据和操作定义最小权限、撤销及拒绝路径。", "Define least privilege, revocation, and denied paths by subject, data, and action."],
+        ["control_tests", "控制与负向测试", "Controls and negative tests", "覆盖加密、脱敏、非生产数据、导出、审计和越权测试。", "Cover encryption, masking, non-production data, export, audit, and unauthorized-access tests."],
+        ["incident", "监控事件与响应", "Monitoring incidents and response", "规定日志、告警、事件分级、升级和复盘证据。", "Set logging, alerts, incident severity, escalation, and review evidence."],
+        ["residual_risk", "例外与残余风险", "Exceptions and residual risk", "说明例外批准、补偿控制、到期与复审。", "State exception approval, compensating controls, expiry, and review."],
+        ["acceptance_evidence", "阶段门与验收", "Gates and acceptance", "列出控制测试、角色批准和运营移交的证据。", "List control-test, role-approval, and operations-handoff evidence."]
+      ],
+      "sheets": [
+        ["access", "访问矩阵", "Access Matrix", "记录主体数据操作和允许或拒绝决定。", "Record subject-data-action permissions and denials.", ["subject", "data", "action", "decision", "owner", "approver", "evidence"]],
+        ["control_tests", "控制测试", "Control Tests", "跟踪控制有效性与剩余例外。", "Track control effectiveness and remaining exceptions.", ["control", "test", "test_result", "exception", "owner", "evidence", "review_date"]]
+      ]
+    },
+    "integrating-data": {
+      "title": ["数据集成交付包", "Data Integration Delivery Pack"],
+      "report_title": ["接口契约与运行设计", "Interface Contract and Operating Design"],
+      "register_title": ["字段映射与对账台账", "Field Mapping and Reconciliation"],
+      "sections": [
+        ["scope", "范围与业务要求", "Scope and business requirements", "说明数据来源、消费者、延迟、完整性与失败容忍度。", "Define sources, consumers, latency, completeness, and failure tolerance."],
+        ["source_capability", "来源能力与模式选择", "Source capability and pattern choice", "比较批量、CDC、流、API 或共享方式与约束。", "Compare batch, CDC, streaming, API, or sharing against constraints."],
+        ["interface_contract", "版本化接口契约", "Versioned interface contract", "定义所有者、模式、语义、SLA、版本和变更通知。", "Define owner, schema, semantics, SLA, version, and change notice."],
+        ["mapping", "映射与血缘", "Mapping and lineage", "记录字段级转换、质量规则、目标语义和来源追溯。", "Record field transformations, quality rules, target meaning, and provenance."],
+        ["replay", "错误隔离与重放", "Failure isolation and replay", "规定幂等、顺序、重试、死信、重放与人工恢复。", "Set idempotency, ordering, retry, dead letter, replay, and manual recovery."],
+        ["schema_evolution", "模式演进", "Schema evolution", "定义兼容窗口、破坏性变更批准和消费者迁移。", "Define compatibility window, breaking-change approval, and consumer migration."],
+        ["reconciliation", "对账与质量", "Reconciliation and quality", "核对记录、业务总量、拒收、延迟和异常关闭。", "Reconcile records, business totals, rejects, latency, and exception closure."],
+        ["operations", "监控与验收", "Operations and acceptance", "明确告警、运行负责人、阶段门和消费者验收证据。", "Define alerts, operations owner, stage gates, and consumer acceptance evidence."]
+      ],
+      "sheets": [
+        ["mappings", "源目标映射", "Source Target Mapping", "维护字段语义、转换和测试。", "Maintain field meaning, transformations, and tests.", ["source_field", "target_field", "transformation", "rule", "owner", "test", "version"]],
+        ["reconciliation", "对账异常", "Reconciliation", "记录对账差异、隔离与恢复证据。", "Record reconciliation differences, isolation, and recovery evidence.", ["source", "target", "rule", "test_result", "impact", "owner", "evidence", "status"]]
+      ]
+    },
+    "managing-documents-and-content": {
+      "title": ["文档与内容管理交付包", "Documents and Content Management Pack"],
+      "report_title": ["内容生命周期与保留设计", "Content Lifecycle and Retention Design"],
+      "register_title": ["内容清单与处置台账", "Content Inventory and Disposition"],
+      "sections": [
+        ["content_scope", "内容范围与紧急保全", "Content scope and urgent preservation", "确定记录、工作副本、来源库和需要立即保全的内容。", "Identify records, working copies, source repositories, and content needing immediate preservation."],
+        ["taxonomy", "分类与内容模型", "Taxonomy and content model", "定义分类、受控词表、必填元数据和版本规则。", "Define taxonomy, controlled vocabulary, required metadata, and version rules."],
+        ["capture", "捕获与发布", "Capture and publication", "规定内容进入、校验、审批、发布及替代版本流程。", "Set ingestion, validation, approval, publication, and supersession steps."],
+        ["access_search", "访问与检索", "Access and retrieval", "区分权限、敏感内容、检索需求和访问审计。", "Differentiate permissions, sensitive content, search needs, and access audit."],
+        ["retention", "保留规则", "Retention rules", "记录触发事件、适用地域、保留期和批准来源。", "Record triggering events, jurisdiction, retention period, and approval authority."],
+        ["legal_hold", "保全与证据链", "Legal hold and chain of custody", "说明保全启动、冻结、解除、取证和可追溯证据。", "Define hold activation, suspension, release, discovery, and traceable evidence."],
+        ["disposition", "处置与退役", "Disposition and retirement", "定义到期检查、例外、批准、销毁和恢复验证。", "Define expiry checks, exceptions, approval, disposal, and recovery verification."],
+        ["acceptance_evidence", "迁移与审计验收", "Migration and audit acceptance", "核查搜索、保留、迁移、连续性和审计记录。", "Verify search, retention, migration, continuity, and audit records."]
+      ],
+      "sheets": [
+        ["inventory", "内容清单", "Content Inventory", "识别来源、类型、责任和风险。", "Identify source, type, ownership, and risk.", ["content_type", "source", "owner", "status", "evidence"]],
+        ["retention", "保留处置", "Retention and Disposal", "跟踪保留规则、保全与处置决定。", "Track retention rules, holds, and disposition decisions.", ["content_type", "retention_rule", "exception", "disposition", "approver", "date", "evidence"]]
+      ]
+    },
+    "managing-reference-and-master-data": {
+      "title": ["主数据与参考数据交付包", "Master and Reference Data Pack"],
+      "report_title": ["数据域权威与生存规则设计", "Domain Authority and Survivorship Design"],
+      "register_title": ["交叉引用与匹配裁决台账", "Crosswalk and Match Decisions"],
+      "sections": [
+        ["domain_charter", "数据域章程", "Domain charter", "界定共享实体或代码集、业务用途、所有者和消费者。", "Define the shared entity or code set, business use, owner, and consumers."],
+        ["authority", "来源与权威", "Sources and authority", "按属性或事件明确权威来源、裁决权和分发关系。", "Assign authoritative sources, adjudication rights, and distribution by attribute or event."],
+        ["global_identity", "全局身份与交叉引用", "Global identity and crosswalk", "定义全局 ID、源标识映射、生成与废止规则。", "Define global IDs, local-ID crosswalks, creation, and retirement rules."],
+        ["survivorship", "黄金记录与生存规则", "Golden record and survivorship", "写出来源优先、时效、冲突、人工裁决与可追溯规则。", "Specify source precedence, recency, conflicts, human adjudication, and traceability."],
+        ["merge_split", "匹配合并与拆分", "Match merge and split", "覆盖误合并防护、拆分回退、版本和独立测试。", "Cover false-merge safeguards, reversible splits, versions, and independent tests."],
+        ["hierarchies", "层级与参考代码", "Hierarchies and reference codes", "规定层级变更、代码集版本、生效与向后兼容。", "Set hierarchy changes, code-set versions, effective dates, and backward compatibility."],
+        ["distribution", "发布与回执", "Distribution and acknowledgment", "说明发布契约、消费方回执、对账和纠错。", "Define publication contracts, consumer acknowledgments, reconciliation, and correction."],
+        ["acceptance_evidence", "质量与运行验收", "Quality and operating acceptance", "列出管家工作流、质量指标、例外和阶段门证据。", "List stewardship workflow, quality measures, exceptions, and gate evidence."]
+      ],
+      "sheets": [
+        ["crosswalk", "身份交叉引用", "Identity Crosswalk", "记录本地身份与受控全局身份。", "Record local identities against governed global identities.", ["source", "source_id", "global_id", "match_rule", "owner", "status", "evidence"]],
+        ["decisions", "匹配裁决", "Match Decisions", "追踪合并拆分及误判恢复证据。", "Track merge/split decisions and false-match recovery evidence.", ["source_id", "global_id", "decision", "rationale", "approver", "test", "evidence"]]
+      ]
+    },
+    "delivering-data-warehousing-and-bi": {
+      "title": ["数据仓库与商业智能交付包", "Data Warehousing and BI Pack"],
+      "report_title": ["指标契约与分析产品规范", "Metric Contract and Analytical Product Specification"],
+      "register_title": ["指标对账与业务验收台账", "Metrics Reconciliation and UAT"],
+      "sections": [
+        ["decisions", "业务决策与使用场景", "Business decisions and use cases", "从使用者要做的决定反推问题、优先级和指标。", "Derive questions, priorities, and metrics from user decisions."],
+        ["metric_contract", "指标契约", "Metric contract", "固定定义、分子分母、粒度、时间、排除和批准责任。", "Fix definition, numerator, denominator, grain, time, exclusions, and approval."],
+        ["source_profile", "来源与语义冲突", "Source profile and semantic conflicts", "画像来源并记录冲突口径及裁决依据。", "Profile sources and record conflicting definitions and adjudication."],
+        ["fact_grain", "事实粒度与一致维度", "Fact grain and conformed dimensions", "定义事实行含义、维度一致性和主数据依赖。", "Define fact-row meaning, dimension conformance, and master-data dependencies."],
+        ["history", "历史与重述政策", "History and restatement policy", "明确迟到数据、历史版本、同比与重述门槛。", "Define late-arriving data, historical versions, comparisons, and restatement gates."],
+        ["loading", "装载对账与拒收", "Load reconciliation and rejects", "对比源目标总量、拒收、重复和延迟，并明确修复责任。", "Compare source and target totals, rejects, duplicates, and latency with repair ownership."],
+        ["business_acceptance", "报告与业务验收", "Reporting and business acceptance", "用实际决策场景、权限和关键指标进行用户验收。", "Accept with real decision scenarios, permissions, and critical metrics."],
+        ["operations", "发布支持与采纳", "Release support and adoption", "规划发布、回滚、SLA、支持与使用效果监测。", "Plan release, rollback, SLA, support, and usage-outcome monitoring."]
+      ],
+      "sheets": [
+        ["metrics", "指标目录", "Metric Catalog", "管理指标定义、来源与所有权。", "Govern metric definitions, sources, and ownership.", ["metric", "definition", "denominator", "source", "owner", "approver", "version"]],
+        ["uat", "对账验收", "Reconciliation UAT", "跟踪对账差异及业务验收测试。", "Track reconciliation differences and business acceptance tests.", ["metric", "test", "test_result", "impact", "owner", "evidence", "status"]]
+      ]
+    },
+    "managing-metadata": {
+      "title": ["元数据管理交付包", "Metadata Management Pack"],
+      "report_title": ["元数据产品与管家规范", "Metadata Product and Stewardship Specification"],
+      "register_title": ["术语血缘与覆盖台账", "Glossary Lineage and Coverage"],
+      "sections": [
+        ["metadata_product", "最小元数据产品", "Minimum metadata product", "从用户查找、理解和影响分析任务定义最小可用能力。", "Define minimum useful capabilities from discovery, understanding, and impact-analysis tasks."],
+        ["source_inventory", "来源与消费方", "Sources and consumers", "列明技术、业务与运行元数据来源和使用者。", "List technical, business, and operational metadata sources and users."],
+        ["metamodel", "元模型与架构", "Metamodel and architecture", "选择集中、分布或混合方案并定义标识、关系和同步责任。", "Choose centralized, distributed, or hybrid design with IDs, relationships, and sync ownership."],
+        ["glossary", "业务词汇表", "Business glossary", "记录定义批准、同义、冲突、版本和生效日期。", "Record definition approval, synonyms, disputes, versions, and effective dates."],
+        ["lineage", "设计与实现血缘", "Designed and actual lineage", "区分设计映射和实际运行证据，追踪字段到消费结果。", "Separate designed mappings from observed runs and trace fields to consuming outputs."],
+        ["freshness", "质量新鲜度与覆盖", "Quality freshness and coverage", "定义更新时限、覆盖分母、质量规则和采纳测点。", "Define refresh deadlines, coverage denominators, quality rules, and adoption measures."],
+        ["impact_analysis", "影响分析与变更门", "Impact analysis and change gate", "将模式或术语变更追踪到下游并设评审门。", "Trace schema or term changes downstream and set review gates."],
+        ["acceptance_evidence", "权限与验收", "Permissions and acceptance", "验证敏感元数据权限、检索任务和血缘证据。", "Verify sensitive-metadata access, discovery tasks, and lineage evidence."]
+      ],
+      "sheets": [
+        ["glossary", "业务术语", "Business Glossary", "维护术语定义和批准责任。", "Maintain term definitions and approval ownership.", ["term", "definition", "source", "owner", "approver", "version", "status"]],
+        ["lineage", "字段血缘", "Field Lineage", "追踪字段来源、消费者和实现证据。", "Trace field source, consumers, and implementation evidence.", ["source_field", "target_field", "transformation", "consumer", "owner", "evidence", "review_date"]]
+      ]
+    },
+    "improving-data-quality": {
+      "title": ["数据质量改进交付包", "Data Quality Improvement Pack"],
+      "report_title": ["数据质量根因与改进方案", "Data Quality Root Cause and Improvement Plan"],
+      "register_title": ["规则基线与问题评分卡", "Rules Baselines and Issue Scorecard"],
+      "sections": [
+        ["purpose", "用途与关键数据", "Purpose and critical data", "说明消费者、关键元素、错误后果和可接受风险。", "Identify consumers, critical elements, error consequences, and acceptable risk."],
+        ["rules", "维度与版本化规则", "Dimensions and versioned rules", "为每项规则固定总体、分母、例外、阈值、测点、批准和生效。", "Fix population, denominator, exceptions, threshold, measurement point, approval, and effective date per rule."],
+        ["baseline", "画像与基线", "Profiling and baseline", "按存量、增量、来源和消费点记录采样窗口与错误率。", "Record sampling windows and defect rates for stock, flow, source, and consumption points."],
+        ["impact", "业务影响与优先级", "Business impact and priority", "将错误样本关联损失、决策风险和整改收益。", "Link defect samples to loss, decision risk, and remediation benefit."],
+        ["root_cause", "根因与复发验证", "Root cause and recurrence test", "提出根因假设并用流程、接口或源头证据检验。", "Test root-cause hypotheses with process, interface, or source evidence."],
+        ["prevention", "预防侦测与纠正", "Prevention detection and correction", "在错误产生处预防、流转处侦测，并审计历史修复。", "Prevent at creation, detect in flow, and audit historical repair."],
+        ["scorecard", "问题闭环与评分卡", "Issue closure and scorecard", "设定 SLA、趋势、例外期限、复测和业务效益。", "Set SLA, trends, exception expiry, retesting, and business benefit."],
+        ["acceptance_evidence", "阶段门与验收", "Gates and acceptance", "确认根因控制、复发趋势和残余例外的证据。", "Verify root-cause control, recurrence trend, and residual exceptions with evidence."]
+      ],
+      "sheets": [
+        ["rules", "质量规则", "Quality Rules", "维护可测试质量规则及批准阈值。", "Maintain testable quality rules and approved thresholds.", ["rule", "definition", "denominator", "threshold", "owner", "version", "evidence"]],
+        ["issues", "质量问题", "Quality Issues", "跟踪基线、根因、纠正与关闭证据。", "Track baselines, root causes, corrections, and closure evidence.", ["rule", "baseline", "impact", "control", "owner", "status", "evidence", "review_date"]]
+      ]
+    },
+    "delivering-data-science": {
+      "title": ["数据科学交付包", "Data Science Delivery Pack"],
+      "report_title": ["实验计划与模型卡", "Experiment Plan and Model Card"],
+      "register_title": ["特征验证与监控台账", "Features Validation and Monitoring"],
+      "sections": [
+        ["hypothesis", "业务假设与决策边界", "Business hypothesis and decision boundary", "定义拟验证的假设、基线方案、成功判据和禁止自动化的决定。", "Define the hypothesis, baseline, success criteria, and decisions not delegated to automation."],
+        ["data_features", "数据特征与标签", "Data features and labels", "固定预测时点、数据用途、特征可用性、标签延迟和泄漏检查。", "Fix prediction time, data purpose, feature availability, label delay, and leakage checks."],
+        ["evaluation", "实验与评估协议", "Experiment and evaluation protocol", "规定时间切分、独立测试、分群误差、成本和对照指标。", "Set temporal split, independent test, group errors, costs, and comparator metrics."],
+        ["reproducibility", "可复现证据", "Reproducibility evidence", "记录数据版本、代码、环境、随机性和评估工件。", "Record data version, code, environment, randomness, and evaluation artifacts."],
+        ["model_card", "模型卡与限制", "Model card and limitations", "说明目标用途、表现、已知失败模式、受影响方和人工兜底。", "State intended use, performance, known failures, affected groups, and human fallback."],
+        ["production", "生产服务与灰度", "Production service and rollout", "定义影子或灰度门、人工流程、可观测性和发布批准。", "Define shadow or canary gates, human process, observability, and release approval."],
+        ["monitoring", "监控重训与变更", "Monitoring retraining and change", "设定漂移、效果、偏差与再训练触发和独立复核。", "Set drift, effectiveness, bias, retraining triggers, and independent review."],
+        ["rollback", "回滚与退役", "Rollback and retirement", "写明停止阈值、回退、数据保留和退役责任。", "Define stop thresholds, rollback, data retention, and retirement ownership."]
+      ],
+      "sheets": [
+        ["features", "数据特征", "Data Features", "记录特征来源、时点和用途约束。", "Record feature sources, availability, and use constraints.", ["feature", "definition", "source", "rule", "owner", "evidence"]],
+        ["validation", "验证监控", "Validation Monitoring", "跟踪独立验证、漂移和停用动作。", "Track independent validation, drift, and stop actions.", ["metric", "validation", "drift_threshold", "test_result", "owner", "evidence", "review_date"]]
+      ]
+    },
+    "assessing-data-management-maturity": {
+      "title": ["数据管理成熟度评估交付包", "Data Management Maturity Assessment Pack"],
+      "report_title": ["证据型能力评估报告", "Evidence Based Capability Assessment"],
+      "register_title": ["准则证据与差距矩阵", "Criteria Evidence and Gaps"],
+      "sections": [
+        ["scope", "评估目标范围与抽样", "Assessment purpose scope and sample", "定义要支持的决定、参与单位、抽样方法和不能概括的范围。", "Define the decision, participating units, sample method, and limits on generalization."],
+        ["rubric", "框架与评分准则", "Framework and rating rubric", "说明能力准则、证据强度、裁剪和评分上限。", "Explain capability criteria, evidence strength, tailoring, and rating ceiling."],
+        ["evidence", "证据三角验证", "Evidence triangulation", "比对访谈、文档和运行记录并保留日期与分歧。", "Compare interviews, documents, and operating records with dates and disagreements."],
+        ["current_target", "现状与业务目标", "Current and business-required target", "分别给出证据支持的现状和有业务理由的目标。", "Separate evidence-supported current state from business-justified target."],
+        ["uncertainty", "分歧与不确定性", "Disagreements and uncertainty", "记录样本盲点、薄弱证据和不能得出单一分数的情形。", "Record sampling blind spots, weak evidence, and cases where one score is unjustified."],
+        ["roadmap", "改进组合与路线图", "Improvement portfolio and roadmap", "按业务影响、依赖、成本和准备度确定优先动作。", "Prioritize actions by business impact, dependencies, cost, and readiness."],
+        ["reassessment", "沟通复评与验收", "Communication reassessment and acceptance", "确定结果确认、责任人、复评频率和完成证据。", "Set result validation, owners, reassessment cadence, and completion evidence."]
+      ],
+      "sheets": [
+        ["criteria", "评估准则", "Assessment Criteria", "逐准则记录证据强度与当前判断。", "Record evidence strength and current conclusion for each criterion.", ["domain", "criterion", "evidence", "evidence_strength", "current", "target", "owner"]],
+        ["improvements", "改进路线", "Improvement Roadmap", "追踪差距影响、优先行动和复评证据。", "Track gap impact, prioritized actions, and reassessment evidence.", ["criterion", "impact", "action", "owner", "due_date", "status", "evidence"]]
+      ]
+    },
+    "organizing-data-management": {
+      "title": ["数据管理组织设计交付包", "Data Management Organization Design Pack"],
+      "report_title": ["目标运行模式与岗位章程", "Target Operating Model and Role Charters"],
+      "register_title": ["职责矩阵与试点资源台账", "RACI and Pilot Resources"],
+      "sections": [
+        ["constraints", "业务与组织约束", "Business and organizational constraints", "说明地域、业务单元、能力、资金和现有授权边界。", "Describe geography, business units, capability, funding, and existing authority."],
+        ["stakeholders", "现状参与者与接口", "Current actors and interfaces", "识别现有决策者、交接点、冲突和能力缺口。", "Identify current decision makers, handoffs, conflicts, and capability gaps."],
+        ["model_options", "运行模式比较", "Operating-model options", "按集中、分散、网络、混合和联邦模式比较职责与成本。", "Compare centralized, decentralized, network, hybrid, and federated models on accountability and cost."],
+        ["selected_model", "目标与过渡模式", "Target and transition model", "记录选型理由、过渡状态、共享服务和本地责任。", "Record choice rationale, interim state, shared services, and local responsibilities."],
+        ["role_charter", "授权章程与岗位", "Authority charter and roles", "明确岗位职责、决策权限、能力要求和人员容量。", "Define role duties, decision authority, skills, and staffing capacity."],
+        ["raci", "活动级 RACI 与升级", "Activity RACI and escalation", "每项活动给出唯一最终负责角色、协作和冲突升级。", "Give each activity one accountable role, collaborators, and conflict escalation."],
+        ["pilot", "试点与转换门", "Pilot and transition gate", "定义试点范围、资源、十周节奏、指标和转换出口。", "Define pilot scope, resources, ten-week cadence, measures, and transition exits."]
+      ],
+      "sheets": [
+        ["raci", "职责矩阵", "RACI Matrix", "逐活动确认最终负责、执行和征询角色。", "Confirm accountable, responsible, and consulted roles by activity.", ["activity", "accountable", "responsible", "consulted", "informed", "escalation"]],
+        ["pilot", "试点资源", "Pilot Resources", "追踪岗位容量、行动和转换证据。", "Track staffing capacity, actions, and transition evidence.", ["activity", "owner", "goal", "due_date", "status", "evidence"]]
+      ]
+    },
+    "leading-data-change": {
+      "title": ["数据管理变革交付包", "Data Management Change Pack"],
+      "report_title": ["变革沟通与采纳计划", "Change Communication and Adoption Plan"],
+      "register_title": ["利益相关方与采纳台账", "Stakeholders and Adoption"],
+      "sections": [
+        ["case_for_change", "变革理由与目标行为", "Case for change and target behaviors", "说明当前问题、为何需要改变及具体可观察的新行为。", "State the current problem, why change is needed, and observable new behaviors."],
+        ["stakeholders", "分群与准备度", "Stakeholder segments and readiness", "按影响、权力、准备度和阻力分群，而不只列部门。", "Segment by impact, influence, readiness, and resistance rather than department alone."],
+        ["coalition", "指导联盟", "Guiding coalition", "明确赞助者、经理、倡导者的行动和决策责任。", "Define actions and decisions for sponsors, managers, and champions."],
+        ["communications", "沟通参与与培训", "Communication engagement and training", "按人群、目标行为、渠道、频率和反馈闭环安排活动。", "Plan activities by audience, target behavior, channel, cadence, and feedback closure."],
+        ["obstacles", "障碍与短期胜利", "Obstacles and early wins", "追踪流程阻力、支持需求、短期成果及扩散条件。", "Track process friction, support needs, early wins, and scaling conditions."],
+        ["adoption", "采纳漏斗与业务效果", "Adoption funnel and business outcomes", "为触达、试用、持续使用和业务结果定义总体、窗口和目标。", "Define population, window, and targets for reach, trial, sustained use, and business outcomes."],
+        ["reinforcement", "强化移交与持续改进", "Reinforcement handoff and improvement", "定义经理强化、反馈调整、运营交接和停用旧流程的证据。", "Define manager reinforcement, feedback adjustments, operating handoff, and evidence of retiring old practice."],
+        ["acceptance_evidence", "阶段门与验收", "Stage gates and acceptance", "以行为与结果证据决定推进、调整或暂停。", "Use behavior and outcome evidence to decide progress, adjustment, or hold."]
+      ],
+      "sheets": [
+        ["stakeholders", "利益相关方", "Stakeholders", "跟踪分群影响、行动及责任。", "Track segment impact, actions, and ownership.", ["stakeholder", "impact", "action", "owner", "due_date", "status"]],
+        ["adoption", "采纳跟踪", "Adoption Tracking", "按行为指标记录基线、目标和证据。", "Record baseline, target, and evidence for each behavior measure.", ["adoption_metric", "baseline", "target", "owner", "evidence", "review_date"]]
+      ]
+    }
+  }
+}
